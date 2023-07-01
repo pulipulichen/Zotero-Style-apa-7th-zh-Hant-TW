@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="expanded">
   <info>
-    <title>American Psychological Association 7th edition</title>
-    <title-short>APA</title-short>
-    <id>http://www.zotero.org/styles/apa</id>
-    <link href="http://www.zotero.org/styles/apa" rel="self"/>
-    <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
+    <title>American Psychological Association 7th edition (zh-Hant-TW)</title>
+    <title-short>APA7TW</title-short>
+    <id>http://www.zotero.org/styles/apa-7th</id>
+    <link href="http://www.zotero.org/styles/apa-7th-zh-Hant-TW" rel="self"/>
+    <link href="http://www.zotero.org/styles/apa" rel="template"/>
     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
     <author>
-      <name>Brenton M. Wiernik</name>
-      <email>zotero@wiernik.org</email>
+      <name>Pulipuli Chen</name>
+      <email>blog@pulipuli.info</email>
     </author>
     <category citation-format="author-date"/>
     <category field="psychology"/>
     <category field="generic-base"/>
-    <updated>2023-05-13T16:14:52+00:00</updated>
-    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <updated>2023-07-01T16:14:52+00:00</updated>
+    <rights license="https://creativecommons.org/publicdomain/zero/1.0/">This work is licensed under a Creative Commons Zero 1.0 Universal License</rights>
   </info>
   <locale xml:lang="en">
     <terms>
