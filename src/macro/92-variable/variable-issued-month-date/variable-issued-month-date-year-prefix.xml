@@ -1,6 +1,6 @@
   <macro name="variable-issued-month-date-year-prefix">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="variable-issued-month-date-zh" prefix="，" />
       </if>
       <else>

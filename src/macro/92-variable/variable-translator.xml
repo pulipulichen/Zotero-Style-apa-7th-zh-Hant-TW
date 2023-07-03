@@ -1,6 +1,6 @@
 <macro name="variable-translator">
     <choose>
-      <if locale="zh jp 中文 繁體中文 簡體中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <names variable="translator" delimiter="；"
           name-as-sort-order="all"
           form="long">

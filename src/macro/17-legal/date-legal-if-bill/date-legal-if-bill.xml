@@ -1,6 +1,6 @@
   <macro name="date-legal-if-bill">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="date-legal-if-bill-zh" />
       </if>
       <else>

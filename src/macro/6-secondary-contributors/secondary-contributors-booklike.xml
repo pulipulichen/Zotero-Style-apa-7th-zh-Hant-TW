@@ -1,6 +1,6 @@
   <macro name="secondary-contributors-booklike">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <group delimiter="；">
           <text macro="secondary-contributors-booklike-group-choose1" />
           <text macro="secondary-contributors-booklike-group-choose2" />

@@ -1,6 +1,6 @@
   <macro name="bracketed-if-personal_communication">
   <choose>
-    <if locale="zh jp 中文" match="any">
+    <if locale="[ZH_LOCALE]" match="any">
       <text macro="bracketed-if-personal_communication-zh" />
     </if>
     <else>

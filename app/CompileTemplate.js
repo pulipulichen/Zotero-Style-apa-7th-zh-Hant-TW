@@ -4,6 +4,8 @@ const fs = require('fs')
 const ReadFilesAsArray = require('./ReadFilesAsArray.js')
 const CheckXML = require('./ErrorDetection/CheckXML.js')
 const CheckJQuery = require('./ErrorDetection/jquery/CheckJQuery.js')
+const MacroFilters = require('./MacroFilters/MacroFilters.js')
+
 
 let count = 1
 
@@ -14,7 +16,7 @@ module.exports = function (filePath) {
   let data = {
     info: fs.readFileSync('/src/info.xml', 'utf8'),
     locale: ReadFilesAsArray('/src/locale'),
-    macro: ReadFilesAsArray('/src/macro'),
+    macro: MacroFilters(ReadFilesAsArray('/src/macro')),
     citation: fs.readFileSync('/src/citation.xml', 'utf8'),
     bibliography: fs.readFileSync('/src/bibliography.xml', 'utf8'),
   }

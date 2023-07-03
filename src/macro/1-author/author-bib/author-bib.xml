@@ -9,7 +9,7 @@
   <!-- APA references contain four parts: author, date, title, source -->
   <macro name="author-bib">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="author-bib-zh" />
       </if>
       <else>

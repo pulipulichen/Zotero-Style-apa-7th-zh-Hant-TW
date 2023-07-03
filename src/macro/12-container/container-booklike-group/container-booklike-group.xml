@@ -1,6 +1,6 @@
   <macro name="container-booklike-group">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="container-booklike-group-zh" />
       </if>
       <else>

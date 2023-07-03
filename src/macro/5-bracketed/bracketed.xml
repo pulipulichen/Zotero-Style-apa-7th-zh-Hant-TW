@@ -2,7 +2,7 @@
     <!-- [Descriptive information] -->
     <!-- If there is a number, genre is already printed in macro="number" -->
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <group prefix="〔" suffix="〕">
           <text macro="bracketed-group-choose" />
         </group>

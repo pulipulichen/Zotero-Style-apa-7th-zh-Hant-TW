@@ -1,6 +1,6 @@
   <macro name="publisher-group-group">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="publisher-group-group-zh" />
       </if>
       <else>

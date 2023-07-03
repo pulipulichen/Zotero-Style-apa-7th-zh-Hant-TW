@@ -1,7 +1,7 @@
 
   <macro name="author-intext-else-composer">
     <choose>
-      <if locale="zh jp 中文" match="any">
+      <if locale="[ZH_LOCALE]" match="any">
         <text macro="author-intext-else-composer-zh" />
       </if>
       <else>
