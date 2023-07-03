@@ -8,7 +8,7 @@
         <else-if variable="interviewer" type="interview" match="any">
           <names variable="interviewer" form="long">
             <label form="verb" suffix=" " text-case="capitalize-first"/>
-            <name and="symbol" initialize-with=". " delimiter="、"/>
+            <name initialize-with=". " delimiter="、"/>
             <substitute>
               <text macro="format-intext"/>
             </substitute>
@@ -27,9 +27,9 @@
                     <text term="letter" form="short" text-case="capitalize-first"/>
                   </else>
                 </choose>
-                <names variable="recipient" delimiter="、">
+                <names variable="recipient" delimiter="、" form="long">
                   <label form="verb" suffix=" "/>
-                  <name and="symbol" delimiter="、"/>
+                  <name delimiter="、"/>
                 </names>
               </group>
             </if>

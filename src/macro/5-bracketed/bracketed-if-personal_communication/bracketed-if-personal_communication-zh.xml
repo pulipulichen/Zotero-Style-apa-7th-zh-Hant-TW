@@ -31,7 +31,7 @@
           </choose>
           <names variable="recipient" delimiter="、" form="long">
             <label form="verb" suffix=" "/>
-            <name and="symbol" delimiter=", "/>
+            <name delimiter=", "/>
           </names>
         </group>
         <choose>

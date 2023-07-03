@@ -1,7 +1,7 @@
 <macro name="author-intext-else-zh">
   <names variable="author" delimiter="、"
     form="long">
-    <name form="short" and="symbol" delimiter="、" initialize-with=". "/>
+    <name form="short" delimiter="、" initialize-with=". "/>
     <substitute>
       <text macro="title-intext"/>
     </substitute>

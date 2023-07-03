@@ -11,7 +11,7 @@
           <group delimiter=" ">
             <text term="author" form="verb"/>
             <names variable="interviewer" form="long">
-              <name and="symbol" initialize-with=". " delimiter=", "/>
+              <name initialize-with=". " delimiter=", "/>
             </names>
           </group>
         </group>
@@ -21,7 +21,7 @@
       <group delimiter="；">
         <names variable="interviewer" form="long">
           <label form="verb" suffix=" " text-case="capitalize-first"/>
-          <name and="symbol" initialize-with=". " delimiter=", "/>
+          <name initialize-with=". " delimiter=", "/>
         </names>
         <text variable="medium" text-case="capitalize-first"/>
       </group>

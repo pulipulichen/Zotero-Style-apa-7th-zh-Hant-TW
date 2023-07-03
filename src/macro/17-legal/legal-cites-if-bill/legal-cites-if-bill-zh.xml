@@ -17,8 +17,8 @@
           <choose>
             <if variable="number container-title" match="none">
               <!-- If no number or container-title, then assume it is a hearing -->
-              <names variable="author" prefix="（見證人" suffix="）">
-                <name and="symbol" delimiter=", "/>
+              <names variable="author" prefix="（見證人" suffix="）" form="long">
+                <name delimiter=", "/>
               </names>
             </if>
             <else>

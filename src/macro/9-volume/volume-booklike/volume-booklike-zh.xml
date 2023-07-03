@@ -37,7 +37,7 @@
       </group>
 
       <group delimiter="">
-        <text term="page" />
+        <label variable="page" form="short" suffix=" "/>
         <text variable="page"/>
       </group>
     </group>

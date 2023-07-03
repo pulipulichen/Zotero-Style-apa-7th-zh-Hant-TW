@@ -35,6 +35,7 @@
                 <text macro="title-original-title" font-style="italic"/>
               </else>
             </choose>
+            <text variable="status" prefix=" [" suffix="]" />
           </else-if>
           <else>
             <group delimiter=": " font-style="italic">

@@ -9,8 +9,8 @@
             name-as-sort-order="all"
             form="long"
             delimiter-precedes-last="always" />
+          <label form="short" prefix="" text-case="title"/>
         </names>
-        <text macro="term-translator-short" />
       </if>
       <else>
         <names variable="translator" delimiter="; ">

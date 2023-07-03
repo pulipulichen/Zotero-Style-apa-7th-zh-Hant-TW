@@ -15,6 +15,13 @@ citation-number
 
 https://docs.citationstyles.org/en/stable/specification.html#choose
 
+Extra可用欄位
+https://retorque.re/zotero-better-bibtex/exporting/extra-fields/
+https://www.zotero.org/support/kb/item_types_and_fields
+
+Type map
+https://aurimasv.github.io/z2csl/typeMap.xml
+
 # Differences
 
 - font style
