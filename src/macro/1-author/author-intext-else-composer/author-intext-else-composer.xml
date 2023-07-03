@@ -1,0 +1,11 @@
+
+  <macro name="author-intext-else-composer">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="author-intext-else-composer-zh" />
+      </if>
+      <else>
+        <text macro="author-intext-else-composer-en" />
+      </else>
+    </choose>
+  </macro>

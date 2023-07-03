@@ -3,8 +3,11 @@ const fs = require('fs')
 
 const ReadFilesAsArray = require('./ReadFilesAsArray.js')
 
+let count = 1
+
 module.exports = function (filePath) {
-  console.log((new Date()).toISOString() + '\t' + filePath)
+  console.log('[' + count + ']\t' + (new Date()).toISOString() + '\t' + filePath)
+  count++
 
   let data = {
     info: fs.readFileSync('/src/info.xml', 'utf8'),

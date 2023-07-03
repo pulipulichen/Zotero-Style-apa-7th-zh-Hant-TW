@@ -7,7 +7,7 @@
        Legal: bill legal_case legislation treaty
   -->
   <!-- APA references contain four parts: author, date, title, source -->
-  <macro name="author-bib">
+  <macro name="author-bib-en">
     <names variable="composer" delimiter=", ">
       <name name-as-sort-order="all" and="symbol" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
       <substitute>

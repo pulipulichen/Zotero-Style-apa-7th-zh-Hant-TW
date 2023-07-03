@@ -1,0 +1,12 @@
+<macro name="author-intext-if-archive-en">
+  <group delimiter=", ">
+    <names variable="author">
+      <name and="symbol" delimiter=", " initialize-with=". "/>
+      <substitute>
+        <text macro="title-intext"/>
+      </substitute>
+    </names>
+    <!-- Replace with term="personal-communication" if that becomes available -->
+    <text term="letter"/>
+  </group>
+</macro>

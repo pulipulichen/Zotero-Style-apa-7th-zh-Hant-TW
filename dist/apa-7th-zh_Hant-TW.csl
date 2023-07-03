@@ -343,7 +343,7 @@
        Legal: bill legal_case legislation treaty
   -->
   <!-- APA references contain four parts: author, date, title, source -->
-  <macro name="author-bib">
+  <macro name="author-bib-en">
     <names variable="composer" delimiter=", ">
       <name name-as-sort-order="all" and="symbol" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
       <substitute>
@@ -400,6 +400,123 @@
     </names>
   </macro>
 
+<!-- General categories of item types:
+       Periodical: article-journal article-magazine article-newspaper post-weblog review review-book
+       Periodical or Booklike: paper-conference
+       Booklike: article book broadcast chapter dataset entry entry-dictionary entry-encyclopedia figure
+                 graphic interview manuscript map motion_picture musical_score pamphlet patent
+                 personal_communication report song speech thesis post webpage
+       Legal: bill legal_case legislation treaty
+  -->
+  <!-- APA references contain four parts: author, date, title, source -->
+  <macro name="author-bib-zh">
+    <names variable="composer" delimiter="、">
+      <name name-as-sort-order="all" and="symbol" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"
+        form="long"/>
+      <substitute>
+        <names variable="author"/>
+        <names variable="illustrator"/>
+        <names variable="director">
+          <name name-as-sort-order="all" and="symbol" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"/>
+          <label form="long" prefix="（" suffix="）" text-case="title"/>
+        </names>
+        <choose>
+          <if variable="container-title">
+            <choose>
+              <if type="book entry entry-dictionary entry-encyclopedia" match="any">
+                <choose>
+                  <if variable="title">
+                    <group delimiter=" ">
+                      <text macro="title"/>
+                      <text macro="parenthetical"/>
+                    </group>
+                  </if>
+                  <else>
+                    <text macro="title-and-descriptions"/>
+                  </else>
+                </choose>
+              </if>
+            </choose>
+          </if>
+        </choose>
+        <!-- Test for editortranslator and put that first as that becomes available -->
+        <names variable="editor" delimiter="，" form="long">
+          <name name-as-sort-order="all" and="symbol" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"/>
+          <label form="short" prefix="（" suffix="）" text-case="title"/>
+        </names>
+        <names variable="editorial-director" form="long">
+          <name name-as-sort-order="all" and="symbol" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"/>
+          <label form="short" prefix="（" suffix="）" text-case="title"/>
+        </names>
+        <names variable="collection-editor" form="long">
+          <name name-as-sort-order="all" and="symbol" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"/>
+          <label form="short" prefix="（" suffix="）" text-case="title"/>
+        </names>
+        <choose>
+          <if variable="title">
+            <group delimiter=" ">
+              <text macro="title"/>
+              <text macro="parenthetical"/>
+            </group>
+          </if>
+          <else>
+            <text macro="title-and-descriptions"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+
+<!-- General categories of item types:
+       Periodical: article-journal article-magazine article-newspaper post-weblog review review-book
+       Periodical or Booklike: paper-conference
+       Booklike: article book broadcast chapter dataset entry entry-dictionary entry-encyclopedia figure
+                 graphic interview manuscript map motion_picture musical_score pamphlet patent
+                 personal_communication report song speech thesis post webpage
+       Legal: bill legal_case legislation treaty
+  -->
+  <!-- APA references contain four parts: author, date, title, source -->
+  <macro name="author-bib">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="author-bib-zh" />
+      </if>
+      <else>
+        <text macro="author-bib-en" />
+      </else>
+    </choose>
+  </macro>
+
+<macro name="author-intext-else-en">
+  <names variable="author" delimiter=", ">
+    <name form="short" and="symbol" delimiter=", " initialize-with=". "/>
+    <substitute>
+      <text macro="title-intext"/>
+    </substitute>
+  </names>
+</macro>
+
+<macro name="author-intext-else-zh">
+  <names variable="author" delimiter="、"
+    form="long">
+    <name form="short" and="symbol" delimiter="、" initialize-with=". "/>
+    <substitute>
+      <text macro="title-intext"/>
+    </substitute>
+  </names>
+</macro>
+
+<macro name="author-intext-else">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="author-intext-else-composer-zh" />
+    </if>
+    <else>
+      <text macro="author-intext-else-composer-en" />
+    </else>
+  </choose>
+</macro>
+
 <macro name="author-intext-else-composer-en">
     <names variable="composer" delimiter=", ">
       <name form="short" and="symbol" delimiter=", " initialize-with=". "/>
@@ -425,7 +542,8 @@
 
 
 <macro name="author-intext-else-composer-zh">
-    <names variable="composer" delimiter=", ">
+
+    <names variable="composer" delimiter="、">
       <name form="long" delimiter="、" initialize-with=". "/>
       <substitute>
         <names variable="author" />
@@ -449,13 +567,52 @@
 
 
   <macro name="author-intext-else-composer">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="author-intext-else-composer-zh" />
+      </if>
+      <else>
+        <text macro="author-intext-else-composer-en" />
+      </else>
+    </choose>
+  </macro>
+
+<macro name="author-intext-if-archive-en">
+  <group delimiter=", ">
+    <names variable="author">
+      <name and="symbol" delimiter=", " initialize-with=". "/>
+      <substitute>
+        <text macro="title-intext"/>
+      </substitute>
+    </names>
+    <!-- Replace with term="personal-communication" if that becomes available -->
+    <text term="letter"/>
+  </group>
+</macro>
+
+<macro name="author-intext-if-archive-zh">
+  <group delimiter="、">
+    <names variable="author">
+      <name delimiter="、" initialize-with=". "/>
+      <substitute>
+        <text macro="title-intext"/>
+      </substitute>
+    </names>
+    <!-- Replace with term="personal-communication" if that becomes available -->
+    <text term="letter"/>
+  </group>
+</macro>
+
+<macro name="author-intext-if-archive">
+  <choose>
     <if locale="zh jp 中文" match="any">
-      <text macro="author-intext-else-composer-zh" />
+      <text macro="author-intext-if-archive-zh" />
     </if>
     <else>
-      <text macro="author-intext-else-composer-en" />
+      <text macro="author-intext-if-archive-en" />
     </else>
-  </macro>
+  </choose>
+</macro>
 
 <macro name="author-intext">
     <choose>
@@ -467,31 +624,15 @@
           <!-- These variables indicate that the letter is retrievable by the reader.
                 If not, then use the APA in-text-only personal communication format -->
           <if variable="archive container-title DOI publisher URL" match="none">
-            <group delimiter=", ">
-              <names variable="author">
-                <name and="symbol" delimiter=", " initialize-with=". "/>
-                <substitute>
-                  <text macro="title-intext"/>
-                </substitute>
-              </names>
-              <!-- Replace with term="personal-communication" if that becomes available -->
-              <text term="letter"/>
-            </group>
+            <text macro="author-intext-if-archive" />
           </if>
           <else>
-            <names variable="author" delimiter=", ">
-              <name form="short" and="symbol" delimiter=", " initialize-with=". "/>
-              <substitute>
-                <text macro="title-intext"/>
-              </substitute>
-            </names>
+            <text macro="author-intext-else" />
           </else>
         </choose>
       </else-if>
       <else>
-        <choose>
-          <text macro="author-intext-else-composer" />
-        </choose>
+        <text macro="author-intext-else-composer" />
       </else>
     </choose>
   </macro> <!-- <macro name="author-intext"> -->

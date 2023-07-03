@@ -8,31 +8,15 @@
           <!-- These variables indicate that the letter is retrievable by the reader.
                 If not, then use the APA in-text-only personal communication format -->
           <if variable="archive container-title DOI publisher URL" match="none">
-            <group delimiter=", ">
-              <names variable="author">
-                <name and="symbol" delimiter=", " initialize-with=". "/>
-                <substitute>
-                  <text macro="title-intext"/>
-                </substitute>
-              </names>
-              <!-- Replace with term="personal-communication" if that becomes available -->
-              <text term="letter"/>
-            </group>
+            <text macro="author-intext-if-archive" />
           </if>
           <else>
-            <names variable="author" delimiter=", ">
-              <name form="short" and="symbol" delimiter=", " initialize-with=". "/>
-              <substitute>
-                <text macro="title-intext"/>
-              </substitute>
-            </names>
+            <text macro="author-intext-else" />
           </else>
         </choose>
       </else-if>
       <else>
-        <choose>
-          <text macro="author-intext-else-composer" />
-        </choose>
+        <text macro="author-intext-else-composer" />
       </else>
     </choose>
   </macro> <!-- <macro name="author-intext"> -->

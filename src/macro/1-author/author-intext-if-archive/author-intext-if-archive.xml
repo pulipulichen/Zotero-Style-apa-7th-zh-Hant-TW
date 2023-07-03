@@ -1,0 +1,10 @@
+<macro name="author-intext-if-archive">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="author-intext-if-archive-zh" />
+    </if>
+    <else>
+      <text macro="author-intext-if-archive-en" />
+    </else>
+  </choose>
+</macro>
