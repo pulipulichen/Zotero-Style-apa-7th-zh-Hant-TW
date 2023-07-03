@@ -1,4 +1,4 @@
-<macro name="bracketed-container">
+<macro name="bracketed-container-en">
     <group prefix="[" suffix="]">
       <choose>
         <if type="paper-conference speech" match="any">

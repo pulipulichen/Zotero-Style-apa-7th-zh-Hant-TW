@@ -1,0 +1,10 @@
+  <macro name="bracketed-container">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="bracketed-container-zh" />
+      </if>
+      <else>
+        <text macro="bracketed-container-en" />
+      </else>
+    </choose>
+  </macro>
