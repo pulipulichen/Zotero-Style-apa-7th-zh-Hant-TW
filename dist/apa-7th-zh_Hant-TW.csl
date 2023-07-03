@@ -1359,6 +1359,65 @@
     </choose>
   </macro>
 
+  <macro name="container-legal-if-bill-en">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text variable="genre"/>
+        <group delimiter=" ">
+          <choose>
+            <if variable="chapter-number container-title" match="none">
+              <!-- Replace with label variable="number" as that becomes available -->
+              <text term="issue" form="short"/>
+            </if>
+          </choose>
+          <text variable="number"/>
+        </group>
+      </group>
+      <text variable="authority"/>
+      <text variable="chapter-number"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page-first"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-bill-zh">
+    <group delimiter="，">
+      <group delimiter="">
+        <text variable="genre"/>
+        <group delimiter="">
+          <choose>
+            <if variable="chapter-number container-title" match="none">
+              <!-- Replace with label variable="number" as that becomes available -->
+              <text term="issue" form="short"/>
+            </if>
+          </choose>
+          <text variable="number"/>
+        </group>
+      </group>
+      <text variable="authority"/>
+      <text variable="chapter-number"/>
+      <group delimiter="">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page-first"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-bill">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-legal-if-bill-zh" />
+      </if>
+      <else>
+        <text macro="container-legal-if-bill-en" />
+      </else>
+    </choose>
+  </macro>
+
   <macro name="container-legal-if-legal_case-en">
     <group delimiter=" ">
       <choose>
@@ -1444,6 +1503,134 @@
     </choose>
   </macro>
 
+  <macro name="container-legal-if-legislation-en">
+    <choose>
+      <if variable="number">
+        <!--There's a public law number-->
+        <group delimiter=", ">
+          <text variable="number" prefix="Pub. L. No. "/>
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page-first"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <choose>
+            <if variable="section">
+              <group delimiter=" ">
+                <!-- Change to label variable="section" as that becomes available -->
+                <text term="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </if>
+            <else>
+              <text variable="page-first"/>
+            </else>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container-legal-if-legislation-zh">
+    <choose>
+      <if variable="number">
+        <!--There's a public law number-->
+        <group delimiter="，">
+          <text variable="number" prefix="第" suffix="條"/>
+          <group delimiter="">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page-first"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter="">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <choose>
+            <if variable="section">
+              <group delimiter="">
+                <!-- Change to label variable="section" as that becomes available -->
+                <text term="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </if>
+            <else>
+              <text variable="page-first"/>
+            </else>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container-legal-if-legislation">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-legal-if-legislation-zh" />
+      </if>
+      <else>
+        <text macro="container-legal-if-legislation-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container-legal-if-treaty-en">
+    <group delimiter=" ">
+      <number variable="volume"/>
+      <text variable="container-title"/>
+      <choose>
+        <if variable="page page-first" match="any">
+          <text variable="page-first"/>
+        </if>
+        <else>
+          <group delimiter=" ">
+            <!-- Replace with label variable="number" if that becomes available -->
+            <text term="issue" form="short" text-case="capitalize-first"/>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-treaty-zh">
+    <group delimiter="">
+      <number variable="volume"/>
+      <text variable="container-title"/>
+      <choose>
+        <if variable="page page-first" match="any">
+          <text variable="page-first"/>
+        </if>
+        <else>
+          <group delimiter="">
+            <!-- Replace with label variable="number" if that becomes available -->
+            <text term="issue" form="short" text-case="capitalize-first"/>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-treaty">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-legal-if-treaty-zh" />
+      </if>
+      <else>
+        <text macro="container-legal-if-treaty-en" />
+      </else>
+    </choose>
+  </macro>
+
   <macro name="container-legal">
     <!-- Expect legal item container-titles to be stored in short form -->
     <choose>
@@ -1451,110 +1638,106 @@
         <text macro="container-legal-if-legal_case" />
       </if>
       <else-if type="bill">
-        <group delimiter=", ">
-          <group delimiter=" ">
-            <text variable="genre"/>
-            <group delimiter=" ">
-              <choose>
-                <if variable="chapter-number container-title" match="none">
-                  <!-- Replace with label variable="number" as that becomes available -->
-                  <text term="issue" form="short"/>
-                </if>
-              </choose>
-              <text variable="number"/>
-            </group>
-          </group>
-          <text variable="authority"/>
-          <text variable="chapter-number"/>
-          <group delimiter=" ">
-            <text variable="volume"/>
-            <text variable="container-title"/>
-            <text variable="page-first"/>
-          </group>
-        </group>
+        <text macro="container-legal-if-bill" />
+        
       </else-if>
       <else-if type="legislation">
-        <choose>
-          <if variable="number">
-            <!--There's a public law number-->
-            <group delimiter=", ">
-              <text variable="number" prefix="Pub. L. No. "/>
-              <group delimiter=" ">
-                <text variable="volume"/>
-                <text variable="container-title"/>
-                <text variable="page-first"/>
-              </group>
-            </group>
-          </if>
-          <else>
-            <group delimiter=" ">
-              <text variable="volume"/>
-              <text variable="container-title"/>
-              <choose>
-                <if variable="section">
-                  <group delimiter=" ">
-                    <!-- Change to label variable="section" as that becomes available -->
-                    <text term="section" form="symbol"/>
-                    <text variable="section"/>
-                  </group>
-                </if>
-                <else>
-                  <text variable="page-first"/>
-                </else>
-              </choose>
-            </group>
-          </else>
-        </choose>
+        <text macro="container-legal-if-legislation" />
       </else-if>
       <else-if type="treaty">
-        <group delimiter=" ">
-          <number variable="volume"/>
-          <text variable="container-title"/>
-          <choose>
-            <if variable="page page-first" match="any">
-              <text variable="page-first"/>
-            </if>
-            <else>
-              <group delimiter=" ">
-                <!-- Replace with label variable="number" if that becomes available -->
-                <text term="issue" form="short" text-case="capitalize-first"/>
-                <text variable="number"/>
-              </group>
-            </else>
-          </choose>
-        </group>
+        <text macro="container-legal-if-treaty" />
       </else-if>
     </choose>
   </macro>
 
-<macro name="date-legal">
+  <macro name="date-legal-if-bill-en">
+    <group prefix="(" suffix=")" delimiter=" ">
+      <group delimiter=" ">
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+        <text term="and" form="symbol"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="date-legal-if-bill-zh">
+    <group prefix="（" suffix="）" delimiter="">
+      <group delimiter="">
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+        <!-- @TODO 可能要確定這個 -->
+        <text term="and" form="symbol"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="date-legal-if-bill">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-legal-if-bill-zh" />
+      </if>
+      <else>
+        <text macro="date-legal-if-bill-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="date-legal-if-legal_case-en">
+    <group prefix="(" suffix=")" delimiter=" ">
+      <text variable="authority"/>
+      <choose>
+        <if variable="container-title" match="any">
+          <!-- Print only year for cases published in reporters-->
+          <date variable="issued" form="numeric" date-parts="year"/>
+        </if>
+        <else>
+          <date variable="issued" form="text"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="date-legal-if-legal_case-zh">
+    <group prefix="（" suffix="）" delimiter="">
+      <text variable="authority"/>
+      <choose>
+        <if variable="container-title" match="any">
+          <!-- Print only year for cases published in reporters-->
+          <date variable="issued" form="numeric" date-parts="year"/>
+        </if>
+        <else>
+          <date variable="issued" form="text"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="date-legal-if-legal_case">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-legal-if-legal_case-zh" />
+      </if>
+      <else>
+        <text macro="date-legal-if-legal_case-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="date-legal">
     <choose>
       <if type="legal_case">
-        <group prefix="(" suffix=")" delimiter=" ">
-          <text variable="authority"/>
-          <choose>
-            <if variable="container-title" match="any">
-              <!-- Print only year for cases published in reporters-->
-              <date variable="issued" form="numeric" date-parts="year"/>
-            </if>
-            <else>
-              <date variable="issued" form="text"/>
-            </else>
-          </choose>
-        </group>
+        <text macro="date-legal-if-legal_case" />
       </if>
       <else-if type="bill legislation" match="any">
-        <group prefix="(" suffix=")" delimiter=" ">
-          <group delimiter=" ">
-            <date variable="original-date">
-              <date-part name="year"/>
-            </date>
-            <text term="and" form="symbol"/>
-          </group>
-          <date variable="issued">
-            <date-part name="year"/>
-          </date>
-        </group>
+        <text macro="date-legal-if-bill" />
       </else-if>
       <else-if type="treaty">
         <date variable="issued" form="text"/>
@@ -1562,89 +1745,229 @@
     </choose>
   </macro>
 
+  <macro name="legal-cites-if-bill-en">
+    <!-- Currently designed to handle bills, resolutions, hearings, rederal reports. -->
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <choose>
+          <if variable="number container-title" match="none">
+            <!-- If no number or container-title, then assume it is a hearing -->
+            <text variable="title" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title"/>
+          </else>
+        </choose>
+        <group delimiter=" ">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <choose>
+            <if variable="number container-title" match="none">
+              <!-- If no number or container-title, then assume it is a hearing -->
+              <names variable="author" prefix="(testimony of " suffix=")">
+                <name and="symbol" delimiter=", "/>
+              </names>
+            </if>
+            <else>
+              <text variable="status" prefix="(" suffix=")"/>
+            </else>
+          </choose>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-bill-zh">
+    <!-- Currently designed to handle bills, resolutions, hearings, rederal reports. -->
+    <group delimiter="。">
+      <group delimiter="，">
+        <choose>
+          <if variable="number container-title" match="none">
+            <!-- If no number or container-title, then assume it is a hearing -->
+            <text variable="title" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title"/>
+          </else>
+        </choose>
+        <group delimiter="">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <choose>
+            <if variable="number container-title" match="none">
+              <!-- If no number or container-title, then assume it is a hearing -->
+              <names variable="author" prefix="（見證人" suffix="）">
+                <name and="symbol" delimiter=", "/>
+              </names>
+            </if>
+            <else>
+              <text variable="status" prefix="（" suffix="）"/>
+            </else>
+          </choose>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-bill">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="legal-cites-if-bill-zh" />
+      </if>
+      <else>
+        <text macro="legal-cites-if-bill-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="legal-cites-if-legal_case-en">
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <text variable="title"/>
+        <group delimiter=" ">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-legal_case-zh">
+    <group delimiter="。">
+      <group delimiter="，">
+        <text variable="title"/>
+        <group delimiter="">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-legal_case">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="legal-cites-if-legal_case-zh" />
+      </if>
+      <else>
+        <text macro="legal-cites-if-legal_case-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="legal-cites-if-legislation-en">
+    <!-- Currently designed to handle statutes, codified regulations, executive orders.
+         For uncodified regulations, assume future code section is in status. -->
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <text variable="title"/>
+        <group delimiter=" ">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <text variable="status" prefix="(" suffix=")"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-legislation-zh">
+    <!-- Currently designed to handle statutes, codified regulations, executive orders.
+         For uncodified regulations, assume future code section is in status. -->
+    <group delimiter="。">
+      <group delimiter="，">
+        <text variable="title"/>
+        <group delimiter="">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <text variable="status" prefix="（" suffix="）"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-legislation">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="legal-cites-if-legislation-zh" />
+      </if>
+      <else>
+        <text macro="legal-cites-if-legislation-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="legal-cites-if-treaty-en">
+    <!-- APA generally defers to Bluebook for legal citations, but diverges without
+         explanation for treaty items. The Bluebook format that was used in APA 6th
+         ed. is used here. -->
+    <group delimiter=", ">
+      <text variable="title" text-case="title"/>
+      <names variable="author">
+        <name initialize-with="." form="short" delimiter="-"/>
+      </names>
+      <text macro="date-legal"/>
+      <text macro="container-legal"/>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-treaty-zh">
+    <!-- APA generally defers to Bluebook for legal citations, but diverges without
+         explanation for treaty items. The Bluebook format that was used in APA 6th
+         ed. is used here. -->
+    <group delimiter="，">
+      <text variable="title" text-case="title"/>
+      <names variable="author" form="long">
+        <name initialize-with="." form="short" delimiter="-"/>
+      </names>
+      <text macro="date-legal"/>
+      <text macro="container-legal"/>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <macro name="legal-cites-if-treaty">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="legal-cites-if-treaty-zh" />
+      </if>
+      <else>
+        <text macro="legal-cites-if-treaty-en" />
+      </else>
+    </choose>
+  </macro>
+
 <!-- Legal citations have their own rules -->
   <macro name="legal-cites">
     <choose>
       <if type="legal_case">
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <text variable="title"/>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-legal_case" />
       </if>
       <else-if type="bill">
-        <!-- Currently designed to handle bills, resolutions, hearings, rederal reports. -->
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <choose>
-              <if variable="number container-title" match="none">
-                <!-- If no number or container-title, then assume it is a hearing -->
-                <text variable="title" font-style="italic"/>
-              </if>
-              <else>
-                <text variable="title"/>
-              </else>
-            </choose>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-              <choose>
-                <if variable="number container-title" match="none">
-                  <!-- If no number or container-title, then assume it is a hearing -->
-                  <names variable="author" prefix="(testimony of " suffix=")">
-                    <name and="symbol" delimiter=", "/>
-                  </names>
-                </if>
-                <else>
-                  <text variable="status" prefix="(" suffix=")"/>
-                </else>
-              </choose>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-bill" />
       </else-if>
       <else-if type="legislation">
-        <!-- Currently designed to handle statutes, codified regulations, executive orders.
-             For uncodified regulations, assume future code section is in status. -->
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <text variable="title"/>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-              <text variable="status" prefix="(" suffix=")"/>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-legislation" />
       </else-if>
       <else-if type="treaty">
-        <!-- APA generally defers to Bluebook for legal citations, but diverges without
-             explanation for treaty items. The Bluebook format that was used in APA 6th
-             ed. is used here. -->
-        <group delimiter=", ">
-          <text variable="title" text-case="title"/>
-          <names variable="author">
-            <name initialize-with="." form="short" delimiter="-"/>
-          </names>
-          <text macro="date-legal"/>
-          <text macro="container-legal"/>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-treaty" />
       </else-if>
     </choose>
   </macro>
 
-<macro name="citation-locator">
+  <macro name="citation-locator-en">
     <group delimiter=" ">
       <choose>
         <if locator="chapter">
@@ -1656,6 +1979,31 @@
       </choose>
       <text variable="locator"/>
     </group>
+  </macro>
+
+  <macro name="citation-locator-zh">
+    <group delimiter="">
+      <choose>
+        <if locator="chapter">
+          <label variable="locator" text-case="capitalize-first"/>
+        </if>
+        <else>
+          <label variable="locator" form="short"/>
+        </else>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
+
+  <macro name="citation-locator">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="citation-locator-zh" />
+      </if>
+      <else>
+        <text macro="citation-locator-en" />
+      </else>
+    </choose>
   </macro>
 
   <macro name="date-bib-en">
@@ -3490,7 +3838,7 @@
 </macro>
 
 <macro name="bibliography-layout-else-zh">
-  <group delimiter=" ">
+  <group delimiter="">
     <group delimiter="。" suffix="。">
       <text macro="author-date-bib"/>
       <text macro="title-and-descriptions"/>
@@ -3727,7 +4075,8 @@
     <choose>
       <if locale="zh jp 中文 繁體中文 簡體中文" match="any">
         <names variable="translator" delimiter="；"
-          name-as-sort-order="all">
+          name-as-sort-order="all"
+          form="long">
           <name initialize-with=". " delimiter="、" 
             et-al-use-last="false" 
             name-as-sort-order="all"

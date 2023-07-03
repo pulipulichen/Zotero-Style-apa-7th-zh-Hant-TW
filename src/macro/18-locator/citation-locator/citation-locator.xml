@@ -1,0 +1,10 @@
+  <macro name="citation-locator">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="citation-locator-zh" />
+      </if>
+      <else>
+        <text macro="citation-locator-en" />
+      </else>
+    </choose>
+  </macro>

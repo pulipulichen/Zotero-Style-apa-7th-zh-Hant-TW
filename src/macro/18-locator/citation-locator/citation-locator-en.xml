@@ -1,4 +1,4 @@
-<macro name="citation-locator">
+  <macro name="citation-locator-en">
     <group delimiter=" ">
       <choose>
         <if locator="chapter">

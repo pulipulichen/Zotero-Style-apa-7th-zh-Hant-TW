@@ -1,5 +1,5 @@
-  <macro name="date-legal-if-legal_case-en">
-    <group prefix="(" suffix=")" delimiter=" ">
+  <macro name="date-legal-if-legal_case-zh">
+    <group prefix="（" suffix="）" delimiter="">
       <text variable="authority"/>
       <choose>
         <if variable="container-title" match="any">

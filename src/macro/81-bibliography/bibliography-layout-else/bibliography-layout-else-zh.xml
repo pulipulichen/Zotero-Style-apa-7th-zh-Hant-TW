@@ -1,5 +1,5 @@
 <macro name="bibliography-layout-else-zh">
-  <group delimiter=" ">
+  <group delimiter="">
     <group delimiter="。" suffix="。">
       <text macro="author-date-bib"/>
       <text macro="title-and-descriptions"/>

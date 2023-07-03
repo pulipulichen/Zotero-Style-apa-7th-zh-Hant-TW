@@ -1,4 +1,4 @@
-  <macro name="container-legal-if-bill-en">
+  <macro name="container-legal-if-bill-zh">
     <group delimiter="，">
       <group delimiter="">
         <text variable="genre"/>
