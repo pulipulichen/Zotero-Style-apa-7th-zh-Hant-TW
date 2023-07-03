@@ -1,0 +1,10 @@
+  <macro name="locators-booklike-group">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="locators-booklike-group-zh" />
+      </if>
+      <else>
+        <text macro="locators-booklike-group-en" />
+      </else>
+    </choose>
+  </macro>

@@ -1,4 +1,4 @@
-<macro name="database-location">
+  <macro name="database-location">
     <choose>
       <if variable="archive-place" match="none">
         <!-- With `archive-place`: physical archives. Without: online archives. -->

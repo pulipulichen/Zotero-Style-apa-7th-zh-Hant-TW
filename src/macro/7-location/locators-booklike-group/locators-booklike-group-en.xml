@@ -1,0 +1,7 @@
+  <macro name="locators-booklike-group-en">
+    <group delimiter=", ">
+      <text macro="version"/>
+      <text macro="edition"/>
+      <text macro="volume-booklike"/>
+    </group>
+  </macro>

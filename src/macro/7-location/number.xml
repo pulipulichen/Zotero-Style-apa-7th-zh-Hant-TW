@@ -1,31 +1,18 @@
-<macro name="number">
+  <macro name="number">
     <choose>
       <if variable="number">
-        <group delimiter=", ">
-          <group delimiter=" ">
-            <text variable="genre" text-case="title"/>
-            <choose>
-              <if is-numeric="number">
-                <!-- Replace with label variable="number" if that becomes available -->
-                <text term="issue" form="short" text-case="capitalize-first"/>
-                <text variable="number"/>
-              </if>
-              <else>
-                <text variable="number"/>
-              </else>
-            </choose>
-          </group>
-          <choose>
-            <if type="thesis">
-              <choose>
-                <!-- Include the university in brackets if thesis is published -->
-                <if variable="archive DOI URL" match="any">
-                  <text variable="publisher"/>
-                </if>
-              </choose>
-            </if>
-          </choose>
-        </group>
+        <choose>
+          <if locale="zh jp 中文" match="any">
+            <group delimiter="、">
+              <text marco="number-group-children" />
+            </group>
+          </if>
+          <else>
+            <group delimiter=", ">
+              <text marco="number-group-children" />
+            </group>
+          </else>
+        </choose>
       </if>
     </choose>
   </macro>

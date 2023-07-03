@@ -2520,7 +2520,7 @@
     </choose>
   </macro>
 
-<macro name="database-location">
+  <macro name="database-location">
     <choose>
       <if variable="archive-place" match="none">
         <!-- With `archive-place`: physical archives. Without: online archives. -->
@@ -2530,58 +2530,90 @@
     </choose>
   </macro>
 
-<macro name="locators-booklike">
+  <macro name="locators-booklike-group-en">
+    <group delimiter=", ">
+      <text macro="version"/>
+      <text macro="edition"/>
+      <text macro="volume-booklike"/>
+    </group>
+  </macro>
+
+  <macro name="locators-booklike-group-zh">
+    <group delimiter="、">
+      <text macro="version"/>
+      <text macro="edition"/>
+      <text macro="volume-booklike"/>
+    </group>
+  </macro>
+
+  <macro name="locators-booklike-group">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="locators-booklike-group-zh" />
+      </if>
+      <else>
+        <text macro="locators-booklike-group-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="locators-booklike">
     <choose>
       <if type="article-journal article-magazine article-newspaper broadcast interview patent post post-weblog review review-book speech webpage" match="any"/>
       <else-if type="paper-conference">
         <choose>
           <if variable="collection-editor editor editorial-director" match="any">
-            <group delimiter=", ">
-              <text macro="version"/>
-              <text macro="edition"/>
-              <text macro="volume-booklike"/>
-            </group>
+            <text macro="locators-booklike-group" />
           </if>
         </choose>
       </else-if>
       <else>
-        <group delimiter=", ">
-          <text macro="version"/>
-          <text macro="edition"/>
-          <text macro="volume-booklike"/>
-        </group>
+        <text macro="locators-booklike-group" />
       </else>
     </choose>
   </macro>
 
-<macro name="number">
+  <macro name="number-group-children">
+    <group delimiter=" ">
+      <text variable="genre" text-case="title"/>
+      <choose>
+        <if is-numeric="number">
+          <!-- Replace with label variable="number" if that becomes available -->
+          <text term="issue" form="short" text-case="capitalize-first"/>
+          <text variable="number"/>
+        </if>
+        <else>
+          <text variable="number"/>
+        </else>
+      </choose>
+    </group>
+    <choose>
+      <if type="thesis">
+        <choose>
+          <!-- Include the university in brackets if thesis is published -->
+          <if variable="archive DOI URL" match="any">
+            <text variable="publisher"/>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="number">
     <choose>
       <if variable="number">
-        <group delimiter=", ">
-          <group delimiter=" ">
-            <text variable="genre" text-case="title"/>
-            <choose>
-              <if is-numeric="number">
-                <!-- Replace with label variable="number" if that becomes available -->
-                <text term="issue" form="short" text-case="capitalize-first"/>
-                <text variable="number"/>
-              </if>
-              <else>
-                <text variable="number"/>
-              </else>
-            </choose>
-          </group>
-          <choose>
-            <if type="thesis">
-              <choose>
-                <!-- Include the university in brackets if thesis is published -->
-                <if variable="archive DOI URL" match="any">
-                  <text variable="publisher"/>
-                </if>
-              </choose>
-            </if>
-          </choose>
-        </group>
+        <choose>
+          <if locale="zh jp 中文" match="any">
+            <group delimiter="、">
+              <text marco="number-group-children" />
+            </group>
+          </if>
+          <else>
+            <group delimiter=", ">
+              <text marco="number-group-children" />
+            </group>
+          </else>
+        </choose>
       </if>
     </choose>
   </macro>
