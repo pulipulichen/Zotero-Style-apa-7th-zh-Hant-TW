@@ -1,0 +1,10 @@
+  <macro name="format-if-genre">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="format-if-genre-zh" />
+      </if>
+      <else>
+        <text macro="format-if-genre-en" />
+      </else>
+    </choose>
+  </macro>
