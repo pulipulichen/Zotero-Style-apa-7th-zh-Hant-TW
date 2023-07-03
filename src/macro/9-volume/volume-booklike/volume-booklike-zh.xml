@@ -35,8 +35,9 @@
         <label variable="issue" text-case="capitalize-first"/>
         <text variable="issue"/>
       </group>
+
       <group delimiter="">
-        <label variable="page" form="short" suffix=""/>
+        <text term="page" />
         <text variable="page"/>
       </group>
     </group>

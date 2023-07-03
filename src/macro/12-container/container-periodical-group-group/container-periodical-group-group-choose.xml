@@ -1,4 +1,5 @@
   <macro name="container-periodical-group-group-choose">
+
     <choose>
       <if variable="number">
         <!-- Ex. 6: Journal article with article number or eLocator -->

@@ -5,5 +5,12 @@
       <term name="translator" form="short">譯</term>
       <term name="no date">無日期</term>
       <term name="no date" form="short">無日期</term>
+      <term name="page">
+        <single>頁</single>
+        <multiple>頁</multiple>
+      </term>
+      <term name="editor">編</term>
+      <term name="director">導</term>
+      <term name="translator">譯</term>
     </terms>
   </locale>
