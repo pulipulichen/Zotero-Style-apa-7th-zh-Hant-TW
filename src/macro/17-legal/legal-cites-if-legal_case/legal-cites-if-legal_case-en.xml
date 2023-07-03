@@ -1,0 +1,13 @@
+  <macro name="legal-cites-if-legal_case-en">
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <text variable="title"/>
+        <group delimiter=" ">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>

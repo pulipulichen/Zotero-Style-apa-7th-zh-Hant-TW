@@ -1,31 +1,10 @@
-<macro name="date-legal">
+  <macro name="date-legal">
     <choose>
       <if type="legal_case">
-        <group prefix="(" suffix=")" delimiter=" ">
-          <text variable="authority"/>
-          <choose>
-            <if variable="container-title" match="any">
-              <!-- Print only year for cases published in reporters-->
-              <date variable="issued" form="numeric" date-parts="year"/>
-            </if>
-            <else>
-              <date variable="issued" form="text"/>
-            </else>
-          </choose>
-        </group>
+        <text macro="date-legal-if-legal_case" />
       </if>
       <else-if type="bill legislation" match="any">
-        <group prefix="(" suffix=")" delimiter=" ">
-          <group delimiter=" ">
-            <date variable="original-date">
-              <date-part name="year"/>
-            </date>
-            <text term="and" form="symbol"/>
-          </group>
-          <date variable="issued">
-            <date-part name="year"/>
-          </date>
-        </group>
+        <text macro="date-legal-if-bill" />
       </else-if>
       <else-if type="treaty">
         <date variable="issued" form="text"/>

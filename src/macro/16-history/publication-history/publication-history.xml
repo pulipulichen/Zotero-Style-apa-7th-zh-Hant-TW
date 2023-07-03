@@ -1,0 +1,10 @@
+  <macro name="publication-history">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="publication-history-zh" />
+      </if>
+      <else>
+        <text macro="publication-history-en" />
+      </else>
+    </choose>
+  </macro>

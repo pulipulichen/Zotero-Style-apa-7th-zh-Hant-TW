@@ -1,0 +1,23 @@
+  <macro name="container-legal-if-bill-en">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text variable="genre"/>
+        <group delimiter=" ">
+          <choose>
+            <if variable="chapter-number container-title" match="none">
+              <!-- Replace with label variable="number" as that becomes available -->
+              <text term="issue" form="short"/>
+            </if>
+          </choose>
+          <text variable="number"/>
+        </group>
+      </group>
+      <text variable="authority"/>
+      <text variable="chapter-number"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page-first"/>
+      </group>
+    </group>
+  </macro>

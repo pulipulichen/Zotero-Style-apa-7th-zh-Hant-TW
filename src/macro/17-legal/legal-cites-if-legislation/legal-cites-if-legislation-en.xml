@@ -1,0 +1,16 @@
+  <macro name="legal-cites-if-legislation-en">
+    <!-- Currently designed to handle statutes, codified regulations, executive orders.
+         For uncodified regulations, assume future code section is in status. -->
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <text variable="title"/>
+        <group delimiter=" ">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <text variable="status" prefix="(" suffix=")"/>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>

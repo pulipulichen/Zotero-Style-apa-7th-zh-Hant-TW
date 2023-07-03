@@ -1,0 +1,33 @@
+  <macro name="legal-cites-if-bill-zh">
+    <!-- Currently designed to handle bills, resolutions, hearings, rederal reports. -->
+    <group delimiter="。">
+      <group delimiter="，">
+        <choose>
+          <if variable="number container-title" match="none">
+            <!-- If no number or container-title, then assume it is a hearing -->
+            <text variable="title" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title"/>
+          </else>
+        </choose>
+        <group delimiter="">
+          <text macro="container-legal"/>
+          <text macro="date-legal"/>
+          <choose>
+            <if variable="number container-title" match="none">
+              <!-- If no number or container-title, then assume it is a hearing -->
+              <names variable="author" prefix="（見證人" suffix="）">
+                <name and="symbol" delimiter=", "/>
+              </names>
+            </if>
+            <else>
+              <text variable="status" prefix="（" suffix="）"/>
+            </else>
+          </choose>
+        </group>
+        <text variable="references"/>
+      </group>
+      <text macro="access"/>
+    </group>
+  </macro>

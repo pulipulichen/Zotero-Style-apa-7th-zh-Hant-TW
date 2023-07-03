@@ -1,0 +1,33 @@
+  <macro name="container-legal-if-legislation-en">
+    <choose>
+      <if variable="number">
+        <!--There's a public law number-->
+        <group delimiter=", ">
+          <text variable="number" prefix="Pub. L. No. "/>
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page-first"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <choose>
+            <if variable="section">
+              <group delimiter=" ">
+                <!-- Change to label variable="section" as that becomes available -->
+                <text term="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </if>
+            <else>
+              <text variable="page-first"/>
+            </else>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </macro>

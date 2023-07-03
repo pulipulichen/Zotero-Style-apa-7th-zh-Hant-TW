@@ -1,0 +1,10 @@
+  <macro name="container-legal-if-legislation">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-legal-if-legislation-zh" />
+      </if>
+      <else>
+        <text macro="container-legal-if-legislation-en" />
+      </else>
+    </choose>
+  </macro>

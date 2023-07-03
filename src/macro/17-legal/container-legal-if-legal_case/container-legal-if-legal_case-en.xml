@@ -1,0 +1,36 @@
+  <macro name="container-legal-if-legal_case-en">
+    <group delimiter=" ">
+      <choose>
+        <if variable="container-title">
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <group delimiter=" ">
+              <!-- Change to label variable="section" as that becomes available -->
+              <text term="section" form="symbol"/>
+              <text variable="section"/>
+            </group>
+            <choose>
+              <if variable="page page-first" match="any">
+                <text variable="page-first"/>
+              </if>
+              <else>
+                <text value="___"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+        <else>
+          <group delimiter=" ">
+            <choose>
+              <if is-numeric="number">
+                <!-- Replace with label variable="number" if that becomes available -->
+                <text term="issue" form="short" text-case="capitalize-first"/>
+              </if>
+            </choose>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>

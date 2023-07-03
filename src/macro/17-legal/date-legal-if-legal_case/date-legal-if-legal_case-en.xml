@@ -1,0 +1,14 @@
+  <macro name="date-legal-if-legal_case-en">
+    <group prefix="(" suffix=")" delimiter=" ">
+      <text variable="authority"/>
+      <choose>
+        <if variable="container-title" match="any">
+          <!-- Print only year for cases published in reporters-->
+          <date variable="issued" form="numeric" date-parts="year"/>
+        </if>
+        <else>
+          <date variable="issued" form="text"/>
+        </else>
+      </choose>
+    </group>
+  </macro>

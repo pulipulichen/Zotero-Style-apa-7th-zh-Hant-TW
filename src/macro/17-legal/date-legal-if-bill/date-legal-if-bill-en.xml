@@ -1,0 +1,13 @@
+  <macro name="date-legal-if-bill-en">
+    <group prefix="(" suffix=")" delimiter=" ">
+      <group delimiter=" ">
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+        <text term="and" form="symbol"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>

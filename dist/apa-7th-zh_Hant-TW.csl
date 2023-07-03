@@ -1280,8 +1280,8 @@
     </choose>
   </macro>
 
-<!-- After 'source', APA also prints publication history (original publication, reprint info, retraction info) -->
-  <macro name="publication-history">
+  <!-- After 'source', APA also prints publication history (original publication, reprint info, retraction info) -->
+  <macro name="publication-history-en">
     <choose>
       <if type="patent" match="none">
         <group prefix="(" suffix=")">
@@ -1314,44 +1314,141 @@
     </choose>
   </macro>
 
-<macro name="container-legal">
-    <!-- Expect legal item container-titles to be stored in short form -->
+  <!-- After 'source', APA also prints publication history (original publication, reprint info, retraction info) -->
+  <macro name="publication-history-zh">
     <choose>
-      <if type="legal_case">
-        <group delimiter=" ">
+      <if type="patent" match="none">
+        <group prefix="（" suffix="）">
           <choose>
-            <if variable="container-title">
-              <group delimiter=" ">
-                <text variable="volume"/>
-                <text variable="container-title"/>
-                <group delimiter=" ">
-                  <!-- Change to label variable="section" as that becomes available -->
-                  <text term="section" form="symbol"/>
-                  <text variable="section"/>
-                </group>
-                <choose>
-                  <if variable="page page-first" match="any">
-                    <text variable="page-first"/>
-                  </if>
-                  <else>
-                    <text value="___"/>
-                  </else>
-                </choose>
-              </group>
+            <if variable="references">
+              <!-- This provides the option for more elaborate description
+                   of publication history, such as full "reprinted" references
+                   (examples 11, 43, 44) or retracted references -->
+              <text variable="references"/>
             </if>
             <else>
-              <group delimiter=" ">
+              <group delimiter="">
+                <text term="original-work-published" text-case="capitalize-first"/>
                 <choose>
-                  <if is-numeric="number">
-                    <!-- Replace with label variable="number" if that becomes available -->
-                    <text term="issue" form="short" text-case="capitalize-first"/>
+                  <if is-uncertain-date="original-date">
+                    <text term="circa" form="short"/>
                   </if>
                 </choose>
-                <text variable="number"/>
+                <date variable="original-date">
+                  <date-part name="year"/>
+                </date>
               </group>
             </else>
           </choose>
         </group>
+      </if>
+      <else>
+        <text variable="references" prefix="（" suffix="）"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="publication-history">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="publication-history-zh" />
+      </if>
+      <else>
+        <text macro="publication-history-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container-legal-if-legal_case-en">
+    <group delimiter=" ">
+      <choose>
+        <if variable="container-title">
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <group delimiter=" ">
+              <!-- Change to label variable="section" as that becomes available -->
+              <text term="section" form="symbol"/>
+              <text variable="section"/>
+            </group>
+            <choose>
+              <if variable="page page-first" match="any">
+                <text variable="page-first"/>
+              </if>
+              <else>
+                <text value="___"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+        <else>
+          <group delimiter=" ">
+            <choose>
+              <if is-numeric="number">
+                <!-- Replace with label variable="number" if that becomes available -->
+                <text term="issue" form="short" text-case="capitalize-first"/>
+              </if>
+            </choose>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-legal_case-zh">
+    <group delimiter="">
+      <choose>
+        <if variable="container-title">
+          <group delimiter="">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <group delimiter="">
+              <!-- Change to label variable="section" as that becomes available -->
+              <text term="section" form="symbol"/>
+              <text variable="section"/>
+            </group>
+            <choose>
+              <if variable="page page-first" match="any">
+                <text variable="page-first"/>
+              </if>
+              <else>
+                <text value="___"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+        <else>
+          <group delimiter="">
+            <choose>
+              <if is-numeric="number">
+                <!-- Replace with label variable="number" if that becomes available -->
+                <text term="issue" form="short" text-case="capitalize-first"/>
+              </if>
+            </choose>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="container-legal-if-legal_case">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-legal-if-legal_case-zh" />
+      </if>
+      <else>
+        <text macro="container-legal-if-legal_case-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container-legal">
+    <!-- Expect legal item container-titles to be stored in short form -->
+    <choose>
+      <if type="legal_case">
+        <text macro="container-legal-if-legal_case" />
       </if>
       <else-if type="bill">
         <group delimiter=", ">

@@ -1,0 +1,10 @@
+  <macro name="legal-cites-if-legal_case">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="legal-cites-if-legal_case-zh" />
+      </if>
+      <else>
+        <text macro="legal-cites-if-legal_case-en" />
+      </else>
+    </choose>
+  </macro>

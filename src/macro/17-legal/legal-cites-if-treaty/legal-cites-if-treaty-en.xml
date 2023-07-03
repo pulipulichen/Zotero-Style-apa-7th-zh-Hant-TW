@@ -1,0 +1,14 @@
+  <macro name="legal-cites-if-treaty-en">
+    <!-- APA generally defers to Bluebook for legal citations, but diverges without
+         explanation for treaty items. The Bluebook format that was used in APA 6th
+         ed. is used here. -->
+    <group delimiter=", ">
+      <text variable="title" text-case="title"/>
+      <names variable="author">
+        <name initialize-with="." form="short" delimiter="-"/>
+      </names>
+      <text macro="date-legal"/>
+      <text macro="container-legal"/>
+      <text macro="access"/>
+    </group>
+  </macro>

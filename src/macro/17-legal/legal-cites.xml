@@ -2,80 +2,16 @@
   <macro name="legal-cites">
     <choose>
       <if type="legal_case">
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <text variable="title"/>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-legal_case" />
       </if>
       <else-if type="bill">
-        <!-- Currently designed to handle bills, resolutions, hearings, rederal reports. -->
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <choose>
-              <if variable="number container-title" match="none">
-                <!-- If no number or container-title, then assume it is a hearing -->
-                <text variable="title" font-style="italic"/>
-              </if>
-              <else>
-                <text variable="title"/>
-              </else>
-            </choose>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-              <choose>
-                <if variable="number container-title" match="none">
-                  <!-- If no number or container-title, then assume it is a hearing -->
-                  <names variable="author" prefix="(testimony of " suffix=")">
-                    <name and="symbol" delimiter=", "/>
-                  </names>
-                </if>
-                <else>
-                  <text variable="status" prefix="(" suffix=")"/>
-                </else>
-              </choose>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-bill" />
       </else-if>
       <else-if type="legislation">
-        <!-- Currently designed to handle statutes, codified regulations, executive orders.
-             For uncodified regulations, assume future code section is in status. -->
-        <group delimiter=". ">
-          <group delimiter=", ">
-            <text variable="title"/>
-            <group delimiter=" ">
-              <text macro="container-legal"/>
-              <text macro="date-legal"/>
-              <text variable="status" prefix="(" suffix=")"/>
-            </group>
-            <text variable="references"/>
-          </group>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-legislation" />
       </else-if>
       <else-if type="treaty">
-        <!-- APA generally defers to Bluebook for legal citations, but diverges without
-             explanation for treaty items. The Bluebook format that was used in APA 6th
-             ed. is used here. -->
-        <group delimiter=", ">
-          <text variable="title" text-case="title"/>
-          <names variable="author">
-            <name initialize-with="." form="short" delimiter="-"/>
-          </names>
-          <text macro="date-legal"/>
-          <text macro="container-legal"/>
-          <text macro="access"/>
-        </group>
+        <text macro="legal-cites-if-treaty" />
       </else-if>
     </choose>
   </macro>

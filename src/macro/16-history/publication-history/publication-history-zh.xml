@@ -1,8 +1,8 @@
-<!-- After 'source', APA also prints publication history (original publication, reprint info, retraction info) -->
-  <macro name="publication-history">
+  <!-- After 'source', APA also prints publication history (original publication, reprint info, retraction info) -->
+  <macro name="publication-history-zh">
     <choose>
       <if type="patent" match="none">
-        <group prefix="(" suffix=")">
+        <group prefix="（" suffix="）">
           <choose>
             <if variable="references">
               <!-- This provides the option for more elaborate description
@@ -11,7 +11,7 @@
               <text variable="references"/>
             </if>
             <else>
-              <group delimiter=" ">
+              <group delimiter="">
                 <text term="original-work-published" text-case="capitalize-first"/>
                 <choose>
                   <if is-uncertain-date="original-date">
@@ -27,7 +27,7 @@
         </group>
       </if>
       <else>
-        <text variable="references" prefix="(" suffix=")"/>
+        <text variable="references" prefix="（" suffix="）"/>
       </else>
     </choose>
   </macro>

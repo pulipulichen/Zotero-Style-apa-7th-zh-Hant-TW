@@ -1,0 +1,18 @@
+  <macro name="container-legal-if-treaty-en">
+    <group delimiter=" ">
+      <number variable="volume"/>
+      <text variable="container-title"/>
+      <choose>
+        <if variable="page page-first" match="any">
+          <text variable="page-first"/>
+        </if>
+        <else>
+          <group delimiter=" ">
+            <!-- Replace with label variable="number" if that becomes available -->
+            <text term="issue" form="short" text-case="capitalize-first"/>
+            <text variable="number"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>
