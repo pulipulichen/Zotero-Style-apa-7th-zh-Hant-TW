@@ -1,5 +1,5 @@
   <macro name="container-periodical-group-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <text variable="container-title" font-weight="bold" text-case="title"/>
       <choose>
         <if variable="volume">

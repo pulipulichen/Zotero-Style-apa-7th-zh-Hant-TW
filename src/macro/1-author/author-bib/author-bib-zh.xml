@@ -9,8 +9,10 @@
   <!-- APA references contain four parts: author, date, title, source -->
   <macro name="author-bib-zh">
     <names variable="composer" delimiter="、" form="long">
-      <name name-as-sort-order="all" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"
-        form="long"/>
+      <name name-as-sort-order="all" sort-separator="、" initialize-with=". " delimiter="、" 
+        delimiter-precedes-last="always"
+        form="long"
+        delimiter-precedes-et-al="never"/>
       <substitute>
         <names variable="author" form="long"/>
         <names variable="illustrator" form="long"/>

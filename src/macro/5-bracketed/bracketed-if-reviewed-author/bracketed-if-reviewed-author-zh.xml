@@ -1,7 +1,7 @@
 <macro name="bracketed-if-reviewed-author-zh">
   <!-- Reviewed item -->
   <group delimiter="；">
-    <group delimiter="、">
+    <group delimiter="，">
       <group delimiter="">
         <!-- Assume that genre is entered as 'Review of the book' or similar -->
         <choose>

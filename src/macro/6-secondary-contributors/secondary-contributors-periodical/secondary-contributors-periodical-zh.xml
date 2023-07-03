@@ -4,7 +4,7 @@
         <if variable="title">
           <names variable="interviewer" delimiter="；" form="long">
             <name initialize-with=". " delimiter=", "/>
-            <label form="short" prefix="，" text-case="title"/>
+            <label form="short" prefix="" text-case="title"/>
           </names>
         </if>
       </choose>

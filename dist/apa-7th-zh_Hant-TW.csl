@@ -911,8 +911,10 @@
   <!-- APA references contain four parts: author, date, title, source -->
   <macro name="author-bib-zh">
     <names variable="composer" delimiter="、" form="long">
-      <name name-as-sort-order="all" sort-separator="、" initialize-with=". " delimiter="、" delimiter-precedes-last="always"
-        form="long"/>
+      <name name-as-sort-order="all" sort-separator="、" initialize-with=". " delimiter="、" 
+        delimiter-precedes-last="always"
+        form="long"
+        delimiter-precedes-et-al="never"/>
       <substitute>
         <names variable="author" form="long"/>
         <names variable="illustrator" form="long"/>
@@ -1048,14 +1050,14 @@
   </macro>
 
 
-<macro name="author-intext-else-composer-zh">
-
+  <macro name="author-intext-else-composer-zh">
     <names variable="composer" delimiter="、">
-      <name form="long" delimiter="、" initialize-with=". "/>
+      <name form="long" delimiter="、" initialize-with=". "
+        delimiter-precedes-et-al="never" />
       <substitute>
-        <names variable="author" />
-        <names variable="illustrator"/>
-        <names variable="director"/>
+        <names variable="author" form="long" />
+        <names variable="illustrator" form="long" />
+        <names variable="director" form="long" />
         <choose>
           <if variable="container-title">
             <choose>
@@ -1065,9 +1067,10 @@
             </choose>
           </if>
         </choose>
-        <names variable="editor"/>
-        <names variable="editorial-director"/>
+        <names variable="editor" form="long" />
+        <names variable="editorial-director" form="long" />
         <text macro="title-intext"/>
+        <label form="verb" suffix=" " text-case="capitalize-first"/>
       </substitute>
     </names>
   </macro>
@@ -1098,7 +1101,7 @@
 </macro>
 
 <macro name="author-intext-if-archive-zh">
-  <group delimiter="、">
+  <group delimiter="，">
     <names variable="author">
       <name delimiter="、" initialize-with=". "/>
       <substitute>
@@ -1381,10 +1384,10 @@
   </macro>
 
   <macro name="container-booklike-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <names variable="editor translator" delimiter="、" form="long">
         <!-- Change to editortranslator and move editor to substitute as that becomes available -->
-        <name initialize-with=". " delimiter=", "/>
+        <name initialize-with=". " delimiter="、"/>
         <label form="verb-short" text-case="title" prefix="（" suffix="）"/>
         <substitute>
           <names variable="editorial-director"/>
@@ -1491,7 +1494,7 @@
   </macro>
 
   <macro name="container-periodical-group-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <text variable="container-title" font-weight="bold" text-case="title"/>
       <choose>
         <if variable="volume">
@@ -1642,7 +1645,7 @@
   </macro>
 
   <macro name="publisher-group-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <choose>
         <if variable="archive-place">
           <!-- With `archive-place`: physical archives. Without: online archives. -->
@@ -3696,7 +3699,7 @@
 <macro name="bracketed-if-reviewed-author-zh">
   <!-- Reviewed item -->
   <group delimiter="；">
-    <group delimiter="、">
+    <group delimiter="，">
       <group delimiter="">
         <!-- Assume that genre is entered as 'Review of the book' or similar -->
         <choose>
@@ -3781,7 +3784,7 @@
   <group delimiter="；">
     <choose>
       <if variable="number" match="none">
-        <group delimiter="、">
+        <group delimiter="，">
           <text variable="genre" text-case="capitalize-first"/>
           <choose>
             <if variable="archive DOI URL" match="any">
@@ -3945,7 +3948,7 @@
       <if variable="title">
         <names variable="interviewer" form="long">
           <name initialize-with=". " delimiter=", "/>
-          <label form="short" prefix="，" text-case="title"/>
+          <label form="short" prefix="" text-case="title"/>
         </names>
       </if>
     </choose>
@@ -4013,7 +4016,7 @@
 
                 <names variable="editor translator" delimiter="；" form="long">
                   <name initialize-with=". " delimiter=", "/>
-                  <label form="short" prefix="，" text-case="title"/>
+                  <label form="short" text-case="title"/>
                 </names>
               </group>
             </if>
@@ -4027,7 +4030,7 @@
             </names>
             <names variable="editor translator" delimiter="；" form="long">
               <name initialize-with=". " delimiter=", "/>
-              <label form="short" prefix="，" text-case="title"/>
+              <label form="short" text-case="title"/>
             </names>
           </group>
         </else>
@@ -4082,7 +4085,7 @@
         <if variable="title">
           <names variable="interviewer" delimiter="；" form="long">
             <name initialize-with=". " delimiter=", "/>
-            <label form="short" prefix="，" text-case="title"/>
+            <label form="short" prefix="" text-case="title"/>
           </names>
         </if>
       </choose>
@@ -4141,7 +4144,7 @@
   </macro>
 
   <macro name="locators-booklike-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <text macro="version"/>
       <text macro="edition"/>
       <text macro="volume-booklike"/>
@@ -4214,7 +4217,7 @@
   <macro name="number-zh">
     <choose>
       <if variable="number">
-        <group delimiter="、">
+        <group delimiter="，">
           <group delimiter="">
             <text variable="genre" text-case="title"/>
             <choose>
@@ -4410,7 +4413,7 @@
   </macro>
 
   <macro name="volume-booklike-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <!-- Report series [ex. 52] -->
       <choose>
         <if type="report">

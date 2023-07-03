@@ -13,7 +13,7 @@
 
                 <names variable="editor translator" delimiter="；" form="long">
                   <name initialize-with=". " delimiter=", "/>
-                  <label form="short" prefix="，" text-case="title"/>
+                  <label form="short" text-case="title"/>
                 </names>
               </group>
             </if>
@@ -27,7 +27,7 @@
             </names>
             <names variable="editor translator" delimiter="；" form="long">
               <name initialize-with=". " delimiter=", "/>
-              <label form="short" prefix="，" text-case="title"/>
+              <label form="short" text-case="title"/>
             </names>
           </group>
         </else>

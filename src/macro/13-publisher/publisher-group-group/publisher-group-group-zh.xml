@@ -1,5 +1,5 @@
   <macro name="publisher-group-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <choose>
         <if variable="archive-place">
           <!-- With `archive-place`: physical archives. Without: online archives. -->

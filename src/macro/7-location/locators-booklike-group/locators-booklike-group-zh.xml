@@ -1,5 +1,5 @@
   <macro name="locators-booklike-group-zh">
-    <group delimiter="、">
+    <group delimiter="，">
       <text macro="version"/>
       <text macro="edition"/>
       <text macro="volume-booklike"/>

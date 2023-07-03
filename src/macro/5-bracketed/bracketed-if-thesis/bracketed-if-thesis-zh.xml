@@ -3,7 +3,7 @@
   <group delimiter="；">
     <choose>
       <if variable="number" match="none">
-        <group delimiter="、">
+        <group delimiter="，">
           <text variable="genre" text-case="capitalize-first"/>
           <choose>
             <if variable="archive DOI URL" match="any">
