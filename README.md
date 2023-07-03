@@ -14,3 +14,25 @@ https://citeproc-js.readthedocs.io/en/latest/csl-m/#locale-extension
 citation-number
 
 https://docs.citationstyles.org/en/stable/specification.html#choose
+
+# Differences
+
+- font style
+
+````
+font-style="italic"
+````
+
+````
+font-weight="bold"
+````
+
+- Names
+
+````
+form="long"
+````
+
+- Name
+
+no and="symbol"

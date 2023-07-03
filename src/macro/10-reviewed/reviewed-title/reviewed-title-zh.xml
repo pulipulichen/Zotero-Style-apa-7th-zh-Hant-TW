@@ -1,13 +1,13 @@
-  <macro name="reviewed-title">
+  <macro name="reviewed-title-zh">
     <choose>
       <if variable="reviewed-title">
         <!-- Not possible to distinguish TV series episode from other reviewed
               works [Ex. 69] -->
-        <text variable="reviewed-title" font-style="italic"/>
+        <text variable="reviewed-title" font-weight="bold"/>
       </if>
       <else>
         <!-- Assume title is title of reviewed work -->
-        <text variable="title" font-style="italic"/>
+        <text variable="title" font-weight="bold"/>
       </else>
     </choose>
   </macro>

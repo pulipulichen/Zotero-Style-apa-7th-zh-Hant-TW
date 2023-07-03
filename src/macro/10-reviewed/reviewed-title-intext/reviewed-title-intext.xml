@@ -1,0 +1,10 @@
+  <macro name="reviewed-title-intext">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="reviewed-title-intext-zh" />
+      </if>
+      <else>
+        <text macro="reviewed-title-intext-en" />
+      </else>
+    </choose>
+  </macro>
