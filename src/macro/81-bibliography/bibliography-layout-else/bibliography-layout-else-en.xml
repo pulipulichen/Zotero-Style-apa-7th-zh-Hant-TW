@@ -1,0 +1,14 @@
+<macro name="bibliography-layout-else-en">
+  <group delimiter=" ">
+    <group delimiter=". " suffix=".">
+      <text macro="author-bib"/>
+      <text macro="date-bib"/>
+      <text macro="title-and-descriptions"/>
+      <text macro="container"/>
+      <text macro="event"/>
+      <text macro="publisher"/>
+    </group>
+    <text macro="access"/>
+    <text macro="publication-history"/>
+  </group>
+</macro>

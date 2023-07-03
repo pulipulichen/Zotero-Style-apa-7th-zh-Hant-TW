@@ -1,7 +1,7 @@
 <macro name="title-intext">
     <choose>
       <if variable="title" match="none">
-        <text macro="bracketed-intext" prefix="[" suffix="]"/>
+        <text macro="bracketed-intext" />
       </if>
       <else-if type="bill">
         <!-- If a bill has no number or container-title, assume it is a hearing; italic -->

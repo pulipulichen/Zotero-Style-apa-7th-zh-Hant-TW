@@ -1,5 +1,5 @@
-  <macro name="date-bib">
-    <group delimiter=" " prefix="(" suffix=")">
+  <macro name="date-bib-zh">
+    <group delimiter=" " prefix="（" suffix="）">
       <choose>
         <if is-uncertain-date="issued">
           <text term="circa" form="short"/>

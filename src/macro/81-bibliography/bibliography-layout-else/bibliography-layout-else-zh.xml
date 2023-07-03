@@ -1,0 +1,13 @@
+<macro name="bibliography-layout-else-zh">
+  <group delimiter=" ">
+    <group delimiter="。" suffix="。">
+      <text macro="author-date-bib"/>
+      <text macro="title-and-descriptions"/>
+      <text macro="container"/>
+      <text macro="event"/>
+      <text macro="publisher"/>
+    </group>
+    <text macro="access"/>
+    <text macro="publication-history"/>
+  </group>
+</macro>

@@ -1,0 +1,10 @@
+<macro name="bibliography-layout-else">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bibliography-layout-else-zh" />
+    </if>
+    <else>
+      <text macro="bibliography-layout-else-en" />
+    </else>
+  </choose>
+</macro>

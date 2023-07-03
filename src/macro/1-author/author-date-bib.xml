@@ -1,0 +1,4 @@
+<macro name="author-date-bib">
+  <text macro="author-bib"/>
+  <text macro="date-bib"/>
+</macro>

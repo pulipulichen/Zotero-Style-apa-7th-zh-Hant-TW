@@ -1,14 +1,14 @@
-<macro name="bracketed-intext">
-    <group prefix="[" suffix="]">
+<macro name="bracketed-intext-zh">
+    <group prefix="〔" suffix="〕">
       <choose>
         <if variable="reviewed-author reviewed-title" type="review review-book" match="any">
           <!-- This should be localized -->
-          <text macro="reviewed-title-intext" prefix="Review of "/>
+          <text macro="reviewed-title-intext" suffix="評論"/>
         </if>
         <else-if variable="interviewer" type="interview" match="any">
-          <names variable="interviewer">
+          <names variable="interviewer" form="long">
             <label form="verb" suffix=" " text-case="capitalize-first"/>
-            <name and="symbol" initialize-with=". " delimiter=", "/>
+            <name and="symbol" initialize-with=". " delimiter="、"/>
             <substitute>
               <text macro="format-intext"/>
             </substitute>
@@ -27,9 +27,9 @@
                     <text term="letter" form="short" text-case="capitalize-first"/>
                   </else>
                 </choose>
-                <names variable="recipient" delimiter=", ">
+                <names variable="recipient" delimiter="、">
                   <label form="verb" suffix=" "/>
-                  <name and="symbol" delimiter=", "/>
+                  <name and="symbol" delimiter="、"/>
                 </names>
               </group>
             </if>

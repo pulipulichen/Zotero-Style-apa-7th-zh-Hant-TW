@@ -1,0 +1,10 @@
+  <macro name="date-bib">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-bib-zh" />
+      </if>
+      <else>
+        <text macro="date-bib-en" />
+      </else>
+    </choose>
+  </macro>

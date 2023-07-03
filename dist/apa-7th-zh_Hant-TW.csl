@@ -324,11 +324,13 @@
     </terms>
   </locale>
 
-<locale xml:lang="zh-TW">
+  <locale xml:lang="zh">
     <terms>
       <term name="letter">私人通訊</term>
       <term name="letter" form="short">信函</term>
       <term name="translator" form="short">譯</term>
+      <term name="no date">無日期</term>
+      <term name="no date" form="short">無日期</term>
     </terms>
   </locale>
 
@@ -486,6 +488,11 @@
       </else>
     </choose>
   </macro>
+
+<macro name="author-date-bib">
+  <text macro="author-bib"/>
+  <text macro="date-bib"/>
+</macro>
 
 <macro name="author-intext-else-en">
   <names variable="author" delimiter=", ">
@@ -1220,7 +1227,7 @@
     </group>
   </macro>
 
-  <macro name="date-bib">
+  <macro name="date-bib-en">
     <group delimiter=" " prefix="(" suffix=")">
       <choose>
         <if is-uncertain-date="issued">
@@ -1264,6 +1271,63 @@
         </choose>
       </group>
     </group>
+  </macro>
+
+  <macro name="date-bib-zh">
+    <group delimiter=" " prefix="（" suffix="）">
+      <choose>
+        <if is-uncertain-date="issued">
+          <text term="circa" form="short"/>
+        </if>
+      </choose>
+      <group>
+        <choose>
+          <if variable="issued">
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+            <text variable="year-suffix"/>
+            <choose>
+              <if type="article-magazine article-newspaper broadcast interview motion_picture pamphlet personal_communication post post-weblog song speech webpage" match="any">
+                <!-- Many video and audio examples in manual give full dates. Err on the side of too much information. -->
+                <text macro="variable-issued-month-date-year-prefix" />
+              </if>
+              <else-if type="paper-conference">
+                <!-- Capture 'speech' stored as 'paper-conference' -->
+                <choose>
+                  <if variable="collection-editor editor editorial-director issue page volume" match="none">
+                    <text macro="variable-issued-month-date-year-prefix" />
+                  </if>
+                </choose>
+              </else-if>
+              <!-- Only year: article article-journal book chapter entry entry-dictionary entry-encyclopedia dataset figure graphic
+                   manuscript map musical_score paper-conference[published] patent report review review-book thesis -->
+            </choose>
+          </if>
+          <else-if variable="status">
+            <group>
+              <text variable="status" text-case="lowercase"/>
+              <text variable="year-suffix" prefix="-"/>
+            </group>
+          </else-if>
+          <else>
+            <text term="no date" form="short"/>
+            <text variable="year-suffix" prefix="-"/>
+          </else>
+        </choose>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="date-bib">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-bib-zh" />
+      </if>
+      <else>
+        <text macro="date-bib-en" />
+      </else>
+    </choose>
   </macro>
 
 <macro name="date-intext">
@@ -1362,7 +1426,7 @@
 <macro name="title-intext">
     <choose>
       <if variable="title" match="none">
-        <text macro="bracketed-intext" prefix="[" suffix="]"/>
+        <text macro="bracketed-intext" />
       </if>
       <else-if type="bill">
         <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
@@ -1580,7 +1644,7 @@
     </group>
   </macro>
 
-<macro name="bracketed-intext">
+<macro name="bracketed-intext-en">
     <group prefix="[" suffix="]">
       <choose>
         <if variable="reviewed-author reviewed-title" type="review review-book" match="any">
@@ -1625,6 +1689,64 @@
         </else>
       </choose>
     </group>
+  </macro>
+
+<macro name="bracketed-intext-zh">
+    <group prefix="〔" suffix="〕">
+      <choose>
+        <if variable="reviewed-author reviewed-title" type="review review-book" match="any">
+          <!-- This should be localized -->
+          <text macro="reviewed-title-intext" suffix="評論"/>
+        </if>
+        <else-if variable="interviewer" type="interview" match="any">
+          <names variable="interviewer" form="long">
+            <label form="verb" suffix=" " text-case="capitalize-first"/>
+            <name and="symbol" initialize-with=". " delimiter="、"/>
+            <substitute>
+              <text macro="format-intext"/>
+            </substitute>
+          </names>
+        </else-if>
+        <else-if type="personal_communication">
+          <!-- Letter information -->
+          <choose>
+            <if variable="recipient">
+              <group delimiter=" ">
+                <choose>
+                  <if variable="number" match="none">
+                    <text variable="genre" text-case="capitalize-first"/>
+                  </if>
+                  <else>
+                    <text term="letter" form="short" text-case="capitalize-first"/>
+                  </else>
+                </choose>
+                <names variable="recipient" delimiter="、">
+                  <label form="verb" suffix=" "/>
+                  <name and="symbol" delimiter="、"/>
+                </names>
+              </group>
+            </if>
+            <else>
+              <text macro="format-intext"/>
+            </else>
+          </choose>
+        </else-if>
+        <else>
+          <text macro="format-intext"/>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="bracketed-intext">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="bracketed-intext-zh" />
+      </if>
+      <else>
+        <text macro="bracketed-intext-en" />
+      </else>
+    </choose>
   </macro>
 
 <macro name="bracketed">
@@ -2054,6 +2176,46 @@
     </choose>
   </macro>
 
+<macro name="bibliography-layout-else-en">
+  <group delimiter=" ">
+    <group delimiter=". " suffix=".">
+      <text macro="author-bib"/>
+      <text macro="date-bib"/>
+      <text macro="title-and-descriptions"/>
+      <text macro="container"/>
+      <text macro="event"/>
+      <text macro="publisher"/>
+    </group>
+    <text macro="access"/>
+    <text macro="publication-history"/>
+  </group>
+</macro>
+
+<macro name="bibliography-layout-else-zh">
+  <group delimiter=" ">
+    <group delimiter="。" suffix="。">
+      <text macro="author-date-bib"/>
+      <text macro="title-and-descriptions"/>
+      <text macro="container"/>
+      <text macro="event"/>
+      <text macro="publisher"/>
+    </group>
+    <text macro="access"/>
+    <text macro="publication-history"/>
+  </group>
+</macro>
+
+<macro name="bibliography-layout-else">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bibliography-layout-else-zh" />
+    </if>
+    <else>
+      <text macro="bibliography-layout-else-en" />
+    </else>
+  </choose>
+</macro>
+
 <macro name="volume-booklike">
     <group delimiter=", ">
       <!-- Report series [ex. 52] -->
@@ -2265,18 +2427,7 @@
           </choose>
         </if>
         <else>
-          <group delimiter=" ">
-            <group delimiter=". " suffix=".">
-              <text macro="author-bib"/>
-              <text macro="date-bib"/>
-              <text macro="title-and-descriptions"/>
-              <text macro="container"/>
-              <text macro="event"/>
-              <text macro="publisher"/>
-            </group>
-            <text macro="access"/>
-            <text macro="publication-history"/>
-          </group>
+          <text macro="bibliography-layout-else" />
         </else>
       </choose>
     </layout>
