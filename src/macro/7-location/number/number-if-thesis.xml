@@ -1,0 +1,12 @@
+  <macro name="number-if-thesis">
+    <choose>
+      <if type="thesis">
+        <choose>
+          <!-- Include the university in brackets if thesis is published -->
+          <if variable="archive DOI URL" match="any">
+            <text variable="publisher"/>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </macro>

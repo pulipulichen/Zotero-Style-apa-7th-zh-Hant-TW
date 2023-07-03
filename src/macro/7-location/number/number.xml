@@ -1,0 +1,10 @@
+  <macro name="number">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="number-zh" />
+      </if>
+      <else>
+        <text macro="number-en" />
+      </else>
+    </choose>
+  </macro>
