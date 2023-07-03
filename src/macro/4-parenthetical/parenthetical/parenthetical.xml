@@ -1,0 +1,10 @@
+  <macro name="parenthetical">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="parenthetical-zh" />
+      </if>
+      <else>
+        <text macro="parenthetical-en" />
+      </else>
+    </choose>
+  </macro>

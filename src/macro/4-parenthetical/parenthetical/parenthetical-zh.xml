@@ -1,10 +1,10 @@
-<macro name="parenthetical">
+  <macro name="parenthetical-zh">
     <!-- (Secondary contributors; Database location; Genre no. 123; Report Series 123, Version, Edition, Volume, Page) -->
-    <group prefix="(" suffix=")">
+    <group prefix="（" suffix="）">
       <choose>
         <if type="patent">
           <!-- authority: U.S. ; genre: patent ; number: 123,445 -->
-          <group delimiter=" ">
+          <group delimiter="">
             <text variable="authority" form="short"/>
             <choose>
               <if variable="genre">
@@ -15,7 +15,7 @@
                 <text value="patent" text-case="capitalize-first"/>
               </else>
             </choose>
-            <group delimiter=" ">
+            <group delimiter="">
               <!-- Replace with label variable="number" if that becomes available -->
               <text term="issue" form="short" text-case="capitalize-first"/>
               <text variable="number"/>
@@ -24,7 +24,7 @@
         </if>
         <else-if type="post webpage" match="any">
           <!-- For post webpage, container-title is treated as publisher -->
-          <group delimiter="; ">
+          <group delimiter="；">
             <text macro="secondary-contributors"/>
             <text macro="database-location"/>
             <text macro="number"/>
@@ -32,7 +32,7 @@
           </group>
         </else-if>
         <else-if variable="container-title">
-          <group delimiter="; ">
+          <group delimiter="；">
             <text macro="secondary-contributors"/>
             <choose>
               <if type="broadcast graphic map motion_picture song" match="any">
@@ -43,7 +43,7 @@
           </group>
         </else-if>
         <else>
-          <group delimiter="; ">
+          <group delimiter="；">
             <text macro="secondary-contributors"/>
             <text macro="database-location"/>
             <text macro="number"/>

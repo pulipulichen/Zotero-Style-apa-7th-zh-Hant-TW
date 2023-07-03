@@ -1,18 +1,7 @@
 <macro name="parenthetical-container">
     <choose>
       <if variable="container-title" match="any">
-        <group prefix="(" suffix=")">
-          <group delimiter="; ">
-            <text macro="database-location"/>
-            <choose>
-              <if type="broadcast graphic map motion_picture song" match="none">
-                <!-- For audiovisual media, number information comes after title, not container-title -->
-                <text macro="number"/>
-              </if>
-            </choose>
-            <text macro="locators-booklike"/>
-          </group>
-        </group>
+        <text macro="parenthetical-container-group" />
       </if>
     </choose>
   </macro>
