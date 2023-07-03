@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style 
+  xmlns="http://purl.org/net/xbiblio/csl" 
+  class="in-text" version="1.0" 
+  demote-non-dropping-particle="never" 
+  page-range-format="expanded"
+  default-locale-sort="zh-Hant">
+
+<%- info %>
+
+<% for(var i=0; i<locale.length; i++) { %>
+<%- locale[i] %>
+<% } %>
+
+<% for(var i=0; i<macro.length; i++) { %>
+<%- macro[i] %>
+<% } %>
+
+<%- citation %>
+<%- bibliography %>
+
+</style>

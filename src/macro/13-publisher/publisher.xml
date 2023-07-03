@@ -1,0 +1,48 @@
+<macro name="publisher">
+    <group delimiter="; ">
+      <choose>
+        <if type="thesis">
+          <choose>
+            <if variable="archive DOI URL" match="none">
+              <text variable="publisher"/>
+            </if>
+          </choose>
+        </if>
+        <else-if type="post webpage" match="any">
+          <!-- For websites, treat container title like publisher -->
+          <group delimiter="; ">
+            <text variable="container-title" text-case="title"/>
+            <text variable="publisher"/>
+          </group>
+        </else-if>
+        <else-if type="paper-conference">
+          <!-- For paper-conference, don't print publisher if in a journal-like proceedings -->
+          <choose>
+            <if variable="collection-editor editor editorial-director" match="any">
+              <text variable="publisher"/>
+            </if>
+          </choose>
+        </else-if>
+        <else-if type="article-journal article-magazine article-newspaper post-weblog" match="none">
+          <text variable="publisher"/>
+        </else-if>
+      </choose>
+      <group delimiter=", ">
+        <choose>
+          <if variable="archive-place">
+            <!-- With `archive-place`: physical archives. Without: online archives. -->
+            <!-- For physical archives, print the location before the archive name.
+                For electronic archives, these are printed in macro="description". -->
+            <!-- Split "archive_location" into "archive_collection" and "archive_location" as that becomes available -->
+            <!-- Must test for archive_collection:
+                With collection: archive_collection (archive_location), archive, archive-place
+                No collection: archive (archive_location), archive-place
+            -->
+            <text variable="archive_location"/>
+          </if>
+        </choose>
+        <text variable="archive"/>
+        <text variable="archive-place"/>
+      </group>
+    </group>
+  </macro>

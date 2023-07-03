@@ -1,0 +1,51 @@
+<macro name="date-bib">
+    <group delimiter=" " prefix="(" suffix=")">
+      <choose>
+        <if is-uncertain-date="issued">
+          <text term="circa" form="short"/>
+        </if>
+      </choose>
+      <group>
+        <choose>
+          <if variable="issued">
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+            <text variable="year-suffix"/>
+            <choose>
+              <if type="article-magazine article-newspaper broadcast interview motion_picture pamphlet personal_communication post post-weblog song speech webpage" match="any">
+                <!-- Many video and audio examples in manual give full dates. Err on the side of too much information. -->
+                <date variable="issued">
+                  <date-part prefix=", " name="month"/>
+                  <date-part prefix=" " name="day"/>
+                </date>
+              </if>
+              <else-if type="paper-conference">
+                <!-- Capture 'speech' stored as 'paper-conference' -->
+                <choose>
+                  <if variable="collection-editor editor editorial-director issue page volume" match="none">
+                    <date variable="issued">
+                      <date-part prefix=", " name="month"/>
+                      <date-part prefix=" " name="day"/>
+                    </date>
+                  </if>
+                </choose>
+              </else-if>
+              <!-- Only year: article article-journal book chapter entry entry-dictionary entry-encyclopedia dataset figure graphic
+                   manuscript map musical_score paper-conference[published] patent report review review-book thesis -->
+            </choose>
+          </if>
+          <else-if variable="status">
+            <group>
+              <text variable="status" text-case="lowercase"/>
+              <text variable="year-suffix" prefix="-"/>
+            </group>
+          </else-if>
+          <else>
+            <text term="no date" form="short"/>
+            <text variable="year-suffix" prefix="-"/>
+          </else>
+        </choose>
+      </group>
+    </group>
+  </macro>

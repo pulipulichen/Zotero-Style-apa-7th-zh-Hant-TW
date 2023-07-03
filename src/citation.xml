@@ -1,0 +1,24 @@
+<citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name-with-initials">
+    <sort>
+      <key macro="sort-chinese-english" sort="ascending"/>
+      <key macro="author-bib" names-min="3" names-use-first="1"/>
+      <key macro="date-sort-group"/>
+      <key macro="date-bib" sort="ascending"/>
+      <key variable="status"/>
+      <key macro="sort-title"/>
+    </sort>
+    <layout locale="zh jp" prefix="" suffix="）" delimiter="；">
+      <group delimiter="，">
+        <text macro="author-intext"/>
+        <text macro="date-intext"/>
+        <text macro="citation-locator"/>
+      </group>
+    </layout>
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", ">
+        <text macro="author-intext"/>
+        <text macro="date-intext"/>
+        <text macro="citation-locator"/>
+      </group>
+    </layout>
+  </citation>

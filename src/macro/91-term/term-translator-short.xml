@@ -1,0 +1,10 @@
+ <macro name="term-translator-short">
+    <choose>
+      <if locale="zh jp 中文 繁體中文 簡體中文" match="any">
+        <text value="譯" />
+      </if>
+      <else>
+        <label form="short" prefix=", " text-case="title"/>
+      </else>
+    </choose>
+  </macro>

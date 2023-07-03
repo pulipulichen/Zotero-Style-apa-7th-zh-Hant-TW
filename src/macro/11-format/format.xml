@@ -1,0 +1,36 @@
+<macro name="format">
+    <choose>
+      <if variable="genre medium" match="any">
+        <group delimiter="; ">
+          <choose>
+            <if variable="number" match="none">
+              <text variable="genre" text-case="capitalize-first"/>
+            </if>
+          </choose>
+          <text variable="medium" text-case="capitalize-first"/>
+        </group>
+      </if>
+      <!-- Generic labels for specific types -->
+      <!-- These should be localized when possible -->
+      <else-if type="dataset">
+        <text value="Data set"/>
+      </else-if>
+      <else-if type="book" variable="version" match="all">
+        <!-- Replace with type="software" and term="software" as that becomes available -->
+        <text value="Computer software"/>
+      </else-if>
+      <else-if type="interview personal_communication" match="any">
+        <choose>
+          <if variable="archive container-title DOI publisher URL" match="none">
+            <text term="letter" text-case="capitalize-first"/>
+          </if>
+          <else-if type="interview">
+            <text term="interview" text-case="capitalize-first"/>
+          </else-if>
+        </choose>
+      </else-if>
+      <else-if type="map">
+        <text value="Map"/>
+      </else-if>
+    </choose>
+  </macro>

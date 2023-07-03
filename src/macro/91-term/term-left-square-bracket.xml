@@ -1,0 +1,10 @@
+<macro name="term-left-square-bracket">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text value="〔" />
+      </if>
+      <else>
+        <text value=" [" />
+      </else>
+    </choose>
+  </macro>

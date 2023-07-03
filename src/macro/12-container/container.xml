@@ -1,0 +1,23 @@
+<macro name="container">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
+        <!-- Periodical items -->
+        <text macro="container-periodical"/>
+      </if>
+      <else-if type="paper-conference">
+        <!-- Determine if paper-conference is a periodical or booklike -->
+        <choose>
+          <if variable="editor editorial-director collection-editor container-author" match="any">
+            <text macro="container-booklike"/>
+          </if>
+          <else>
+            <text macro="container-periodical"/>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="post webpage" match="none">
+        <!-- post and webpage treat container-title like publisher -->
+        <text macro="container-booklike"/>
+      </else-if>
+    </choose>
+  </macro>

@@ -1,0 +1,7 @@
+<locale xml:lang="zh-CN">
+    <terms>
+      <term name="letter">的私人交流</term>
+      <term name="letter" form="short">信函</term>
+      <term name="translator" form="short">譯</term>
+    </terms>
+  </locale>

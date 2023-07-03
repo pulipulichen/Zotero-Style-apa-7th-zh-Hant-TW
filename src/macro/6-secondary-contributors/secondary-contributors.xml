@@ -1,0 +1,20 @@
+<macro name="secondary-contributors">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
+        <text macro="secondary-contributors-periodical"/>
+      </if>
+      <else-if type="paper-conference">
+        <choose>
+          <if variable="collection-editor editor editorial-director" match="any">
+            <text macro="secondary-contributors-booklike"/>
+          </if>
+          <else>
+            <text macro="secondary-contributors-periodical"/>
+          </else>
+        </choose>
+      </else-if>
+      <else>
+        <text macro="secondary-contributors-booklike"/>
+      </else>
+    </choose>
+  </macro>

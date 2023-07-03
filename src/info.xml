@@ -1,0 +1,17 @@
+<info>
+  <title>American Psychological Association 7th edition (zh-Hant-TW)</title>
+  <title-short>APA7TW</title-short>
+  <id>http://www.zotero.org/styles/apa-7th-zh_Hant-TW</id>
+  <link href="http://www.zotero.org/styles/apa-7th-zh-Hant-TW" rel="self"/>
+  <link href="http://www.zotero.org/styles/apa" rel="template"/>
+  <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
+  <author>
+    <name>Pulipuli Chen</name>
+    <email>blog@pulipuli.info</email>
+  </author>
+  <category citation-format="author-date"/>
+  <category field="psychology"/>
+  <category field="generic-base"/>
+  <updated>2023-07-01T16:14:52+00:00</updated>
+  <rights license="https://creativecommons.org/publicdomain/zero/1.0/">This work is licensed under a Creative Commons Zero 1.0 Universal License</rights>
+</info>

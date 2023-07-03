@@ -1,0 +1,5 @@
+  <macro name="variable-authors-count">
+    <names variable="author">
+      <name form="count" />
+    </names>
+  </macro>

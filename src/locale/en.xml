@@ -1,0 +1,27 @@
+<locale xml:lang="en">
+    <style-options leading-noise-words="a,an,the"/>
+    <terms>
+      <term name="editortranslator" form="short">
+        <single>ed. &amp; trans.</single>
+        <multiple>eds. &amp; trans.</multiple>
+      </term>
+      <term name="translator" form="short">trans.</term>
+      <term name="interviewer" form="short">
+        <single>interviewer</single>
+        <multiple>interviewers</multiple>
+      </term>
+      <term name="collection-editor" form="short">
+        <single>ed.</single>
+        <multiple>eds.</multiple>
+      </term>
+      <term name="circa" form="short">ca.</term>
+      <term name="bc"> B.C.E.</term>
+      <term name="ad"> C.E.</term>
+      <term name="letter">personal communication</term>
+      <term name="letter" form="short">letter</term>
+      <term name="issue" form="long">
+        <single>issue</single>
+        <multiple>issues</multiple>
+      </term>
+    </terms>
+  </locale>

@@ -1,0 +1,17 @@
+<macro name="event">
+    <choose>
+      <if variable="event event-title" match="any">
+        <!-- To prevent Zotero from printing event-place due to its double-mapping of all 'place' to
+             both publisher-place and event-place. Remove this 'choose' when that is changed. -->
+        <choose>
+          <if variable="collection-editor editor editorial-director issue page volume" match="none">
+            <!-- Don't print event info if published in a proceedings -->
+            <group delimiter=", ">
+              <text macro="event-title"/>
+              <text variable="event-place"/>
+            </group>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </macro>

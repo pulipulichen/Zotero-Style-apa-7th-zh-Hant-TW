@@ -1,0 +1,9 @@
+<macro name="database-location">
+    <choose>
+      <if variable="archive-place" match="none">
+        <!-- With `archive-place`: physical archives. Without: online archives. -->
+        <!-- Add archive_collection as that becomes available -->
+        <text variable="archive_location"/>
+      </if>
+    </choose>
+  </macro>

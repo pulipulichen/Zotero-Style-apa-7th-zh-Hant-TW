@@ -1,0 +1,23 @@
+<macro name="locators-booklike">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper broadcast interview patent post post-weblog review review-book speech webpage" match="any"/>
+      <else-if type="paper-conference">
+        <choose>
+          <if variable="collection-editor editor editorial-director" match="any">
+            <group delimiter=", ">
+              <text macro="version"/>
+              <text macro="edition"/>
+              <text macro="volume-booklike"/>
+            </group>
+          </if>
+        </choose>
+      </else-if>
+      <else>
+        <group delimiter=", ">
+          <text macro="version"/>
+          <text macro="edition"/>
+          <text macro="volume-booklike"/>
+        </group>
+      </else>
+    </choose>
+  </macro>

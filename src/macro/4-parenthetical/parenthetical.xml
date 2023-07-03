@@ -1,0 +1,55 @@
+<macro name="parenthetical">
+    <!-- (Secondary contributors; Database location; Genre no. 123; Report Series 123, Version, Edition, Volume, Page) -->
+    <group prefix="(" suffix=")">
+      <choose>
+        <if type="patent">
+          <!-- authority: U.S. ; genre: patent ; number: 123,445 -->
+          <group delimiter=" ">
+            <text variable="authority" form="short"/>
+            <choose>
+              <if variable="genre">
+                <text variable="genre" text-case="capitalize-first"/>
+              </if>
+              <else>
+                <!-- This should be localized -->
+                <text value="patent" text-case="capitalize-first"/>
+              </else>
+            </choose>
+            <group delimiter=" ">
+              <!-- Replace with label variable="number" if that becomes available -->
+              <text term="issue" form="short" text-case="capitalize-first"/>
+              <text variable="number"/>
+            </group>
+          </group>
+        </if>
+        <else-if type="post webpage" match="any">
+          <!-- For post webpage, container-title is treated as publisher -->
+          <group delimiter="; ">
+            <text macro="secondary-contributors"/>
+            <text macro="database-location"/>
+            <text macro="number"/>
+            <text macro="locators-booklike"/>
+          </group>
+        </else-if>
+        <else-if variable="container-title">
+          <group delimiter="; ">
+            <text macro="secondary-contributors"/>
+            <choose>
+              <if type="broadcast graphic map motion_picture song" match="any">
+                <!-- For audiovisual media, number information comes after title, not container-title -->
+                <text macro="number"/>
+              </if>
+            </choose>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter="; ">
+            <text macro="secondary-contributors"/>
+            <text macro="database-location"/>
+            <text macro="number"/>
+            <text macro="locators-booklike"/>
+          </group>
+        </else>
+      </choose>
+    </group>
+  </macro>

@@ -1,0 +1,35 @@
+<macro name="container-booklike">
+    <choose>
+      <if variable="container-title" match="any">
+        <group delimiter=" ">
+          <text term="in" text-case="capitalize-first"/>
+          <group delimiter=", ">
+            <names variable="editor translator" delimiter=", &amp; ">
+              <!-- Change to editortranslator and move editor to substitute as that becomes available -->
+              <name and="symbol" initialize-with=". " delimiter=", "/>
+              <label form="short" text-case="title" prefix=" (" suffix=")"/>
+              <substitute>
+                <names variable="editorial-director"/>
+                <names variable="collection-editor"/>
+                <names variable="container-author"/>
+              </substitute>
+            </names>
+            <group delimiter=": " font-style="italic">
+              <text variable="container-title"/>
+              <!-- Replace with volume-title as that becomes available -->
+              <choose>
+                <if is-numeric="volume" match="none">
+                  <group delimiter=" ">
+                    <label variable="volume" form="short" text-case="capitalize-first"/>
+                    <text variable="volume"/>
+                  </group>
+                </if>
+              </choose>
+            </group>
+          </group>
+          <text macro="parenthetical-container"/>
+          <text macro="bracketed-container"/>
+        </group>
+      </if>
+    </choose>
+  </macro>

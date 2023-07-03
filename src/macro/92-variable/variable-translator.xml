@@ -1,0 +1,21 @@
+<macro name="variable-translator">
+    <choose>
+      <if locale="zh jp 中文 繁體中文 簡體中文" match="any">
+        <names variable="translator" delimiter="；"
+          name-as-sort-order="all">
+          <name initialize-with=". " delimiter="、" 
+            et-al-use-last="false" 
+            name-as-sort-order="all"
+            form="long"
+            delimiter-precedes-last="always" />
+        </names>
+        <text macro="term-translator-short" />
+      </if>
+      <else>
+        <names variable="translator" delimiter="; ">
+          <name and="symbol" initialize-with=". " delimiter=", "/>
+          <label form="short" prefix=", " text-case="title"/>
+        </names>
+      </else>
+    </choose>
+  </macro>

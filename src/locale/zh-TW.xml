@@ -1,0 +1,7 @@
+<locale xml:lang="zh-TW">
+    <terms>
+      <term name="letter">私人通訊</term>
+      <term name="letter" form="short">信函</term>
+      <term name="translator" form="short">譯</term>
+    </terms>
+  </locale>

@@ -1,0 +1,3 @@
+  <macro name="sort-title">
+    <text variable="title" leading-noise-words="drop" />
+  </macro>

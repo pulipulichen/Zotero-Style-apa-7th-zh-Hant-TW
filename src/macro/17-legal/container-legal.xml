@@ -1,0 +1,115 @@
+<macro name="container-legal">
+    <!-- Expect legal item container-titles to be stored in short form -->
+    <choose>
+      <if type="legal_case">
+        <group delimiter=" ">
+          <choose>
+            <if variable="container-title">
+              <group delimiter=" ">
+                <text variable="volume"/>
+                <text variable="container-title"/>
+                <group delimiter=" ">
+                  <!-- Change to label variable="section" as that becomes available -->
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+                <choose>
+                  <if variable="page page-first" match="any">
+                    <text variable="page-first"/>
+                  </if>
+                  <else>
+                    <text value="___"/>
+                  </else>
+                </choose>
+              </group>
+            </if>
+            <else>
+              <group delimiter=" ">
+                <choose>
+                  <if is-numeric="number">
+                    <!-- Replace with label variable="number" if that becomes available -->
+                    <text term="issue" form="short" text-case="capitalize-first"/>
+                  </if>
+                </choose>
+                <text variable="number"/>
+              </group>
+            </else>
+          </choose>
+        </group>
+      </if>
+      <else-if type="bill">
+        <group delimiter=", ">
+          <group delimiter=" ">
+            <text variable="genre"/>
+            <group delimiter=" ">
+              <choose>
+                <if variable="chapter-number container-title" match="none">
+                  <!-- Replace with label variable="number" as that becomes available -->
+                  <text term="issue" form="short"/>
+                </if>
+              </choose>
+              <text variable="number"/>
+            </group>
+          </group>
+          <text variable="authority"/>
+          <text variable="chapter-number"/>
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page-first"/>
+          </group>
+        </group>
+      </else-if>
+      <else-if type="legislation">
+        <choose>
+          <if variable="number">
+            <!--There's a public law number-->
+            <group delimiter=", ">
+              <text variable="number" prefix="Pub. L. No. "/>
+              <group delimiter=" ">
+                <text variable="volume"/>
+                <text variable="container-title"/>
+                <text variable="page-first"/>
+              </group>
+            </group>
+          </if>
+          <else>
+            <group delimiter=" ">
+              <text variable="volume"/>
+              <text variable="container-title"/>
+              <choose>
+                <if variable="section">
+                  <group delimiter=" ">
+                    <!-- Change to label variable="section" as that becomes available -->
+                    <text term="section" form="symbol"/>
+                    <text variable="section"/>
+                  </group>
+                </if>
+                <else>
+                  <text variable="page-first"/>
+                </else>
+              </choose>
+            </group>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="treaty">
+        <group delimiter=" ">
+          <number variable="volume"/>
+          <text variable="container-title"/>
+          <choose>
+            <if variable="page page-first" match="any">
+              <text variable="page-first"/>
+            </if>
+            <else>
+              <group delimiter=" ">
+                <!-- Replace with label variable="number" if that becomes available -->
+                <text term="issue" form="short" text-case="capitalize-first"/>
+                <text variable="number"/>
+              </group>
+            </else>
+          </choose>
+        </group>
+      </else-if>
+    </choose>
+  </macro>

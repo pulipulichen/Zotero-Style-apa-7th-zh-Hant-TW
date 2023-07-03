@@ -1,0 +1,13 @@
+<macro name="title-original-title">
+    <choose>
+      <if variable="original-title">
+        <text variable="original-title" />
+        <text macro="term-left-square-bracket" />
+        <text variable="title" />
+        <text macro="term-right-square-bracket" />
+      </if>
+      <else>
+        <text variable="title" />
+      </else>
+    </choose>
+  </macro>
