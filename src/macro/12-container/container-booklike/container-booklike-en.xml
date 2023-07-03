@@ -1,0 +1,12 @@
+  <macro name="container-booklike-en">
+    <choose>
+      <if variable="container-title" match="any">
+        <group delimiter=" ">
+          <text term="in" text-case="capitalize-first"/>
+          <text macro="container-booklike-group"/>
+          <text macro="parenthetical-container"/>
+          <text macro="bracketed-container"/>
+        </group>
+      </if>
+    </choose>
+  </macro>

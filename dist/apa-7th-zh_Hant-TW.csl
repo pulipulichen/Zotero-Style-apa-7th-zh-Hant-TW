@@ -816,6 +816,43 @@
     </choose>
   </macro>
 
+  <macro name="container-booklike-en">
+    <choose>
+      <if variable="container-title" match="any">
+        <group delimiter=" ">
+          <text term="in" text-case="capitalize-first"/>
+          <text macro="container-booklike-group"/>
+          <text macro="parenthetical-container"/>
+          <text macro="bracketed-container"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="container-booklike-zh">
+    <choose>
+      <if variable="container-title" match="any">
+        <group delimiter="">
+          <text term="in" text-case="capitalize-first"/>
+          <text macro="container-booklike-group"/>
+          <text macro="parenthetical-container"/>
+          <text macro="bracketed-container"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="container-booklike">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-booklike-zh" />
+      </if>
+      <else>
+        <text macro="container-booklike-en" />
+      </else>
+    </choose>
+  </macro>
+
   <macro name="container-booklike-group-en">
     <group delimiter=", ">
       <names variable="editor translator" delimiter=", &amp; ">
@@ -881,16 +918,28 @@
     </choose>
   </macro>
 
-  <macro name="container-booklike">
+  <macro name="container-periodical-en">
+    <group delimiter=". ">
+      <text macro="container-periodical-group-group" />
+      <text macro="container-periodical-group-choose" />
+    </group>
+  </macro>
+
+  <macro name="container-periodical-zh">
+    <group delimiter="。">
+      <text macro="container-periodical-group-group" />
+      <text macro="container-periodical-group-choose" />
+    </group>
+  </macro>
+
+  <macro name="container-periodical">
     <choose>
-      <if variable="container-title" match="any">
-        <group delimiter=" ">
-          <text term="in" text-case="capitalize-first"/>
-          <text macro="container-booklike-group"/>
-          <text macro="parenthetical-container"/>
-          <text macro="bracketed-container"/>
-        </group>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-periodical-zh" />
       </if>
+      <else>
+        <text macro="container-periodical-en" />
+      </else>
     </choose>
   </macro>
 
@@ -967,13 +1016,6 @@
         <text macro="container-periodical-group-group-en" />
       </else>
     </choose>
-  </macro>
-
-<macro name="container-periodical">
-    <group delimiter=". ">
-      <text macro="container-periodical-group-group" />
-      <text macro="container-periodical-group-choose" />
-    </group>
   </macro>
 
 <macro name="container">

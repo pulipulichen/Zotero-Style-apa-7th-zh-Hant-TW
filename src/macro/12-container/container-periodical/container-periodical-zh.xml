@@ -1,0 +1,6 @@
+  <macro name="container-periodical-zh">
+    <group delimiter="。">
+      <text macro="container-periodical-group-group" />
+      <text macro="container-periodical-group-choose" />
+    </group>
+  </macro>

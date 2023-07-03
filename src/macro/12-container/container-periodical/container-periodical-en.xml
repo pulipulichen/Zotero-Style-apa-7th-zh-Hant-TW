@@ -1,4 +1,4 @@
-<macro name="container-periodical">
+  <macro name="container-periodical-en">
     <group delimiter=". ">
       <text macro="container-periodical-group-group" />
       <text macro="container-periodical-group-choose" />

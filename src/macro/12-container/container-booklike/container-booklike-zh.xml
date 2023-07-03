@@ -1,7 +1,7 @@
-  <macro name="container-booklike">
+  <macro name="container-booklike-zh">
     <choose>
       <if variable="container-title" match="any">
-        <group delimiter=" ">
+        <group delimiter="">
           <text term="in" text-case="capitalize-first"/>
           <text macro="container-booklike-group"/>
           <text macro="parenthetical-container"/>

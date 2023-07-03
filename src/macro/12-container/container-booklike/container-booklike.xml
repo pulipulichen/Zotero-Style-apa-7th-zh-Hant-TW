@@ -1,0 +1,10 @@
+  <macro name="container-booklike">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-booklike-zh" />
+      </if>
+      <else>
+        <text macro="container-booklike-en" />
+      </else>
+    </choose>
+  </macro>
