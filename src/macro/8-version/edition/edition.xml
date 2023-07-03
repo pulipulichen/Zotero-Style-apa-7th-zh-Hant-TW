@@ -1,0 +1,10 @@
+  <macro name="edition">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="edition-zh" />
+      </if>
+      <else>
+        <text macro="edition-en" />
+      </else>
+    </choose>
+  </macro>

@@ -1,0 +1,10 @@
+  <macro name="version">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="version-zh" />
+      </if>
+      <else>
+        <text macro="version-en" />
+      </else>
+    </choose>
+  </macro>

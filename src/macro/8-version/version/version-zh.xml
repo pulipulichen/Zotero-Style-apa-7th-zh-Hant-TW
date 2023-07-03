@@ -1,7 +1,7 @@
-<macro name="version">
+  <macro name="version-zh">
     <choose>
       <if is-numeric="version">
-        <group delimiter=" ">
+        <group delimiter="">
           <!-- replace with label variable="version" if that becomes available -->
           <text term="version" text-case="capitalize-first"/>
           <text variable="version"/>

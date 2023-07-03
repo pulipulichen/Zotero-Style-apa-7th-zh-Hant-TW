@@ -3201,7 +3201,7 @@
     </choose>
   </macro>
 
-<macro name="edition">
+  <macro name="edition-en">
     <choose>
       <if is-numeric="edition">
         <group delimiter=" ">
@@ -3215,7 +3215,32 @@
     </choose>
   </macro>
 
-<macro name="version">
+  <macro name="edition-zh">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter="">
+          <number variable="edition" form="ordinal"/>
+          <label variable="edition" form="short"/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="edition">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="edition-zh" />
+      </if>
+      <else>
+        <text macro="edition-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="version-en">
     <choose>
       <if is-numeric="version">
         <group delimiter=" ">
@@ -3226,6 +3251,32 @@
       </if>
       <else>
         <text variable="version"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="version-zh">
+    <choose>
+      <if is-numeric="version">
+        <group delimiter="">
+          <!-- replace with label variable="version" if that becomes available -->
+          <text term="version" text-case="capitalize-first"/>
+          <text variable="version"/>
+        </group>
+      </if>
+      <else>
+        <text variable="version"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="version">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="version-zh" />
+      </if>
+      <else>
+        <text macro="version-en" />
       </else>
     </choose>
   </macro>

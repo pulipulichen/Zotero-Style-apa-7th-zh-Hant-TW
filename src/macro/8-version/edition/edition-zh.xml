@@ -1,7 +1,7 @@
-<macro name="edition">
+  <macro name="edition-zh">
     <choose>
       <if is-numeric="edition">
-        <group delimiter=" ">
+        <group delimiter="">
           <number variable="edition" form="ordinal"/>
           <label variable="edition" form="short"/>
         </group>

@@ -1,0 +1,14 @@
+  <macro name="version-en">
+    <choose>
+      <if is-numeric="version">
+        <group delimiter=" ">
+          <!-- replace with label variable="version" if that becomes available -->
+          <text term="version" text-case="capitalize-first"/>
+          <text variable="version"/>
+        </group>
+      </if>
+      <else>
+        <text variable="version"/>
+      </else>
+    </choose>
+  </macro>
