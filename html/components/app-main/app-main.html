@@ -23,12 +23,33 @@
         readonly></textarea>
     </div>
 
-    <div class="field">
-      <button type="submit" class="ui fluid button"
-        :class="{disabled: saveDisabled}">
-        Save
-      </button>
+
+    <div class="fields">
+      
+      <div class="six wide field">
+        <button type="button" class="ui fluid button"
+          :class="{disabled: saveDisabled}"
+          @click.prevent.stop="copyTextMacro">
+          Copy text macro
+        </button>
+      </div>
+      
+      <div class="five wide field">
+        <button type="submit" class="ui fluid button"
+          :class="{disabled: saveDisabled}">
+          Save
+        </button>
+      </div>
+
+      <div class="five wide field">
+        <button type="button" class="ui fluid button"
+          :class="{disabled: saveDisabled}"
+          @click.prevent.stop="saveEnTemplate">
+          Save en template
+        </button>
+      </div>
     </div>
+      
 
     <div class="field">
       <button type="button" class="ui fluid button"
@@ -38,12 +59,6 @@
       </button>
     </div>
 
-    <div class="field">
-      <button type="button" class="ui fluid button"
-        :class="{disabled: saveDisabled}"
-        @click.prevent.stop="saveEnTemplate">
-        Save en template
-      </button>
-    </div>
+      
   </form>
 </div>

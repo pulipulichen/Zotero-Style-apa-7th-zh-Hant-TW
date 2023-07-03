@@ -1,0 +1,19 @@
+  <macro name="publisher-group-group-en">
+    <group delimiter=", ">
+      <choose>
+        <if variable="archive-place">
+          <!-- With `archive-place`: physical archives. Without: online archives. -->
+          <!-- For physical archives, print the location before the archive name.
+              For electronic archives, these are printed in macro="description". -->
+          <!-- Split "archive_location" into "archive_collection" and "archive_location" as that becomes available -->
+          <!-- Must test for archive_collection:
+              With collection: archive_collection (archive_location), archive, archive-place
+              No collection: archive (archive_location), archive-place
+          -->
+          <text variable="archive_location"/>
+        </if>
+      </choose>
+      <text variable="archive"/>
+      <text variable="archive-place"/>
+    </group>
+  </macro>

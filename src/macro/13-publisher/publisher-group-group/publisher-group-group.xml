@@ -1,0 +1,10 @@
+  <macro name="publisher-group-group">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="publisher-group-group-zh" />
+      </if>
+      <else>
+        <text macro="publisher-group-group-en" />
+      </else>
+    </choose>
+  </macro>

@@ -1,0 +1,6 @@
+  <macro name="publisher-zh">
+    <group delimiter="；">
+      <text macro="publisher-group-choose" />
+      <text macro="publisher-group-group" />
+    </group>
+  </macro>

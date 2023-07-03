@@ -1,0 +1,25 @@
+  <macro name="publisher-group-choose">
+    <choose>
+      <if type="thesis">
+        <choose>
+          <if variable="archive DOI URL" match="none">
+            <text variable="publisher"/>
+          </if>
+        </choose>
+      </if>
+      <else-if type="post webpage" match="any">
+        <text macro="publisher-group-choose-if-post" />
+      </else-if>
+      <else-if type="paper-conference">
+        <!-- For paper-conference, don't print publisher if in a journal-like proceedings -->
+        <choose>
+          <if variable="collection-editor editor editorial-director" match="any">
+            <text variable="publisher"/>
+          </if>
+        </choose>
+      </else-if>
+      <else-if type="article-journal article-magazine article-newspaper post-weblog" match="none">
+        <text variable="publisher"/>
+      </else-if>
+    </choose>
+  </macro>

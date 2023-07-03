@@ -48,6 +48,14 @@ module.exports = {
     
   </macro>`
     },
+    textMacro () {
+      if (this.saveDisabled) {
+        return ''
+      }
+
+      let f = this.filenameTrim
+      return `<text macro="${f}" />`
+    }
   },
   methods: {
     save () {
@@ -65,6 +73,9 @@ module.exports = {
     },
     copyFilecontent () {
       this.copyToClipboard(this.filecontent)
+    },
+    copyTextMacro () {
+      this.copyToClipboard(this.textMacro)
     },
     copyToClipboard(text) {
       navigator.clipboard.writeText(text)

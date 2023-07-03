@@ -1,0 +1,7 @@
+  <macro name="publisher-group-choose-if-post-zh">
+    <!-- For websites, treat container title like publisher -->
+    <group delimiter="；">
+      <text variable="container-title" text-case="title"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
