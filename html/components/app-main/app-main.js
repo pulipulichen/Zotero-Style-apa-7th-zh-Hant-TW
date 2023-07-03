@@ -34,7 +34,18 @@ module.exports = {
       }
 
       let f = this.filenameTrim
+      return `  <macro name="${f}">
+    
+  </macro>`
+    },
+    filecontentEnTemplate () {
+      if (this.saveDisabled) {
+        return ''
+      }
+
+      let f = this.filenameTrim
       return `  <macro name="${f}-en">
+    
   </macro>`
     },
   },
@@ -42,8 +53,11 @@ module.exports = {
     save () {
       this.saveFile(this.filenameTrim + '.xml', this.filecontent)
     },
+    saveTemplate () {
+      this.saveFile(this.filenameTrim + '.xml', this.filecontentTemplate)
+    },
     saveEnTemplate () {
-      this.saveFile(this.filenameTrim + '-en.xml', this.filecontentTemplate)
+      this.saveFile(this.filenameTrim + '-en.xml', this.filecontentEnTemplate)
     },
     saveFile(filename, content) {
       const file = new File([content], filename, { type: "text/plain;charset=utf-8" });

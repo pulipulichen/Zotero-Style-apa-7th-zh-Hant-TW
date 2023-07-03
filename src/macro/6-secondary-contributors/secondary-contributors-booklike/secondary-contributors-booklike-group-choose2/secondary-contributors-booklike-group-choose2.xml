@@ -1,0 +1,10 @@
+  <macro name="secondary-contributors-booklike-group-choose2">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="secondary-contributors-booklike-group-choose2-zh" />
+      </if>
+      <else>
+        <text macro="secondary-contributors-booklike-group-choose2-en" />
+      </else>
+    </choose>
+  </macro>

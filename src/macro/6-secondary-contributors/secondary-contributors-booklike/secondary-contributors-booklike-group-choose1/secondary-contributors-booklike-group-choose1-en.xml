@@ -1,0 +1,10 @@
+  <macro name="secondary-contributors-booklike-group-choose1-en">
+    <choose>
+      <if variable="title">
+        <names variable="interviewer">
+          <name and="symbol" initialize-with=". " delimiter=", "/>
+          <label form="short" prefix=", " text-case="title"/>
+        </names>
+      </if>
+    </choose>
+  </macro>

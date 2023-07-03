@@ -1,0 +1,35 @@
+  <macro name="secondary-contributors-booklike-group-choose2-en">
+    <!-- When editortranslator becomes available, add a test: variable="editortranslator" match="none"; then print translator -->
+      <choose>
+        <if type="post webpage" match="none">
+          <!-- Webpages treat container-title like publisher -->
+          <choose>
+            <if variable="container-title" match="none">
+              <group delimiter="; ">
+                <names variable="container-author">
+                  <label form="verb-short" suffix=" " text-case="title"/>
+                  <name and="symbol" initialize-with=". " delimiter=", "/>
+                </names>
+
+                <names variable="editor translator" delimiter="; ">
+                  <name and="symbol" initialize-with=". " delimiter=", "/>
+                  <label form="short" prefix=", " text-case="title"/>
+                </names>
+              </group>
+            </if>
+          </choose>
+        </if>
+        <else>
+          <group delimiter="; ">
+            <names variable="container-author">
+              <label form="verb-short" suffix=" " text-case="title"/>
+              <name and="symbol" initialize-with=". " delimiter=", "/>
+            </names>
+            <names variable="editor translator" delimiter="; ">
+              <name and="symbol" initialize-with=". " delimiter=", "/>
+              <label form="short" prefix=", " text-case="title"/>
+            </names>
+          </group>
+        </else>
+    </choose>
+  </macro>

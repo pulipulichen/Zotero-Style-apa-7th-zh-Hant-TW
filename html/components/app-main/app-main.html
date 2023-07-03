@@ -33,6 +33,14 @@
     <div class="field">
       <button type="button" class="ui fluid button"
         :class="{disabled: saveDisabled}"
+        @click.prevent.stop="saveTemplate">
+        Save template
+      </button>
+    </div>
+
+    <div class="field">
+      <button type="button" class="ui fluid button"
+        :class="{disabled: saveDisabled}"
         @click.prevent.stop="saveEnTemplate">
         Save en template
       </button>

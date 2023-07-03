@@ -1,45 +1,16 @@
-<macro name="secondary-contributors-booklike">
-    <group delimiter="; ">
-      <choose>
-        <if variable="title">
-          <names variable="interviewer">
-            <name and="symbol" initialize-with=". " delimiter=", "/>
-            <label form="short" prefix=", " text-case="title"/>
-          </names>
-        </if>
-      </choose>
-      <!-- When editortranslator becomes available, add a test: variable="editortranslator" match="none"; then print translator -->
-      <choose>
-        <if type="post webpage" match="none">
-          <!-- Webpages treat container-title like publisher -->
-          <choose>
-            <if variable="container-title" match="none">
-              <group delimiter="; ">
-                <names variable="container-author">
-                  <label form="verb-short" suffix=" " text-case="title"/>
-                  <name and="symbol" initialize-with=". " delimiter=", "/>
-                </names>
-
-                <names variable="editor translator" delimiter="; ">
-                  <name and="symbol" initialize-with=". " delimiter=", "/>
-                  <label form="short" prefix=", " text-case="title"/>
-                </names>
-              </group>
-            </if>
-          </choose>
-        </if>
-        <else>
-          <group delimiter="; ">
-            <names variable="container-author">
-              <label form="verb-short" suffix=" " text-case="title"/>
-              <name and="symbol" initialize-with=". " delimiter=", "/>
-            </names>
-            <names variable="editor translator" delimiter="; ">
-              <name and="symbol" initialize-with=". " delimiter=", "/>
-              <label form="short" prefix=", " text-case="title"/>
-            </names>
-          </group>
-        </else>
-      </choose>
-    </group>
+  <macro name="secondary-contributors-booklike">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <group delimiter="；">
+          <text macro="secondary-contributors-booklike-group-choose1" />
+          <text macro="secondary-contributors-booklike-group-choose2" />
+        </group>
+      </if>
+      <else>
+        <group delimiter="; ">
+          <text macro="secondary-contributors-booklike-group-choose1" />
+          <text macro="secondary-contributors-booklike-group-choose2" />
+        </group>
+      </else>
+    </choose>
   </macro>
