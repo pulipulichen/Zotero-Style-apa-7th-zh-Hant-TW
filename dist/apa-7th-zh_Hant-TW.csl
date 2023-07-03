@@ -2881,7 +2881,7 @@
       <if variable="title">
         <group delimiter=" ">
           <text macro="title"/>
-          <text variable="status" prefix="[" suffix="]" />
+          <text variable="medium" prefix="[" suffix="]" />
           <text macro="parenthetical"/>
           <text macro="bracketed"/>
         </group>
@@ -2902,7 +2902,7 @@
       <if variable="title">
         <group delimiter="">
           <text macro="title"/>
-          <text variable="status" prefix="〔" suffix="〕" />
+          <text variable="medium" prefix="〔" suffix="〕" />
           <text macro="parenthetical"/>
           <text macro="bracketed"/>
         </group>
@@ -3980,7 +3980,7 @@
                   <name and="symbol" initialize-with=". " delimiter=", "/>
                 </names>
 
-                <names variable="editor translator" delimiter="; ">
+                <names variable="editor translator illustrator" delimiter="; ">
                   <name and="symbol" initialize-with=". " delimiter=", "/>
                   <label form="short" prefix=", " text-case="title"/>
                 </names>
@@ -3998,9 +3998,12 @@
               <label form="verb-short" suffix=" " text-case="title"/>
               <name and="symbol" initialize-with=". " delimiter=", "/>
             </names>
-            <names variable="editor translator" delimiter="; ">
+            <names variable="editor translator illustrator" delimiter="; ">
               <name and="symbol" initialize-with=". " delimiter=", "/>
               <label form="short" prefix=", " text-case="title"/>
+            </names>
+            <names variable="contributor" delimiter="; " form="long">
+              <name initialize-with=". " delimiter=", "/>
             </names>
           </group>
         </else>
@@ -4020,9 +4023,9 @@
                   <name initialize-with=". " delimiter="、"/>
                 </names>
 
-                <names variable="editor translator" delimiter="；" form="long">
+                <names variable="editor translator illustrator" delimiter="；" form="long">
                   <name initialize-with=". " delimiter="、"/>
-                  <label form="short" text-case="title"/>
+                  <label form="verb-short" text-case="title"/>
                 </names>
 
                 <names variable="contributor" delimiter="；" form="long">
@@ -4038,9 +4041,9 @@
               <label form="verb-short" suffix=" " text-case="title"/>
               <name initialize-with=". " delimiter="、"/>
             </names>
-            <names variable="editor translator" delimiter="；" form="long">
+            <names variable="editor translator illustrator" delimiter="；" form="long">
               <name initialize-with=". " delimiter="、"/>
-              <label form="short" text-case="title"/>
+              <label form="vert-short" text-case="title"/>
             </names>
             <names variable="contributor" delimiter="；" form="long">
               <name initialize-with=". " delimiter="、"/>

@@ -22,6 +22,12 @@ https://www.zotero.org/support/kb/item_types_and_fields
 Type map
 https://aurimasv.github.io/z2csl/typeMap.xml
 
+## 使用的Extra
+
+Illustrator: 劉鵑菁
+Status: in press
+Medium: 有聲書
+
 # Differences
 
 - font style

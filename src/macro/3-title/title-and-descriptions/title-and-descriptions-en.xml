@@ -5,7 +5,7 @@
       <if variable="title">
         <group delimiter=" ">
           <text macro="title"/>
-          <text variable="status" prefix="[" suffix="]" />
+          <text variable="medium" prefix="[" suffix="]" />
           <text macro="parenthetical"/>
           <text macro="bracketed"/>
         </group>
