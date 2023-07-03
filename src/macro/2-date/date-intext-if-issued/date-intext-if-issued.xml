@@ -1,0 +1,10 @@
+  <macro name="date-intext-if-issued">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-intext-if-issued-zh" />
+      </if>
+      <else>
+        <text macro="date-intext-if-issued-en" />
+      </else>
+    </choose>
+  </macro>

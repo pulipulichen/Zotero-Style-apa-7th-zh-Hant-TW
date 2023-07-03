@@ -1,0 +1,10 @@
+  <macro name="title-and-descriptions">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="title-and-descriptions-zh" />
+      </if>
+      <else>
+        <text macro="title-and-descriptions-en" />
+      </else>
+    </choose>
+  </macro>

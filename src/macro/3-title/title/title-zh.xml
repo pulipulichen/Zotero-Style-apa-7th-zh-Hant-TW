@@ -1,8 +1,8 @@
-<macro name="title">
+  <macro name="title-zh">
     <choose>
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text macro="title-original-title" font-style="italic"/>
+        <text macro="title-original-title" font-weight="bold"/>
       </if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized based on presence of container-title.
@@ -13,17 +13,17 @@
       <else>
         <choose>
           <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
-            <text macro="title-original-title" font-style="italic"/>
+            <text macro="title-original-title" font-weight="bold"/>
           </if>
           <else-if type="paper-conference">
             <choose>
               <if variable="collection-editor editor editorial-director" match="any">
-                <group delimiter=": " font-style="italic">
+                <group delimiter="：" font-weight="bold">
                   <text macro="title-original-title"/>
                   <!-- Replace with volume-title as that becomes available -->
                   <choose>
                     <if is-numeric="volume" match="none">
-                      <group delimiter=" ">
+                      <group delimiter="">
                         <label variable="volume" form="short" text-case="capitalize-first"/>
                         <text variable="volume"/>
                       </group>
@@ -32,17 +32,17 @@
                 </group>
               </if>
               <else>
-                <text macro="title-original-title" font-style="italic"/>
+                <text macro="title-original-title" font-weight="bold"/>
               </else>
             </choose>
           </else-if>
           <else>
-            <group delimiter=": " font-style="italic">
+            <group delimiter="：" font-weight="bold">
               <text macro="title-original-title"/>
               <!-- Replace with volume-title as that becomes available -->
               <choose>
                 <if is-numeric="volume" match="none">
-                  <group delimiter=" ">
+                  <group delimiter="">
                     <label variable="volume" form="short" text-case="capitalize-first"/>
                     <text variable="volume"/>
                   </group>

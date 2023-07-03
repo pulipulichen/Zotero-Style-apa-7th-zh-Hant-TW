@@ -1,0 +1,45 @@
+  <macro name="date-intext-if-issued-en">
+    <group delimiter="/">
+      <group delimiter=" ">
+        <choose>
+          <if is-uncertain-date="original-date">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+      </group>
+      <group delimiter=" ">
+        <choose>
+          <if is-uncertain-date="issued">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <group>
+          <choose>
+            <if type="interview personal_communication" match="any">
+              <choose>
+                <if variable="archive container-title DOI publisher URL" match="none">
+                  <!-- These variables indicate that the communication is retrievable by the reader.
+                       If not, then use the in-text-only personal communication format -->
+                  <date variable="issued" form="text"/>
+                </if>
+                <else>
+                  <date variable="issued">
+                    <date-part name="year"/>
+                  </date>
+                </else>
+              </choose>
+            </if>
+            <else>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </else>
+          </choose>
+          <text variable="year-suffix"/>
+        </group>
+      </group>
+    </group>
+  </macro>

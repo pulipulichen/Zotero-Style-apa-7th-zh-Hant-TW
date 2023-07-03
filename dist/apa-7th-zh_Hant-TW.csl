@@ -1568,41 +1568,32 @@
     </choose>
   </macro>
 
-<macro name="date-intext">
-    <choose>
-      <if variable="issued">
-        <group delimiter="/">
-          <group delimiter=" ">
-            <choose>
-              <if is-uncertain-date="original-date">
-                <text term="circa" form="short"/>
-              </if>
-            </choose>
-            <date variable="original-date">
-              <date-part name="year"/>
-            </date>
-          </group>
-          <group delimiter=" ">
-            <choose>
-              <if is-uncertain-date="issued">
-                <text term="circa" form="short"/>
-              </if>
-            </choose>
-            <group>
+  <macro name="date-intext-if-issued-en">
+    <group delimiter="/">
+      <group delimiter=" ">
+        <choose>
+          <if is-uncertain-date="original-date">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+      </group>
+      <group delimiter=" ">
+        <choose>
+          <if is-uncertain-date="issued">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <group>
+          <choose>
+            <if type="interview personal_communication" match="any">
               <choose>
-                <if type="interview personal_communication" match="any">
-                  <choose>
-                    <if variable="archive container-title DOI publisher URL" match="none">
-                      <!-- These variables indicate that the communication is retrievable by the reader.
-                           If not, then use the in-text-only personal communication format -->
-                      <date variable="issued" form="text"/>
-                    </if>
-                    <else>
-                      <date variable="issued">
-                        <date-part name="year"/>
-                      </date>
-                    </else>
-                  </choose>
+                <if variable="archive container-title DOI publisher URL" match="none">
+                  <!-- These variables indicate that the communication is retrievable by the reader.
+                       If not, then use the in-text-only personal communication format -->
+                  <date variable="issued" form="text"/>
                 </if>
                 <else>
                   <date variable="issued">
@@ -1610,10 +1601,80 @@
                   </date>
                 </else>
               </choose>
-              <text variable="year-suffix"/>
-            </group>
-          </group>
+            </if>
+            <else>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </else>
+          </choose>
+          <text variable="year-suffix"/>
         </group>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="date-intext-if-issued-zh">
+    <group delimiter="／">
+      <group delimiter="">
+        <choose>
+          <if is-uncertain-date="original-date">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
+      </group>
+      <group delimiter="">
+        <choose>
+          <if is-uncertain-date="issued">
+            <text term="circa" form="short"/>
+          </if>
+        </choose>
+        <group>
+          <choose>
+            <if type="interview personal_communication" match="any">
+              <choose>
+                <if variable="archive container-title DOI publisher URL" match="none">
+                  <!-- These variables indicate that the communication is retrievable by the reader.
+                       If not, then use the in-text-only personal communication format -->
+                  <date variable="issued" form="text"/>
+                </if>
+                <else>
+                  <date variable="issued">
+                    <date-part name="year"/>
+                  </date>
+                </else>
+              </choose>
+            </if>
+            <else>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </else>
+          </choose>
+          <text variable="year-suffix"/>
+        </group>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="date-intext-if-issued">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="date-intext-if-issued-zh" />
+      </if>
+      <else>
+        <text macro="date-intext-if-issued-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="date-intext">
+    <choose>
+      <if variable="issued">
+        <text macro="date-intext-if-issued" />
       </if>
       <else-if variable="status">
         <text variable="status" text-case="lowercase"/>
@@ -1641,93 +1702,7 @@
     </choose>
   </macro>
 
-<!-- APA has two description elements following the title:
-       title (parenthetical) [bracketed]  -->
-  <macro name="title-and-descriptions">
-    <choose>
-      <if variable="title">
-        <group delimiter=" ">
-          <text macro="title"/>
-          <text macro="parenthetical"/>
-          <text macro="bracketed"/>
-        </group>
-      </if>
-      <else>
-        <group delimiter=" ">
-          <text macro="bracketed"/>
-          <text macro="parenthetical"/>
-        </group>
-      </else>
-    </choose>
-  </macro>
-
-<macro name="title-intext">
-    <choose>
-      <if variable="title" match="none">
-        <text macro="bracketed-intext" />
-      </if>
-      <else-if type="bill">
-        <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
-        <choose>
-          <if variable="number container-title" match="none">
-            <text variable="title" form="short" font-style="italic" text-case="title"/>
-          </if>
-          <else-if variable="title">
-            <text variable="title" form="short" text-case="title"/>
-          </else-if>
-          <else>
-            <group delimiter=" ">
-              <text variable="genre"/>
-              <group delimiter=" ">
-                <choose>
-                  <if variable="chapter-number container-title" match="none">
-                    <!-- Replace with label variable="number" as that becomes available -->
-                    <text term="issue" form="short"/>
-                  </if>
-                </choose>
-                <text variable="number"/>
-              </group>
-            </group>
-          </else>
-        </choose>
-      </else-if>
-      <else-if type="legal_case" match="any">
-        <!-- Cases are italicized -->
-        <text variable="title" font-style="italic"/>
-      </else-if>
-      <else-if type="legislation treaty" match="any">
-        <!-- Legislation and treaties not italicized or quoted -->
-        <text variable="title" form="short" text-case="title"/>
-      </else-if>
-      <else-if type="post webpage" match="any">
-        <!-- Webpages are always italicized -->
-        <text variable="title" form="short" font-style="italic" text-case="title"/>
-      </else-if>
-      <else-if variable="container-title" match="any">
-        <!-- Other types are italicized or quoted based on presence of container-title. As in title macro. -->
-        <text variable="title" form="short" quotes="true" text-case="title"/>
-      </else-if>
-      <else>
-        <text variable="title" form="short" font-style="italic" text-case="title"/>
-      </else>
-    </choose>
-  </macro>
-
-<macro name="title-original-title">
-    <choose>
-      <if variable="original-title">
-        <text variable="original-title" />
-        <text macro="term-left-square-bracket" />
-        <text variable="title" />
-        <text macro="term-right-square-bracket" />
-      </if>
-      <else>
-        <text variable="title" />
-      </else>
-    </choose>
-  </macro>
-
-<macro name="title">
+  <macro name="title-en">
     <choose>
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
@@ -1780,6 +1755,254 @@
             </group>
           </else>
         </choose>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title-zh">
+    <choose>
+      <if type="post webpage" match="any">
+        <!-- Webpages are always italicized -->
+        <text macro="title-original-title" font-weight="bold"/>
+      </if>
+      <else-if variable="container-title" match="any">
+        <!-- Other types are italicized based on presence of container-title.
+             Assume that review and review-book are published in periodicals/blogs,
+             not just on a web page (ex. 69) -->
+        <text macro="title-original-title"/>
+      </else-if>
+      <else>
+        <choose>
+          <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
+            <text macro="title-original-title" font-weight="bold"/>
+          </if>
+          <else-if type="paper-conference">
+            <choose>
+              <if variable="collection-editor editor editorial-director" match="any">
+                <group delimiter="：" font-weight="bold">
+                  <text macro="title-original-title"/>
+                  <!-- Replace with volume-title as that becomes available -->
+                  <choose>
+                    <if is-numeric="volume" match="none">
+                      <group delimiter="">
+                        <label variable="volume" form="short" text-case="capitalize-first"/>
+                        <text variable="volume"/>
+                      </group>
+                    </if>
+                  </choose>
+                </group>
+              </if>
+              <else>
+                <text macro="title-original-title" font-weight="bold"/>
+              </else>
+            </choose>
+          </else-if>
+          <else>
+            <group delimiter="：" font-weight="bold">
+              <text macro="title-original-title"/>
+              <!-- Replace with volume-title as that becomes available -->
+              <choose>
+                <if is-numeric="volume" match="none">
+                  <group delimiter="">
+                    <label variable="volume" form="short" text-case="capitalize-first"/>
+                    <text variable="volume"/>
+                  </group>
+                </if>
+              </choose>
+            </group>
+          </else>
+        </choose>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="title-zh" />
+      </if>
+      <else>
+        <text macro="title-en" />
+      </else>
+    </choose>
+  </macro>
+
+<!-- APA has two description elements following the title:
+       title (parenthetical) [bracketed]  -->
+  <macro name="title-and-descriptions-en">
+    <choose>
+      <if variable="title">
+        <group delimiter=" ">
+          <text macro="title"/>
+          <text macro="parenthetical"/>
+          <text macro="bracketed"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text macro="bracketed"/>
+          <text macro="parenthetical"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+<!-- APA has two description elements following the title:
+       title (parenthetical) [bracketed]  -->
+  <macro name="title-and-descriptions-zh">
+    <choose>
+      <if variable="title">
+        <group delimiter="">
+          <text macro="title"/>
+          <text macro="parenthetical"/>
+          <text macro="bracketed"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter="">
+          <text macro="bracketed"/>
+          <text macro="parenthetical"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title-and-descriptions">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="title-and-descriptions-zh" />
+      </if>
+      <else>
+        <text macro="title-and-descriptions-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title-intext-en">
+    <choose>
+      <if variable="title" match="none">
+        <text macro="bracketed-intext" />
+      </if>
+      <else-if type="bill">
+        <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
+        <choose>
+          <if variable="number container-title" match="none">
+            <text variable="title" form="short" font-style="italic" text-case="title"/>
+          </if>
+          <else-if variable="title">
+            <text variable="title" form="short" text-case="title"/>
+          </else-if>
+          <else>
+            <group delimiter=" ">
+              <text variable="genre"/>
+              <group delimiter=" ">
+                <choose>
+                  <if variable="chapter-number container-title" match="none">
+                    <!-- Replace with label variable="number" as that becomes available -->
+                    <text term="issue" form="short"/>
+                  </if>
+                </choose>
+                <text variable="number"/>
+              </group>
+            </group>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="legal_case" match="any">
+        <!-- Cases are italicized -->
+        <text variable="title" font-style="italic"/>
+      </else-if>
+      <else-if type="legislation treaty" match="any">
+        <!-- Legislation and treaties not italicized or quoted -->
+        <text variable="title" form="short" text-case="title"/>
+      </else-if>
+      <else-if type="post webpage" match="any">
+        <!-- Webpages are always italicized -->
+        <text variable="title" form="short" font-style="italic" text-case="title"/>
+      </else-if>
+      <else-if variable="container-title" match="any">
+        <!-- Other types are italicized or quoted based on presence of container-title. As in title macro. -->
+        <text variable="title" form="short" quotes="true" text-case="title"/>
+      </else-if>
+      <else>
+        <text variable="title" form="short" font-style="italic" text-case="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title-intext-zh">
+    <choose>
+      <if variable="title" match="none">
+        <text macro="bracketed-intext" />
+      </if>
+      <else-if type="bill">
+        <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
+        <choose>
+          <if variable="number container-title" match="none">
+            <text variable="title" form="short" font-weight="bold" text-case="title"/>
+          </if>
+          <else-if variable="title">
+            <text variable="title" form="short" text-case="title"/>
+          </else-if>
+          <else>
+            <group delimiter="">
+              <text variable="genre"/>
+              <group delimiter="">
+                <choose>
+                  <if variable="chapter-number container-title" match="none">
+                    <!-- Replace with label variable="number" as that becomes available -->
+                    <text term="issue" form="short"/>
+                  </if>
+                </choose>
+                <text variable="number"/>
+              </group>
+            </group>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="legal_case" match="any">
+        <!-- Cases are italicized -->
+        <text variable="title" font-weight="bold"/>
+      </else-if>
+      <else-if type="legislation treaty" match="any">
+        <!-- Legislation and treaties not italicized or quoted -->
+        <text variable="title" form="short" text-case="title"/>
+      </else-if>
+      <else-if type="post webpage" match="any">
+        <!-- Webpages are always italicized -->
+        <text variable="title" form="short" font-weight="bold" text-case="title"/>
+      </else-if>
+      <else-if variable="container-title" match="any">
+        <!-- Other types are italicized or quoted based on presence of container-title. As in title macro. -->
+        <text variable="title" form="short" quotes="true" text-case="title"/>
+      </else-if>
+      <else>
+        <text variable="title" form="short" font-weight="bold" text-case="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="title-intext">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="title-intext-zh" />
+      </if>
+      <else>
+        <text macro="title-intext-en" />
+      </else>
+    </choose>
+  </macro>
+
+<macro name="title-original-title">
+    <choose>
+      <if variable="original-title">
+        <text variable="original-title" />
+        <text macro="term-left-square-bracket" />
+        <text variable="title" />
+        <text macro="term-right-square-bracket" />
+      </if>
+      <else>
+        <text variable="title" />
       </else>
     </choose>
   </macro>

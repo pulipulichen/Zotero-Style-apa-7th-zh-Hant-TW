@@ -1,0 +1,19 @@
+<!-- APA has two description elements following the title:
+       title (parenthetical) [bracketed]  -->
+  <macro name="title-and-descriptions-en">
+    <choose>
+      <if variable="title">
+        <group delimiter=" ">
+          <text macro="title"/>
+          <text macro="parenthetical"/>
+          <text macro="bracketed"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text macro="bracketed"/>
+          <text macro="parenthetical"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
