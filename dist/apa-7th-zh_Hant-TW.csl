@@ -1206,7 +1206,7 @@
     </group>
   </macro>
 
-<macro name="date-bib">
+  <macro name="date-bib">
     <group delimiter=" " prefix="(" suffix=")">
       <choose>
         <if is-uncertain-date="issued">
@@ -1223,19 +1223,13 @@
             <choose>
               <if type="article-magazine article-newspaper broadcast interview motion_picture pamphlet personal_communication post post-weblog song speech webpage" match="any">
                 <!-- Many video and audio examples in manual give full dates. Err on the side of too much information. -->
-                <date variable="issued">
-                  <date-part prefix=", " name="month"/>
-                  <date-part prefix=" " name="day"/>
-                </date>
+                <text macro="variable-issued-month-date-year-prefix" />
               </if>
               <else-if type="paper-conference">
                 <!-- Capture 'speech' stored as 'paper-conference' -->
                 <choose>
                   <if variable="collection-editor editor editorial-director issue page volume" match="none">
-                    <date variable="issued">
-                      <date-part prefix=", " name="month"/>
-                      <date-part prefix=" " name="day"/>
-                    </date>
+                    <text macro="variable-issued-month-date-year-prefix" />
                   </if>
                 </choose>
               </else-if>
@@ -2128,6 +2122,42 @@
     <names variable="author">
       <name form="count" />
     </names>
+  </macro>
+
+  <macro name="variable-issued-month-date-en">
+    <date variable="issued">
+      <date-part name="month"/>
+      <date-part prefix=" " name="day"/>
+    </date>
+  </macro>
+
+  <macro name="variable-issued-month-date-year-prefix">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="variable-issued-month-date-zh" prefix="年" />
+      </if>
+      <else>
+        <text macro="variable-issued-month-date-en" prefix=", " />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="variable-issued-month-date-zh">
+    <date variable="issued">
+      <date-part name="month"/>
+      <date-part suffix="日" name="day"/>
+    </date>
+  </macro>
+
+  <macro name="variable-issued-month-date">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="variable-issued-month-date-zh" />
+      </if>
+      <else>
+        <text macro="variable-issued-month-date-en" />
+      </else>
+    </choose>
   </macro>
 
 <macro name="variable-translator">

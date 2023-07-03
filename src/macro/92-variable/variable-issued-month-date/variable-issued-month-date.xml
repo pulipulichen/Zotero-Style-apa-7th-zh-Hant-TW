@@ -1,0 +1,10 @@
+  <macro name="variable-issued-month-date">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="variable-issued-month-date-zh" />
+      </if>
+      <else>
+        <text macro="variable-issued-month-date-en" />
+      </else>
+    </choose>
+  </macro>

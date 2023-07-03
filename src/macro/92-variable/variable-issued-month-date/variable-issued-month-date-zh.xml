@@ -1,0 +1,6 @@
+  <macro name="variable-issued-month-date-zh">
+    <date variable="issued">
+      <date-part name="month"/>
+      <date-part suffix="日" name="day"/>
+    </date>
+  </macro>
