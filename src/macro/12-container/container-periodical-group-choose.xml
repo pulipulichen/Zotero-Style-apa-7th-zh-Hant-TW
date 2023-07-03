@@ -1,0 +1,11 @@
+  <macro name="container-periodical-group-choose">
+    <choose>
+      <if variable="issued">
+        <choose>
+          <if variable="issue page volume" match="none">
+            <text variable="status" text-case="capitalize-first"/>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </macro>

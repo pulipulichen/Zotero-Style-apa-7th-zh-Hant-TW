@@ -1,0 +1,10 @@
+  <macro name="container-periodical-group-group">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="container-periodical-group-group-zh" />
+      </if>
+      <else>
+        <text macro="container-periodical-group-group-en" />
+      </else>
+    </choose>
+  </macro>
