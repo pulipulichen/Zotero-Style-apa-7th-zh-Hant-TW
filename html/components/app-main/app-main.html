@@ -1,0 +1,30 @@
+<div>
+  <h1>macro builder: zh en</h1>
+  <form @submit.prevent.stop="save" class="ui form">
+
+    <div class="field">
+      <label for="filename">
+        Filename:
+      </label>
+      <input type="text" id="filename" v-model="filename" />
+    </div>
+
+    <div class="field">
+      <label for="filecontent">
+        File Content: (read-only)
+      </label>
+      <textarea id="filecontent" 
+        v-model="filecontent" 
+        onfocus="this.select"
+        @click="copyFilecontent"
+        readonly></textarea>
+    </div>
+
+    <div class="field">
+      <button type="submit" class="ui fluid button"
+        :class="{disabled: saveDisabled}">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

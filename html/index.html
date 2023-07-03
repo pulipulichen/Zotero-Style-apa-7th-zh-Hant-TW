@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>macro builder: zh en</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- https://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/icon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#3498DB">
+    <meta name="msapplication-TileImage" content="assets/favicon/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#3498DB">
+    <link rel="manifest" href="./manifest.json">
+    
+    <script src="./vendors/jszip/jszip.min.js"></script>
+    <script src="./vendors/jszip/FileSaver.min.js"></script>
+    
+    <script src="./vendors/vue/vue.min.js"></script>
+    <script src="./vendors/jquery/jquery.min.js"></script>
+
+    <script src="./vendors/semantic-ui/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./vendors/semantic-ui/semantic.min.css">
+
+    <link rel="stylesheet/less" type="text/css" href="./styles/styles.less" />
+    <script src="./vendors/less/load-before-less.js"></script>
+    <script src="./vendors/less/less.min.js"></script>
+    
+    <script src="./vendors/date-helper.js"></script>
+
+    <script src="./vendors/vue/httpVueLoader.js"></script>
+    <script src="./vendors/vue/httpVueLoaderLess.js"></script>
+    
+    <script src="./vendors/utils/ClipboardUtils.js"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <app-header></app-header>
+      <app-main></app-main>
+    </div>
+    
+
+    <!-- ================================================ -->
+    
+    <script src="./scripts/vue-app-computed.js"></script>
+    <script src="./scripts/vue-app-data.js"></script>
+    <script src="./scripts/vue-app-methods.js"></script>
+    <script src="./scripts/vue-app-mounted.js"></script>
+    <script src="./scripts/vue-app-watch.js"></script>
+    <script src="./scripts/vue-app-components.js"></script>
+    
+    <script src="./scripts/vue-app.js"></script>
+    
+    <script src="./service-worker-loader.js"></script>
+  </body>
+</html>
