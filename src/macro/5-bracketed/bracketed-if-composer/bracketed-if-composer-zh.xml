@@ -23,7 +23,7 @@
         </group>
       </if>
       <else>
-        <group delimiter=" ">
+        <group delimiter="">
           <choose>
             <if variable="medium">
               <text variable="medium" text-case="capitalize-first"/>

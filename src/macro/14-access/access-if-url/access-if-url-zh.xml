@@ -1,0 +1,14 @@
+  <macro name="access-if-url-zh">
+    <group delimiter="">
+      <choose>
+        <if variable="issued status" match="none">
+          <group delimiter="">
+            <text term="retrieved" text-case="capitalize-first"/>
+            <date variable="accessed" form="text" suffix="，"/>
+            <text term="from"/>
+          </group>
+        </if>
+      </choose>
+      <text variable="URL"/>
+    </group>
+  </macro>

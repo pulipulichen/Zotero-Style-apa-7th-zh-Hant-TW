@@ -1,0 +1,10 @@
+  <macro name="access-if-url">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="access-if-url-zh" />
+      </if>
+      <else>
+        <text macro="access-if-url-en" />
+      </else>
+    </choose>
+  </macro>

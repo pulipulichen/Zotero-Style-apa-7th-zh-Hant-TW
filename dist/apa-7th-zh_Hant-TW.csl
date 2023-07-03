@@ -1171,29 +1171,86 @@
     </choose>
   </macro>
 
-<macro name="access">
+  <macro name="access-if-url-en">
+    <group delimiter=" ">
+      <choose>
+        <if variable="issued status" match="none">
+          <group delimiter=" ">
+            <text term="retrieved" text-case="capitalize-first"/>
+            <date variable="accessed" form="text" suffix=","/>
+            <text term="from"/>
+          </group>
+        </if>
+      </choose>
+      <text variable="URL"/>
+    </group>
+  </macro>
+
+  <macro name="access-if-url-zh">
+    <group delimiter="">
+      <choose>
+        <if variable="issued status" match="none">
+          <group delimiter="">
+            <text term="retrieved" text-case="capitalize-first"/>
+            <date variable="accessed" form="text" suffix="，"/>
+            <text term="from"/>
+          </group>
+        </if>
+      </choose>
+      <text variable="URL"/>
+    </group>
+  </macro>
+
+  <macro name="access-if-url">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="access-if-url-zh" />
+      </if>
+      <else>
+        <text macro="access-if-url-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="access">
     <choose>
       <if variable="DOI" match="any">
         <text variable="DOI" prefix="https://doi.org/"/>
       </if>
       <else-if variable="URL">
-        <group delimiter=" ">
-          <choose>
-            <if variable="issued status" match="none">
-              <group delimiter=" ">
-                <text term="retrieved" text-case="capitalize-first"/>
-                <date variable="accessed" form="text" suffix=","/>
-                <text term="from"/>
-              </group>
-            </if>
-          </choose>
-          <text variable="URL"/>
-        </group>
+        <text macro="access-if-url" />
       </else-if>
     </choose>
   </macro>
 
-<macro name="event-title">
+  <macro name="event-if-collection-editor-en">
+    <!-- Don't print event info if published in a proceedings -->
+    <group delimiter=", ">
+      <text macro="event-title"/>
+      <text variable="event-place"/>
+    </group>
+  </macro>
+
+  <macro name="event-if-collection-editor-zh">
+    <!-- Don't print event info if published in a proceedings -->
+    <group delimiter="，">
+      <text macro="event-title"/>
+      <text variable="event-place"/>
+    </group>
+  </macro>
+
+  <macro name="event-if-collection-editor">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="event-if-collection-editor-zh" />
+      </if>
+      <else>
+        <text macro="event-if-collection-editor-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="event-title">
     <choose>
       <!-- TODO: We expect "event-title" to be used,
            but processors and applications may not be updated yet.
@@ -1208,18 +1265,15 @@
     </choose>
   </macro>
 
-<macro name="event">
+  <macro name="event">
     <choose>
       <if variable="event event-title" match="any">
         <!-- To prevent Zotero from printing event-place due to its double-mapping of all 'place' to
              both publisher-place and event-place. Remove this 'choose' when that is changed. -->
         <choose>
           <if variable="collection-editor editor editorial-director issue page volume" match="none">
-            <!-- Don't print event info if published in a proceedings -->
-            <group delimiter=", ">
-              <text macro="event-title"/>
-              <text variable="event-place"/>
-            </group>
+            <text macro="event-if-collection-editor" />
+            
           </if>
         </choose>
       </if>
@@ -2382,7 +2436,7 @@
         </group>
       </if>
       <else>
-        <group delimiter=" ">
+        <group delimiter="">
           <choose>
             <if variable="medium">
               <text variable="medium" text-case="capitalize-first"/>
@@ -2695,7 +2749,7 @@
   <!-- Reviewed item -->
   <group delimiter="；">
     <group delimiter="、">
-      <group delimiter=" ">
+      <group delimiter="">
         <!-- Assume that genre is entered as 'Review of the book' or similar -->
         <choose>
           <if variable="number" match="none">

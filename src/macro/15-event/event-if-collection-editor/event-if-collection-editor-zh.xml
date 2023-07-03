@@ -1,0 +1,7 @@
+  <macro name="event-if-collection-editor-zh">
+    <!-- Don't print event info if published in a proceedings -->
+    <group delimiter="，">
+      <text macro="event-title"/>
+      <text variable="event-place"/>
+    </group>
+  </macro>

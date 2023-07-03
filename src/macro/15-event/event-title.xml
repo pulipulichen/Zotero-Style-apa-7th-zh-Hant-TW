@@ -1,4 +1,4 @@
-<macro name="event-title">
+  <macro name="event-title">
     <choose>
       <!-- TODO: We expect "event-title" to be used,
            but processors and applications may not be updated yet.
