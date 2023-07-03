@@ -1,0 +1,51 @@
+<macro name="bracketed-if-reviewed-author-zh">
+  <!-- Reviewed item -->
+  <group delimiter="；">
+    <group delimiter="、">
+      <group delimiter=" ">
+        <!-- Assume that genre is entered as 'Review of the book' or similar -->
+        <choose>
+          <if variable="number" match="none">
+            <choose>
+              <if variable="genre">
+                <text variable="genre" text-case="capitalize-first"/>
+              </if>
+              <else-if variable="medium">
+                <text variable="medium" text-case="capitalize-first"/>
+              </else-if>
+              <else>
+                <!-- Replace with term="review" as that becomes available -->
+                <text macro="term-review-of"/>
+              </else>
+            </choose>
+          </if>
+          <else>
+            <choose>
+              <if variable="medium">
+                <text variable="medium" text-case="capitalize-first"/>
+              </if>
+              <else>
+                <!-- Replace with term="review" as that becomes available -->
+                <text macro="term-review-of"/>
+              </else>
+            </choose>
+          </else>
+        </choose>
+        <text macro="reviewed-title"/>
+      </group>
+      <names variable="reviewed-author" form="long">
+        <label form="verb-short" suffix=" "/>
+        <name initialize-with=". " delimiter="、"/>
+      </names>
+    </group>
+    <choose>
+      <if variable="genre" match="any">
+        <choose>
+          <if variable="number" match="none">
+            <text variable="medium" text-case="capitalize-first"/>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </group>
+</macro>

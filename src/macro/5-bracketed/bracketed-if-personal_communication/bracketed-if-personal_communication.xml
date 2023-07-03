@@ -1,0 +1,10 @@
+  <macro name="bracketed-if-personal_communication">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bracketed-if-personal_communication-zh" />
+    </if>
+    <else>
+      <text macro="bracketed-if-personal_communication-en" />
+    </else>
+  </choose>
+</macro>

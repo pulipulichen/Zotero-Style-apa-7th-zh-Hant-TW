@@ -6,7 +6,10 @@
       <label for="filename">
         Filename:
       </label>
-      <input type="text" id="filename" v-model="filename" />
+      <input type="text" 
+        onfocus="this.select()"
+        id="filename" 
+        v-model="filename" />
     </div>
 
     <div class="field">
@@ -24,6 +27,14 @@
       <button type="submit" class="ui fluid button"
         :class="{disabled: saveDisabled}">
         Save
+      </button>
+    </div>
+
+    <div class="field">
+      <button type="button" class="ui fluid button"
+        :class="{disabled: saveDisabled}"
+        @click.prevent.stop="saveEnTemplate">
+        Save en template
       </button>
     </div>
   </form>

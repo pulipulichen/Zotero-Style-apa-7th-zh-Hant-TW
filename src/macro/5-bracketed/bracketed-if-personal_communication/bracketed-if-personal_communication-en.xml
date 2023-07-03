@@ -1,0 +1,52 @@
+<macro name="bracketed-if-personal_communication-en">
+  <!-- Letter information -->
+  <choose>
+    <if variable="recipient">
+      <group delimiter="; ">
+        <group delimiter=" ">
+          <choose>
+            <if variable="number" match="none">
+              <choose>
+                <if variable="genre">
+                  <text variable="genre" text-case="capitalize-first"/>
+                </if>
+                <else-if variable="medium">
+                  <text variable="medium" text-case="capitalize-first"/>
+                </else-if>
+                <else>
+                  <text term="letter" form="short" text-case="capitalize-first"/>
+                </else>
+              </choose>
+            </if>
+            <else>
+              <choose>
+                <if variable="medium">
+                  <text variable="medium" text-case="capitalize-first"/>
+                </if>
+                <else>
+                  <text term="letter" form="short" text-case="capitalize-first"/>
+                </else>
+              </choose>
+            </else>
+          </choose>
+          <names variable="recipient" delimiter=", ">
+            <label form="verb" suffix=" "/>
+            <name and="symbol" delimiter=", "/>
+          </names>
+        </group>
+        <choose>
+          <if variable="genre" match="any">
+            <choose>
+              <if variable="number" match="none">
+                <text variable="medium" text-case="capitalize-first"/>
+              </if>
+            </choose>
+          </if>
+        </choose>
+      </group>
+    </if>
+    <else>
+      <text macro="format"/>
+    </else>
+  </choose>
+</macro>

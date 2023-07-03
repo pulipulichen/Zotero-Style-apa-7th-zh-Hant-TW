@@ -1,0 +1,26 @@
+  <macro name="bracketed-group-choose">
+    <choose>
+      <if variable="reviewed-author reviewed-title" type="review review-book" match="any">
+        <text macro="bracketed-if-reviewed-author" />
+      </if>
+      <else-if type="thesis">
+        <text macro="bracketed-if-thesis" />
+      </else-if>
+      <else-if variable="interviewer" type="interview" match="any">
+        <text macro="bracketed-if-interviewer" />
+      </else-if>
+      <else-if type="personal_communication">
+        <text macro="bracketed-if-personal_communication" />
+      </else-if>
+      <else-if variable="composer" type="song" match="all">
+        <text macro="bracketed-if-composer" />
+      </else-if>
+      <else-if variable="container-title" match="none">
+        <!-- Other description -->
+        <text macro="format"/>
+      </else-if>
+      <else>
+        <text macro="bracketed-if-else" />
+      </else>
+    </choose>
+  </macro>

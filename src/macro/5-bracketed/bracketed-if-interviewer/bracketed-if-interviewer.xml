@@ -1,0 +1,10 @@
+  <macro name="bracketed-if-interviewer">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bracketed-if-interviewer-zh" />
+    </if>
+    <else>
+      <text macro="bracketed-if-interviewer-en" />
+    </else>
+  </choose>
+</macro>

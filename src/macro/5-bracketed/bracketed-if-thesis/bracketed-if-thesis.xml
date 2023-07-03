@@ -1,0 +1,10 @@
+  <macro name="bracketed-if-thesis">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bracketed-if-thesis-zh" />
+    </if>
+    <else>
+      <text macro="bracketed-if-thesis-en" />
+    </else>
+  </choose>
+</macro>

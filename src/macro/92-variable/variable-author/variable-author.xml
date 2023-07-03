@@ -1,0 +1,10 @@
+  <macro name="variable-author">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="variable-author-zh" />
+      </if>
+      <else>
+        <text macro="variable-author-en" />
+      </else>
+    </choose>
+  </macro>

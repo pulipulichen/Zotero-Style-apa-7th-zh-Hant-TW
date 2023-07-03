@@ -1,0 +1,51 @@
+<macro name="bracketed-if-composer-zh">
+  <!-- Performer of classical music works -->
+  <group delimiter="；">
+    <choose>
+      <if variable="number" match="none">
+        <group delimiter=" ">
+          <choose>
+            <if variable="genre">
+              <text variable="genre" text-case="capitalize-first"/>
+              <!-- Replace prefix with performer label as that becomes available -->
+              <text macro="variable-author" prefix="記錄" />
+            </if>
+            <else-if variable="medium">
+              <text variable="medium" text-case="capitalize-first"/>
+              <!-- Replace prefix with performer label as that becomes available -->
+              <text macro="variable-author" prefix="記錄" />
+            </else-if>
+            <else>
+              <!-- Replace prefix with performer label as that becomes available -->
+              <text macro="variable-author" prefix="記錄" />
+            </else>
+          </choose>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <choose>
+            <if variable="medium">
+              <text variable="medium" text-case="capitalize-first"/>
+              <!-- Replace prefix with performer label as that becomes available -->
+              <text macro="variable-author" prefix="記錄" />
+            </if>
+            <else>
+              <!-- Replace prefix with performer label as that becomes available -->
+              <text macro="variable-author" prefix="記錄" />
+            </else>
+          </choose>
+        </group>
+      </else>
+    </choose>
+    <choose>
+      <if variable="genre" match="any">
+        <choose>
+          <if variable="number" match="none">
+            <text variable="medium" text-case="capitalize-first"/>
+          </if>
+        </choose>
+      </if>
+    </choose>
+  </group>
+</macro>

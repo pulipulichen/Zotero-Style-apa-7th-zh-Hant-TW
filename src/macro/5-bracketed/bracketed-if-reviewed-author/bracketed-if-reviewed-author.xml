@@ -1,0 +1,10 @@
+  <macro name="bracketed-if-reviewed-author">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bracketed-if-reviewed-author-zh" />
+    </if>
+    <else>
+      <text macro="bracketed-if-reviewed-author-en" />
+    </else>
+  </choose>
+</macro>

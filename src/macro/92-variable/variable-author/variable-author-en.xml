@@ -1,0 +1,5 @@
+<macro name="variable-author-en">
+  <names variable="author">
+    <name and="symbol" initialize-with=". " delimiter=", "/>
+  </names>
+</macro>

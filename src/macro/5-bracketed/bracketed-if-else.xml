@@ -1,0 +1,22 @@
+  <macro name="bracketed-if-else">
+    <!-- For conference presentations, chapters in reports, software, place bracketed after the container title -->
+    <choose>
+      <if type="paper-conference speech" match="any">
+        <choose>
+          <if variable="collection-editor editor editorial-director issue page volume" match="any">
+            <text macro="format"/>
+          </if>
+        </choose>
+      </if>
+      <else-if type="book">
+        <choose>
+          <if variable="version" match="none">
+            <text macro="format"/>
+          </if>
+        </choose>
+      </else-if>
+      <else-if type="report" match="none">
+        <text macro="format"/>
+      </else-if>
+    </choose>
+  </macro>

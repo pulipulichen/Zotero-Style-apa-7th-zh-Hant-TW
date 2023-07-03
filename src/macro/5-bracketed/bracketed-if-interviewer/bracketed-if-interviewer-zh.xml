@@ -1,0 +1,33 @@
+<macro name="bracketed-if-interviewer-zh">
+  <!-- Interview information -->
+  <choose>
+    <if variable="title">
+      <text macro="format"/>
+    </if>
+    <else-if variable="genre">
+      <group delimiter="；">
+        <group delimiter=" ">
+          <text variable="genre" text-case="capitalize-first"/>
+          <group delimiter=" ">
+            <text term="author" form="verb"/>
+            <names variable="interviewer" form="long">
+              <name and="symbol" initialize-with=". " delimiter=", "/>
+            </names>
+          </group>
+        </group>
+      </group>
+    </else-if>
+    <else-if variable="interviewer">
+      <group delimiter="；">
+        <names variable="interviewer" form="long">
+          <label form="verb" suffix=" " text-case="capitalize-first"/>
+          <name and="symbol" initialize-with=". " delimiter=", "/>
+        </names>
+        <text variable="medium" text-case="capitalize-first"/>
+      </group>
+    </else-if>
+    <else>
+      <text macro="format"/>
+    </else>
+  </choose>
+</macro>

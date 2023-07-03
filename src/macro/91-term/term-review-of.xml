@@ -1,0 +1,10 @@
+  <macro name="term-review-of">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text value="評論" />
+      </if>
+      <else>
+        <text value="Review of" />
+      </else>
+    </choose>
+  </macro>

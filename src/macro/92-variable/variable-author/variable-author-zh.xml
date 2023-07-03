@@ -1,0 +1,5 @@
+<macro name="variable-author-zh">
+  <names variable="author" form="long">
+    <name initialize-with=". " delimiter=", "/>
+  </names>
+</macro>

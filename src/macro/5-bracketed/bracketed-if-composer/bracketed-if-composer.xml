@@ -1,0 +1,10 @@
+  <macro name="bracketed-if-composer">
+  <choose>
+    <if locale="zh jp 中文" match="any">
+      <text macro="bracketed-if-composer-zh" />
+    </if>
+    <else>
+      <text macro="bracketed-if-composer-en" />
+    </else>
+  </choose>
+</macro>

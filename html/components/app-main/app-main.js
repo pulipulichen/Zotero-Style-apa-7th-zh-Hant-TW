@@ -27,11 +27,23 @@ module.exports = {
       </else>
     </choose>
   </macro>`
-    }
+    },
+    filecontentTemplate () {
+      if (this.saveDisabled) {
+        return ''
+      }
+
+      let f = this.filenameTrim
+      return `  <macro name="${f}-en">
+  </macro>`
+    },
   },
   methods: {
     save () {
       this.saveFile(this.filenameTrim + '.xml', this.filecontent)
+    },
+    saveEnTemplate () {
+      this.saveFile(this.filenameTrim + '-en.xml', this.filecontentTemplate)
     },
     saveFile(filename, content) {
       const file = new File([content], filename, { type: "text/plain;charset=utf-8" });
