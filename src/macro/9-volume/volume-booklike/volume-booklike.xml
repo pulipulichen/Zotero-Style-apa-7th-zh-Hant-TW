@@ -1,0 +1,10 @@
+  <macro name="volume-booklike">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="volume-booklike-zh" />
+      </if>
+      <else>
+        <text macro="volume-booklike-en" />
+      </else>
+    </choose>
+  </macro>

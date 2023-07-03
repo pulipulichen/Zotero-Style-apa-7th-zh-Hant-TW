@@ -3321,59 +3321,101 @@
   </choose>
 </macro>
 
-  <macro name="volume-booklike-group-children">
-    <!-- Report series [ex. 52] -->
-    <choose>
-      <if type="report">
-        <group delimiter=" ">
-          <text variable="collection-title" text-case="title"/>
-          <text variable="collection-number"/>
-        </group>
-      </if>
-    </choose>
-    <choose>
-      <if variable="volume" match="any">
-        <choose>
-          <!-- Non-numeric volumes are already printed as part of the book title -->
-          <if is-numeric="volume" match="none"/>
-          <else>
-            <group delimiter=" ">
-              <label variable="volume" form="short" text-case="capitalize-first"/>
-              <number variable="volume" form="numeric"/>
-            </group>
-          </else>
-        </choose>
-      </if>
-      <else>
-        <group>
-          <!-- Replace with label variable="number-of-volumes" if that becomes available -->
-          <text term="volume" form="short" text-case="capitalize-first" suffix=" "/>
-          <text term="page-range-delimiter" prefix="1"/>
-          <number variable="number-of-volumes" form="numeric"/>
-        </group>
-      </else>
-    </choose>
-    <group delimiter=" ">
-      <label variable="issue" text-case="capitalize-first"/>
-      <text variable="issue"/>
+  <macro name="volume-booklike-en">
+    <group delimiter=", ">
+      <!-- Report series [ex. 52] -->
+      <choose>
+        <if type="report">
+          <group delimiter=" ">
+            <text variable="collection-title" text-case="title"/>
+            <text variable="collection-number"/>
+          </group>
+        </if>
+      </choose>
+      <choose>
+        <if variable="volume" match="any">
+          <choose>
+            <!-- Non-numeric volumes are already printed as part of the book title -->
+            <if is-numeric="volume" match="none"/>
+            <else>
+              <group delimiter=" ">
+                <label variable="volume" form="short" text-case="capitalize-first"/>
+                <number variable="volume" form="numeric"/>
+              </group>
+            </else>
+          </choose>
+        </if>
+        <else>
+          <group>
+            <!-- Replace with label variable="number-of-volumes" if that becomes available -->
+            <text term="volume" form="short" text-case="capitalize-first" suffix=" "/>
+            <text term="page-range-delimiter" prefix="1"/>
+            <number variable="number-of-volumes" form="numeric"/>
+          </group>
+        </else>
+      </choose>
+      <group delimiter=" ">
+        <label variable="issue" text-case="capitalize-first"/>
+        <text variable="issue"/>
+      </group>
+      <group delimiter=" ">
+        <label variable="page" form="short" suffix=" "/>
+        <text variable="page"/>
+      </group>
     </group>
-    <group delimiter=" ">
-      <label variable="page" form="short" suffix=" "/>
-      <text variable="page"/>
+  </macro>
+
+  <macro name="volume-booklike-zh">
+    <group delimiter="、">
+      <!-- Report series [ex. 52] -->
+      <choose>
+        <if type="report">
+          <group delimiter="">
+            <text variable="collection-title" text-case="title"/>
+            <text variable="collection-number"/>
+          </group>
+        </if>
+      </choose>
+      <choose>
+        <if variable="volume" match="any">
+          <choose>
+            <!-- Non-numeric volumes are already printed as part of the book title -->
+            <if is-numeric="volume" match="none"/>
+            <else>
+              <group delimiter="">
+                <label variable="volume" form="short" text-case="capitalize-first"/>
+                <number variable="volume" form="numeric"/>
+              </group>
+            </else>
+          </choose>
+        </if>
+        <else>
+          <group>
+            <!-- Replace with label variable="number-of-volumes" if that becomes available -->
+            <text term="volume" form="short" text-case="capitalize-first" suffix=""/>
+            <text term="page-range-delimiter" prefix="1"/>
+            <number variable="number-of-volumes" form="numeric"/>
+          </group>
+        </else>
+      </choose>
+      <group delimiter="">
+        <label variable="issue" text-case="capitalize-first"/>
+        <text variable="issue"/>
+      </group>
+      <group delimiter="">
+        <label variable="page" form="short" suffix=""/>
+        <text variable="page"/>
+      </group>
     </group>
   </macro>
 
   <macro name="volume-booklike">
     <choose>
       <if locale="zh jp 中文" match="any">
-        <group delimiter="、">
-          <text macro="volume-booklike-group-children" />
-        </group>
+        <text macro="volume-booklike-zh" />
       </if>
       <else>
-        <group delimiter=", ">
-          <text macro="volume-booklike-group-children" />
-        </group>
+        <text macro="volume-booklike-en" />
       </else>
     </choose>
   </macro>
