@@ -650,6 +650,20 @@
     </choose>
   </macro>
 
+  <macro name="reviewed-title">
+    <choose>
+      <if variable="reviewed-title">
+        <!-- Not possible to distinguish TV series episode from other reviewed
+              works [Ex. 69] -->
+        <text variable="reviewed-title" font-style="italic"/>
+      </if>
+      <else>
+        <!-- Assume title is title of reviewed work -->
+        <text variable="title" font-style="italic"/>
+      </else>
+    </choose>
+  </macro>
+
 <macro name="format-intext">
     <choose>
       <if variable="genre" match="any">

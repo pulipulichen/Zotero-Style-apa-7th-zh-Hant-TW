@@ -8,4 +8,4 @@ WORKDIR /
 COPY package.json ./
 RUN npm i
 
-RUN echo "20230703-1756"
+# RUN echo "20230703-1756"
