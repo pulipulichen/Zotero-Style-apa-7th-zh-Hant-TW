@@ -1,8 +1,8 @@
-<macro name="secondary-contributors-periodical">
-    <group delimiter="; ">
+  <macro name="secondary-contributors-periodical-zh">
+    <group delimiter="；">
       <choose>
         <if variable="title">
-          <names variable="interviewer" delimiter="; ">
+          <names variable="interviewer" delimiter="；" form="long">
             <name and="symbol" initialize-with=". " delimiter=", "/>
             <label form="short" prefix=", " text-case="title"/>
           </names>

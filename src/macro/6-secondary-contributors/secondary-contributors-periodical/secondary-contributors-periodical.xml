@@ -1,0 +1,10 @@
+  <macro name="secondary-contributors-periodical">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="secondary-contributors-periodical-zh" />
+      </if>
+      <else>
+        <text macro="secondary-contributors-periodical-en" />
+      </else>
+    </choose>
+  </macro>

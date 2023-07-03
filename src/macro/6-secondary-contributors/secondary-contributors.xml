@@ -1,4 +1,4 @@
-<macro name="secondary-contributors">
+  <macro name="secondary-contributors">
     <choose>
       <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
         <text macro="secondary-contributors-periodical"/>

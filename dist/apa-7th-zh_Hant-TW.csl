@@ -2460,7 +2460,7 @@
     </choose>
   </macro>
 
-<macro name="secondary-contributors-periodical">
+  <macro name="secondary-contributors-periodical-en">
     <group delimiter="; ">
       <choose>
         <if variable="title">
@@ -2474,7 +2474,32 @@
     </group>
   </macro>
 
-<macro name="secondary-contributors">
+  <macro name="secondary-contributors-periodical-zh">
+    <group delimiter="；">
+      <choose>
+        <if variable="title">
+          <names variable="interviewer" delimiter="；" form="long">
+            <name and="symbol" initialize-with=". " delimiter=", "/>
+            <label form="short" prefix=", " text-case="title"/>
+          </names>
+        </if>
+      </choose>
+      <text macro="variable-translator" />
+    </group>
+  </macro>
+
+  <macro name="secondary-contributors-periodical">
+    <choose>
+      <if locale="zh jp 中文" match="any">
+        <text macro="secondary-contributors-periodical-zh" />
+      </if>
+      <else>
+        <text macro="secondary-contributors-periodical-en" />
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="secondary-contributors">
     <choose>
       <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
         <text macro="secondary-contributors-periodical"/>
