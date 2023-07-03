@@ -3,12 +3,12 @@
     <!-- If there is a number, genre is already printed in macro="number" -->
     <choose>
       <if locale="[ZH_LOCALE]" match="any">
-        <group prefix="〔" suffix="〕">
+        <group prefix="〔" suffix="〕" delimiter="；">
           <text macro="bracketed-group-choose" />
         </group>
       </if>
       <else>
-        <group prefix="[" suffix="]">
+        <group prefix="[" suffix="]" delimiter="；">
           <text macro="bracketed-group-choose" />
         </group>
       </else>

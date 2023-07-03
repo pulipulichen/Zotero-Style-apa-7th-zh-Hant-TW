@@ -15,6 +15,10 @@
                   <name and="symbol" initialize-with=". " delimiter=", "/>
                   <label form="short" prefix=", " text-case="title"/>
                 </names>
+
+                <names variable="contributor" delimiter="; " form="long">
+                  <name initialize-with=". " delimiter=", "/>
+                </names>
               </group>
             </if>
           </choose>

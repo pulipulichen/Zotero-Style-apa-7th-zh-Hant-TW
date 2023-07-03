@@ -2881,6 +2881,7 @@
       <if variable="title">
         <group delimiter=" ">
           <text macro="title"/>
+          <text variable="status" prefix="[" suffix="]" />
           <text macro="parenthetical"/>
           <text macro="bracketed"/>
         </group>
@@ -2901,6 +2902,7 @@
       <if variable="title">
         <group delimiter="">
           <text macro="title"/>
+          <text variable="status" prefix="〔" suffix="〕" />
           <text macro="parenthetical"/>
           <text macro="bracketed"/>
         </group>
@@ -3920,12 +3922,12 @@
     <!-- If there is a number, genre is already printed in macro="number" -->
     <choose>
       <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
-        <group prefix="〔" suffix="〕">
+        <group prefix="〔" suffix="〕" delimiter="；">
           <text macro="bracketed-group-choose" />
         </group>
       </if>
       <else>
-        <group prefix="[" suffix="]">
+        <group prefix="[" suffix="]" delimiter="；">
           <text macro="bracketed-group-choose" />
         </group>
       </else>
@@ -3982,6 +3984,10 @@
                   <name and="symbol" initialize-with=". " delimiter=", "/>
                   <label form="short" prefix=", " text-case="title"/>
                 </names>
+
+                <names variable="contributor" delimiter="; " form="long">
+                  <name initialize-with=". " delimiter=", "/>
+                </names>
               </group>
             </if>
           </choose>
@@ -4011,12 +4017,16 @@
               <group delimiter="；">
                 <names variable="container-author" form="long">
                   <label form="verb-short" suffix=" " text-case="title"/>
-                  <name initialize-with=". " delimiter=", "/>
+                  <name initialize-with=". " delimiter="、"/>
                 </names>
 
                 <names variable="editor translator" delimiter="；" form="long">
-                  <name initialize-with=". " delimiter=", "/>
+                  <name initialize-with=". " delimiter="、"/>
                   <label form="short" text-case="title"/>
+                </names>
+
+                <names variable="contributor" delimiter="；" form="long">
+                  <name initialize-with=". " delimiter="、"/>
                 </names>
               </group>
             </if>
@@ -4026,11 +4036,14 @@
           <group delimiter="；">
             <names variable="container-author" form="long">
               <label form="verb-short" suffix=" " text-case="title"/>
-              <name initialize-with=". " delimiter=", "/>
+              <name initialize-with=". " delimiter="、"/>
             </names>
             <names variable="editor translator" delimiter="；" form="long">
-              <name initialize-with=". " delimiter=", "/>
+              <name initialize-with=". " delimiter="、"/>
               <label form="short" text-case="title"/>
+            </names>
+            <names variable="contributor" delimiter="；" form="long">
+              <name initialize-with=". " delimiter="、"/>
             </names>
           </group>
         </else>

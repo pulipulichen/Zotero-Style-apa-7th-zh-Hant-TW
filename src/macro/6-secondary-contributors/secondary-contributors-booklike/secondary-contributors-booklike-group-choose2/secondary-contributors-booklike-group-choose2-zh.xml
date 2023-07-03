@@ -8,12 +8,16 @@
               <group delimiter="；">
                 <names variable="container-author" form="long">
                   <label form="verb-short" suffix=" " text-case="title"/>
-                  <name initialize-with=". " delimiter=", "/>
+                  <name initialize-with=". " delimiter="、"/>
                 </names>
 
                 <names variable="editor translator" delimiter="；" form="long">
-                  <name initialize-with=". " delimiter=", "/>
+                  <name initialize-with=". " delimiter="、"/>
                   <label form="short" text-case="title"/>
+                </names>
+
+                <names variable="contributor" delimiter="；" form="long">
+                  <name initialize-with=". " delimiter="、"/>
                 </names>
               </group>
             </if>
@@ -23,11 +27,14 @@
           <group delimiter="；">
             <names variable="container-author" form="long">
               <label form="verb-short" suffix=" " text-case="title"/>
-              <name initialize-with=". " delimiter=", "/>
+              <name initialize-with=". " delimiter="、"/>
             </names>
             <names variable="editor translator" delimiter="；" form="long">
-              <name initialize-with=". " delimiter=", "/>
+              <name initialize-with=". " delimiter="、"/>
               <label form="short" text-case="title"/>
+            </names>
+            <names variable="contributor" delimiter="；" form="long">
+              <name initialize-with=". " delimiter="、"/>
             </names>
           </group>
         </else>
