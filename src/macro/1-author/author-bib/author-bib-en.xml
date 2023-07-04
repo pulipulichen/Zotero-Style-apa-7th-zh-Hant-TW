@@ -24,7 +24,7 @@
                 <choose>
                   <if variable="title">
                     <group delimiter=" ">
-                      <text macro="title" leading-noise-words="drop"/>
+                      <text macro="title"/>
                       <text macro="parenthetical"/>
                     </group>
                   </if>

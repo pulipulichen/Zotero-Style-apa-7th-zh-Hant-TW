@@ -25,7 +25,7 @@
                 <choose>
                   <if variable="title">
                     <group delimiter=" ">
-                      <text macro="title-sort" leading-noise-words="drop"/>
+                      <text macro="title-sort" />
                       <text macro="parenthetical"/>
                     </group>
                   </if>
