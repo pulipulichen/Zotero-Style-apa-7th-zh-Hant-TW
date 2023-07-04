@@ -1,4 +1,4 @@
-<macro name="title-original-title">
+  <macro name="title-original-title">
     <choose>
       <if variable="original-title">
         <text variable="original-title" />

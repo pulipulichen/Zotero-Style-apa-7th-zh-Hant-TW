@@ -7,9 +7,10 @@
        Legal: bill legal_case legislation treaty
   -->
   <!-- APA references contain four parts: author, date, title, source -->
-  <macro name="author-bib-en">
+  <macro name="author-bib-sort-en">
     <names variable="composer" delimiter=", ">
-      <name name-as-sort-order="all" and="symbol" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
+      <name name-as-sort-order="all" and="symbol" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"
+         leading-noise-words="drop" />
       <substitute>
         <names variable="author"/>
         <names variable="illustrator"/>
@@ -24,7 +25,7 @@
                 <choose>
                   <if variable="title">
                     <group delimiter=" ">
-                      <text macro="title" leading-noise-words="drop"/>
+                      <text macro="title-sort" leading-noise-words="drop"/>
                       <text macro="parenthetical"/>
                     </group>
                   </if>
@@ -52,7 +53,7 @@
         <choose>
           <if variable="title">
             <group delimiter=" ">
-              <text macro="title"/>
+              <text macro="title-sort"/>
               <text macro="parenthetical"/>
             </group>
           </if>

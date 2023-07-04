@@ -1,0 +1,10 @@
+  <macro name="title-sort">
+    <choose>
+      <if locale="[ZH_LOCALE]" match="any">
+        <text macro="title-sort-zh" />
+      </if>
+      <else>
+        <text macro="title-sort-en" />
+      </else>
+    </choose>
+  </macro>

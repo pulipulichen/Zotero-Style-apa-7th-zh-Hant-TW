@@ -1,4 +1,4 @@
-<locale xml:lang="en">
+  <locale xml:lang="en">
     <style-options leading-noise-words="a,an,the"/>
     <terms>
       <term name="editortranslator" form="short">

@@ -1,0 +1,13 @@
+  <macro name="title-original-title-sort">
+    <choose>
+      <if variable="original-title">
+        <text variable="original-title" leading-noise-words="drop" />
+        <text macro="term-left-square-bracket" />
+        <text variable="title" leading-noise-words="drop" />
+        <text macro="term-right-square-bracket" />
+      </if>
+      <else>
+        <text variable="title" leading-noise-words="drop" />
+      </else>
+    </choose>
+  </macro>

@@ -1,0 +1,19 @@
+<!-- General categories of item types:
+       Periodical: article-journal article-magazine article-newspaper post-weblog review review-book
+       Periodical or Booklike: paper-conference
+       Booklike: article book broadcast chapter dataset entry entry-dictionary entry-encyclopedia figure
+                 graphic interview manuscript map motion_picture musical_score pamphlet patent
+                 personal_communication report song speech thesis post webpage
+       Legal: bill legal_case legislation treaty
+  -->
+  <!-- APA references contain four parts: author, date, title, source -->
+  <macro name="author-bib-sort">
+    <choose>
+      <if locale="[ZH_LOCALE]" match="any">
+        <text macro="author-bib-sort-zh" />
+      </if>
+      <else>
+        <text macro="author-bib-sort-en" />
+      </else>
+    </choose>
+  </macro>
