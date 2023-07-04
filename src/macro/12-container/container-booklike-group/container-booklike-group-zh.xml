@@ -10,7 +10,7 @@
           <names variable="container-author"/>
         </substitute>
       </names>
-      <group delimiter="：" font-weight="bold">
+      <group delimiter="：" font-style="italic">
         <text variable="container-title"/>
         <!-- Replace with volume-title as that becomes available -->
         <choose>

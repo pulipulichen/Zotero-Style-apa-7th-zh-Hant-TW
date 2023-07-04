@@ -2,7 +2,7 @@
     <choose>
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text macro="title-original-title" font-weight="bold"/>
+        <text macro="title-original-title" font-style="italic"/>
       </if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized based on presence of container-title.
@@ -13,12 +13,12 @@
       <else>
         <choose>
           <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
-            <text macro="title-original-title" font-weight="bold"/>
+            <text macro="title-original-title" font-style="italic"/>
           </if>
           <else-if type="paper-conference">
             <choose>
               <if variable="collection-editor editor editorial-director" match="any">
-                <group delimiter="：" font-weight="bold">
+                <group delimiter="：" font-style="italic">
                   <text macro="title-original-title"/>
                   <!-- Replace with volume-title as that becomes available -->
                   <choose>
@@ -32,13 +32,13 @@
                 </group>
               </if>
               <else>
-                <text macro="title-original-title" font-weight="bold"/>
+                <text macro="title-original-title" font-style="italic"/>
               </else>
             </choose>
             <text variable="status" prefix="〔" suffix="〕" />
           </else-if>
           <else>
-            <group delimiter="：" font-weight="bold">
+            <group delimiter="：" font-style="italic">
               <text macro="title-original-title"/>
               <!-- Replace with volume-title as that becomes available -->
               <choose>

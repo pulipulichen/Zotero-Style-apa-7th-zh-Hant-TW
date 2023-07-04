@@ -860,7 +860,7 @@
                 <choose>
                   <if variable="title">
                     <group delimiter=" ">
-                      <text macro="title" leading-noise-words="drop"/>
+                      <text macro="title"/>
                       <text macro="parenthetical"/>
                     </group>
                   </if>
@@ -1325,11 +1325,11 @@
       <if variable="reviewed-title">
         <!-- Not possible to distinguish TV series episode from other reviewed
               works [Ex. 69] -->
-        <text variable="reviewed-title" font-weight="bold"/>
+        <text variable="reviewed-title" font-style="italic"/>
       </if>
       <else>
         <!-- Assume title is title of reviewed work -->
-        <text variable="title" font-weight="bold"/>
+        <text variable="title" font-style="italic"/>
       </else>
     </choose>
   </macro>
@@ -1362,11 +1362,11 @@
     <choose>
       <if variable="reviewed-title">
         <!-- Not possible to distinguish TV series episode from other reviewed works [Ex. 69] -->
-        <text variable="reviewed-title" form="short" font-weight="bold" text-case="title"/>
+        <text variable="reviewed-title" form="short" font-style="italic" text-case="title"/>
       </if>
       <else>
         <!-- Assume title is title of reviewed work -->
-        <text variable="title" form="short" font-weight="bold" text-case="title"/>
+        <text variable="title" form="short" font-style="italic" text-case="title"/>
       </else>
     </choose>
   </macro>
@@ -1554,7 +1554,7 @@
           <names variable="container-author"/>
         </substitute>
       </names>
-      <group delimiter="：" font-weight="bold">
+      <group delimiter="：" font-style="italic">
         <text variable="container-title"/>
         <!-- Replace with volume-title as that becomes available -->
         <choose>
@@ -1654,16 +1654,16 @@
 
   <macro name="container-periodical-group-group-zh">
     <group delimiter="，">
-      <text variable="container-title" font-weight="bold" text-case="title"/>
+      <text variable="container-title" font-style="italic" text-case="title"/>
       <choose>
         <if variable="volume">
           <group>
-            <text variable="volume" font-weight="bold"/>
+            <text variable="volume" font-style="italic"/>
             <text variable="issue" prefix="（" suffix="）"/>
           </group>
         </if>
         <else>
-          <text variable="issue" font-weight="bold"/>
+          <text variable="issue" font-style="italic"/>
         </else>
       </choose>
       <text macro="container-periodical-group-group-choose" />
@@ -2968,7 +2968,7 @@
     <choose>
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text macro="title-original-title" font-weight="bold"/>
+        <text macro="title-original-title" font-style="italic"/>
       </if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized based on presence of container-title.
@@ -2979,12 +2979,12 @@
       <else>
         <choose>
           <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
-            <text macro="title-original-title" font-weight="bold"/>
+            <text macro="title-original-title" font-style="italic"/>
           </if>
           <else-if type="paper-conference">
             <choose>
               <if variable="collection-editor editor editorial-director" match="any">
-                <group delimiter="：" font-weight="bold">
+                <group delimiter="：" font-style="italic">
                   <text macro="title-original-title"/>
                   <!-- Replace with volume-title as that becomes available -->
                   <choose>
@@ -2998,13 +2998,13 @@
                 </group>
               </if>
               <else>
-                <text macro="title-original-title" font-weight="bold"/>
+                <text macro="title-original-title" font-style="italic"/>
               </else>
             </choose>
             <text variable="status" prefix="〔" suffix="〕" />
           </else-if>
           <else>
-            <group delimiter="：" font-weight="bold">
+            <group delimiter="：" font-style="italic">
               <text macro="title-original-title"/>
               <!-- Replace with volume-title as that becomes available -->
               <choose>
@@ -3147,7 +3147,7 @@
         <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
         <choose>
           <if variable="number container-title" match="none">
-            <text variable="title" form="short" font-weight="bold" text-case="title"/>
+            <text variable="title" form="short" font-style="italic" text-case="title"/>
           </if>
           <else-if variable="title">
             <text variable="title" form="short" text-case="title"/>
@@ -3170,7 +3170,7 @@
       </else-if>
       <else-if type="legal_case" match="any">
         <!-- Cases are italicized -->
-        <text variable="title" font-weight="bold"/>
+        <text variable="title" font-style="italic"/>
       </else-if>
       <else-if type="legislation treaty" match="any">
         <!-- Legislation and treaties not italicized or quoted -->
@@ -3178,14 +3178,14 @@
       </else-if>
       <else-if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text variable="title" form="short" font-weight="bold" text-case="title"/>
+        <text variable="title" form="short" font-style="italic" text-case="title"/>
       </else-if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized or quoted based on presence of container-title. As in title macro. -->
         <text variable="title" form="short" quotes="true" text-case="title"/>
       </else-if>
       <else>
-        <text variable="title" form="short" font-weight="bold" text-case="title"/>
+        <text variable="title" form="short" font-style="italic" text-case="title"/>
       </else>
     </choose>
   </macro>
@@ -3291,7 +3291,7 @@
     <choose>
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text macro="title-original-title-sort" font-weight="bold"/>
+        <text macro="title-original-title-sort" font-style="italic"/>
       </if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized based on presence of container-title.
@@ -3302,12 +3302,12 @@
       <else>
         <choose>
           <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
-            <text macro="title-original-title-sort" font-weight="bold"/>
+            <text macro="title-original-title-sort" font-style="italic"/>
           </if>
           <else-if type="paper-conference">
             <choose>
               <if variable="collection-editor editor editorial-director" match="any">
-                <group delimiter="：" font-weight="bold">
+                <group delimiter="：" font-style="italic">
                   <text macro="title-original-title-sort"/>
                   <!-- Replace with volume-title as that becomes available -->
                   <choose>
@@ -3321,13 +3321,13 @@
                 </group>
               </if>
               <else>
-                <text macro="title-original-title-sort" font-weight="bold"/>
+                <text macro="title-original-title-sort" font-style="italic"/>
               </else>
             </choose>
             <text variable="status" prefix="〔" suffix="〕" />
           </else-if>
           <else>
-            <group delimiter="：" font-weight="bold">
+            <group delimiter="：" font-style="italic">
               <text macro="title-original-title-sort"/>
               <!-- Replace with volume-title as that becomes available -->
               <choose>
