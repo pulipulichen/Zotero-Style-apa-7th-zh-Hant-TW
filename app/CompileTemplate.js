@@ -9,6 +9,12 @@ const MacroFilters = require('./MacroFilters/MacroFilters.js')
 
 let count = 1
 
+function getDate () {
+  let d = (new Date()).toISOString()
+  d = d.slice(0, d.lastIndexOf('.')) + '+00:00'
+  return d
+}
+
 module.exports = function (filePath) {
   console.log('[' + count + ']\t' + (new Date()).toISOString() + '\t' + filePath)
   count++
@@ -22,7 +28,9 @@ module.exports = function (filePath) {
   }
 
   const template = fs.readFileSync('/src/main.ejs', 'utf-8');
-  const renderedTemplate = ejs.render(template, data);
+  let renderedTemplate = ejs.render(template, data);
+
+  renderedTemplate = renderedTemplate.split('<updated>{{ UPDATED }}</updated>').join(`<updated>${ getDate() }</updated>`);
 
   let checkResult = CheckXML(renderedTemplate)
   if (checkResult !== true) {
@@ -34,4 +42,20 @@ module.exports = function (filePath) {
   }
   
   fs.writeFileSync('/dist/apa-7th-zh_Hant-TW.csl', renderedTemplate);
+
+  let map = {
+    'font-style="italic"': 'font-weight="bold"',
+    '<title>American Psychological Association 7th edition (zh-Hant-TW)</title>': '<title>American Psychological Association 7th edition (zh-Hant-TW, bold)</title>',
+    '<title-short>APA7TW</title-short>': '<title-short>APA7TW-BOLD</title-short>',
+    '<id>http://www.zotero.org/styles/apa-7th-zh_Hant-TW</id>': '<id>http://www.zotero.org/styles/apa-7th-zh_Hant-TW-bold</id>',
+    '<link href="http://www.zotero.org/styles/apa-7th-zh-Hant-TW" rel="self"/>': '<link href="http://www.zotero.org/styles/apa-7th-zh-Hant-TW-bold" rel="self"/>',
+  }
+
+  let renderedTemplateBold = renderedTemplate
+  Object.keys(map).forEach((from) => {
+    let to = map[from]
+    renderedTemplateBold = renderedTemplateBold.split(from).join(to)
+  })
+  
+  fs.writeFileSync('/dist/apa-7th-zh_Hant-TW-bold.csl', renderedTemplateBold);
 }
