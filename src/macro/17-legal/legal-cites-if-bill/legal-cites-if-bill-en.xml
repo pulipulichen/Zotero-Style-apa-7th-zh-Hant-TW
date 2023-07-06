@@ -5,7 +5,9 @@
         <choose>
           <if variable="number container-title" match="none">
             <!-- If no number or container-title, then assume it is a hearing -->
-            <text variable="title" font-style="italic"/>
+            <group font-style="italic">
+              <text variable="title"/>
+            </group>
           </if>
           <else>
             <text variable="title"/>

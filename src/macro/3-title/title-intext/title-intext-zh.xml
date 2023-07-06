@@ -7,7 +7,9 @@
         <!-- If a bill has no number or container-title, assume it is a hearing; italic -->
         <choose>
           <if variable="number container-title" match="none">
-            <text variable="title" form="short" font-style="italic" text-case="title"/>
+            <group font-style="italic" text-case="title">
+              <text variable="title" form="short"/>
+            </group>
           </if>
           <else-if variable="title">
             <text variable="title" form="short" text-case="title"/>
@@ -30,7 +32,9 @@
       </else-if>
       <else-if type="legal_case" match="any">
         <!-- Cases are italicized -->
-        <text variable="title" font-style="italic"/>
+        <group font-style="italic">
+          <text variable="title"/>
+        </group>
       </else-if>
       <else-if type="legislation treaty" match="any">
         <!-- Legislation and treaties not italicized or quoted -->
@@ -38,14 +42,18 @@
       </else-if>
       <else-if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
-        <text variable="title" form="short" font-style="italic" text-case="title"/>
+        <group font-style="italic" text-case="title">
+          <text variable="title" form="short"/>
+        </group>
       </else-if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized or quoted based on presence of container-title. As in title macro. -->
         <text variable="title" form="short" quotes="true" text-case="title"/>
       </else-if>
       <else>
-        <text variable="title" form="short" font-style="italic" text-case="title"/>
+        <group font-style="italic" text-case="title">
+          <text variable="title" form="short"/>
+        </group>
       </else>
     </choose>
   </macro>

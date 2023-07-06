@@ -1,15 +1,21 @@
   <macro name="container-periodical-group-group-en">
     <group delimiter=", ">
-      <text variable="container-title" font-style="italic" text-case="title"/>
+      <group font-style="italic">
+        <text variable="container-title" text-case="title"/>
+      </group>
       <choose>
         <if variable="volume">
           <group>
-            <text variable="volume" font-style="italic"/>
+            <group font-style="italic">
+              <text variable="volume"/>
+            </group>
             <text variable="issue" prefix="(" suffix=")"/>
           </group>
         </if>
         <else>
-          <text variable="issue" font-style="italic"/>
+          <group font-style="italic">
+            <text variable="issue"/>
+          </group>
         </else>
       </choose>
       <text macro="container-periodical-group-group-choose" />

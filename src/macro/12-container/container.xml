@@ -1,4 +1,4 @@
-<macro name="container">
+  <macro name="container">
     <choose>
       <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
         <!-- Periodical items -->
