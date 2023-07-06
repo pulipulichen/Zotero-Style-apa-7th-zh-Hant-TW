@@ -1,7 +1,6 @@
 #Specify the version of nodejs.
 # FROM pudding/node-pwa:node-12-20230513
-# FROM node:16
-FROM pudding/docker-app:node-jsdom-20230707
+FROM node:16
 
 CMD ["node", "/app/index.js"]
 
