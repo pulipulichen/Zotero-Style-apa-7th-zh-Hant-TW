@@ -30,7 +30,15 @@ module.exports = function (filePath) {
   const template = fs.readFileSync('/src/main.ejs', 'utf-8');
   let renderedTemplate = ejs.render(template, data);
 
-  renderedTemplate = renderedTemplate.split('<updated>{{ UPDATED }}</updated>').join(`<updated>${ getDate() }</updated>`);
+  let map1 = {
+    '<updated>{{ UPDATED }}</updated>': `<updated>${ getDate() }</updated>`,
+    //'': ``
+  }
+
+  Object.keys(map1).forEach((from) => {
+    let to = map1[from]
+    renderedTemplate = renderedTemplate.split(from).join(to)
+  })
 
   let checkResult = CheckXML(renderedTemplate)
   if (checkResult !== true) {
@@ -43,7 +51,7 @@ module.exports = function (filePath) {
   
   fs.writeFileSync('/dist/apa-7th-zh_Hant-TW.csl', renderedTemplate);
 
-  let map = {
+  let map2 = {
     'font-style="italic"': 'font-weight="bold"',
     '<title>American Psychological Association 7th edition (zh-Hant-TW)</title>': '<title>American Psychological Association 7th edition (zh-Hant-TW, bold)</title>',
     '<title-short>APA7TW</title-short>': '<title-short>APA7TW-BOLD</title-short>',
@@ -52,8 +60,8 @@ module.exports = function (filePath) {
   }
 
   let renderedTemplateBold = renderedTemplate
-  Object.keys(map).forEach((from) => {
-    let to = map[from]
+  Object.keys(map2).forEach((from) => {
+    let to = map2[from]
     renderedTemplateBold = renderedTemplateBold.split(from).join(to)
   })
   

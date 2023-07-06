@@ -982,7 +982,7 @@
   <!-- APA references contain four parts: author, date, title, source -->
   <macro name="author-bib">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="author-bib-zh" />
       </if>
       <else>
@@ -1141,7 +1141,7 @@
   <!-- APA references contain four parts: author, date, title, source -->
   <macro name="author-bib-sort">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="author-bib-sort-zh" />
       </if>
       <else>
@@ -1176,7 +1176,7 @@
 
 <macro name="author-intext-else">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="author-intext-else-composer-zh" />
     </if>
     <else>
@@ -1237,7 +1237,7 @@
 
   <macro name="author-intext-else-composer">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="author-intext-else-composer-zh" />
       </if>
       <else>
@@ -1274,7 +1274,7 @@
 
 <macro name="author-intext-if-archive">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="author-intext-if-archive-zh" />
     </if>
     <else>
@@ -1340,7 +1340,7 @@
 
   <macro name="reviewed-title">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="reviewed-title-zh" />
       </if>
       <else>
@@ -1381,7 +1381,7 @@
 
   <macro name="reviewed-title-intext">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="reviewed-title-intext-zh" />
       </if>
       <else>
@@ -1414,7 +1414,7 @@
 
   <macro name="format-if-genre">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="format-if-genre-zh" />
       </if>
       <else>
@@ -1514,7 +1514,7 @@
 
   <macro name="container-booklike">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-booklike-zh" />
       </if>
       <else>
@@ -1579,7 +1579,7 @@
 
   <macro name="container-booklike-group">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-booklike-group-zh" />
       </if>
       <else>
@@ -1604,7 +1604,7 @@
 
   <macro name="container-periodical">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-periodical-zh" />
       </if>
       <else>
@@ -1692,7 +1692,7 @@
 
   <macro name="container-periodical-group-group">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-periodical-group-group-zh" />
       </if>
       <else>
@@ -1741,7 +1741,7 @@
 
   <macro name="publisher">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="publisher-zh" />
       </if>
       <else>
@@ -1768,7 +1768,7 @@
 
   <macro name="publisher-group-choose-if-post">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="publisher-group-choose-if-post-zh" />
       </if>
       <else>
@@ -1845,7 +1845,7 @@
 
   <macro name="publisher-group-group">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="publisher-group-group-zh" />
       </if>
       <else>
@@ -1886,7 +1886,7 @@
 
   <macro name="access-if-url">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="access-if-url-zh" />
       </if>
       <else>
@@ -1924,7 +1924,7 @@
 
   <macro name="event-if-collection-editor">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="event-if-collection-editor-zh" />
       </if>
       <else>
@@ -2033,7 +2033,7 @@
 
   <macro name="publication-history">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="publication-history-zh" />
       </if>
       <else>
@@ -2092,7 +2092,7 @@
 
   <macro name="container-legal-if-bill">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-legal-if-bill-zh" />
       </if>
       <else>
@@ -2177,7 +2177,7 @@
 
   <macro name="container-legal-if-legal_case">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-legal-if-legal_case-zh" />
       </if>
       <else>
@@ -2256,7 +2256,7 @@
 
   <macro name="container-legal-if-legislation">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-legal-if-legislation-zh" />
       </if>
       <else>
@@ -2305,7 +2305,7 @@
 
   <macro name="container-legal-if-treaty">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="container-legal-if-treaty-zh" />
       </if>
       <else>
@@ -2364,7 +2364,7 @@
 
   <macro name="date-legal-if-bill">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="date-legal-if-bill-zh" />
       </if>
       <else>
@@ -2405,7 +2405,7 @@
 
   <macro name="date-legal-if-legal_case">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="date-legal-if-legal_case-zh" />
       </if>
       <else>
@@ -2500,7 +2500,7 @@
 
   <macro name="legal-cites-if-bill">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="legal-cites-if-bill-zh" />
       </if>
       <else>
@@ -2539,7 +2539,7 @@
 
   <macro name="legal-cites-if-legal_case">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="legal-cites-if-legal_case-zh" />
       </if>
       <else>
@@ -2584,7 +2584,7 @@
 
   <macro name="legal-cites-if-legislation">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="legal-cites-if-legislation-zh" />
       </if>
       <else>
@@ -2625,7 +2625,7 @@
 
   <macro name="legal-cites-if-treaty">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="legal-cites-if-treaty-zh" />
       </if>
       <else>
@@ -2682,7 +2682,7 @@
 
   <macro name="citation-locator">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="citation-locator-zh" />
       </if>
       <else>
@@ -2785,7 +2785,7 @@
 
   <macro name="date-bib">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="date-bib-zh" />
       </if>
       <else>
@@ -2888,7 +2888,7 @@
 
   <macro name="date-intext-if-issued">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="date-intext-if-issued-zh" />
       </if>
       <else>
@@ -3046,7 +3046,7 @@
 
   <macro name="title">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="title-zh" />
       </if>
       <else>
@@ -3099,7 +3099,7 @@
 
   <macro name="title-and-descriptions">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="title-and-descriptions-zh" />
       </if>
       <else>
@@ -3230,7 +3230,7 @@
 
   <macro name="title-intext">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="title-intext-zh" />
       </if>
       <else>
@@ -3385,7 +3385,7 @@
 
   <macro name="title-sort">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="title-sort-zh" />
       </if>
       <else>
@@ -3508,7 +3508,7 @@
 
   <macro name="parenthetical">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="parenthetical-zh" />
       </if>
       <else>
@@ -3549,7 +3549,7 @@
 
   <macro name="parenthetical-container-group">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="parenthetical-container-group-zh" />
       </if>
       <else>
@@ -3614,7 +3614,7 @@
 
   <macro name="bracketed-container">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="bracketed-container-zh" />
       </if>
       <else>
@@ -3756,7 +3756,7 @@
 
   <macro name="bracketed-if-composer">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bracketed-if-composer-zh" />
     </if>
     <else>
@@ -3858,7 +3858,7 @@
 
   <macro name="bracketed-if-interviewer">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bracketed-if-interviewer-zh" />
     </if>
     <else>
@@ -3975,7 +3975,7 @@
 
   <macro name="bracketed-if-personal_communication">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bracketed-if-personal_communication-zh" />
     </if>
     <else>
@@ -4090,7 +4090,7 @@
 
   <macro name="bracketed-if-reviewed-author">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bracketed-if-reviewed-author-zh" />
     </if>
     <else>
@@ -4141,7 +4141,7 @@
 
   <macro name="bracketed-if-thesis">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bracketed-if-thesis-zh" />
     </if>
     <else>
@@ -4246,7 +4246,7 @@
 
   <macro name="bracketed-intext">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="bracketed-intext-zh" />
       </if>
       <else>
@@ -4259,7 +4259,7 @@
     <!-- [Descriptive information] -->
     <!-- If there is a number, genre is already printed in macro="number" -->
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <group prefix="〔" suffix="〕" delimiter="；">
           <text macro="bracketed-group-choose" />
         </group>
@@ -4296,7 +4296,7 @@
 
   <macro name="secondary-contributors-booklike-group-choose1">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="secondary-contributors-booklike-group-choose1-zh" />
       </if>
       <else>
@@ -4393,7 +4393,7 @@
 
   <macro name="secondary-contributors-booklike-group-choose2">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="secondary-contributors-booklike-group-choose2-zh" />
       </if>
       <else>
@@ -4404,7 +4404,7 @@
 
   <macro name="secondary-contributors-booklike">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <group delimiter="；">
           <text macro="secondary-contributors-booklike-group-choose1" />
           <text macro="secondary-contributors-booklike-group-choose2" />
@@ -4449,7 +4449,7 @@
 
   <macro name="secondary-contributors-periodical">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="secondary-contributors-periodical-zh" />
       </if>
       <else>
@@ -4507,7 +4507,7 @@
 
   <macro name="locators-booklike-group">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="locators-booklike-group-zh" />
       </if>
       <else>
@@ -4593,7 +4593,7 @@
 
   <macro name="number">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="number-zh" />
       </if>
       <else>
@@ -4632,7 +4632,7 @@
 
   <macro name="edition">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="edition-zh" />
       </if>
       <else>
@@ -4673,7 +4673,7 @@
 
   <macro name="version">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="version-zh" />
       </if>
       <else>
@@ -4713,7 +4713,7 @@
 
 <macro name="bibliography-layout-else">
   <choose>
-    <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+    <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
       <text macro="bibliography-layout-else-zh" />
     </if>
     <else>
@@ -4813,7 +4813,7 @@
 
   <macro name="volume-booklike">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="volume-booklike-zh" />
       </if>
       <else>
@@ -4824,7 +4824,7 @@
 
 <macro name="term-left-square-bracket">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text value="〔" />
       </if>
       <else>
@@ -4835,7 +4835,7 @@
 
   <macro name="term-review-of">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text value="評論" />
       </if>
       <else>
@@ -4846,7 +4846,7 @@
 
 <macro name="term-right-square-bracket">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text value="〕" />
       </if>
       <else>
@@ -4857,7 +4857,7 @@
 
  <macro name="term-translator-short">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text value="譯" />
       </if>
       <else>
@@ -4881,7 +4881,7 @@
 
   <macro name="variable-author">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="variable-author-zh" />
       </if>
       <else>
@@ -4905,7 +4905,7 @@
 
   <macro name="variable-issued-month-date-year-prefix">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="variable-issued-month-date-zh" prefix="，" />
       </if>
       <else>
@@ -4923,7 +4923,7 @@
 
   <macro name="variable-issued-month-date">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <text macro="variable-issued-month-date-zh" />
       </if>
       <else>
@@ -4934,7 +4934,7 @@
 
 <macro name="variable-translator">
     <choose>
-      <if locale="zh jp chi 中文 繁體中文 簡體中文" match="any">
+      <if locale="zh jp chi Chinese 中文 繁體中文 簡體中文" match="any">
         <names variable="translator" delimiter="；"
           name-as-sort-order="all"
           form="long">
