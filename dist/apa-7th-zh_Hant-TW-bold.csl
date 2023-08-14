@@ -4,6 +4,7 @@
   class="in-text" version="1.0" 
   demote-non-dropping-particle="never" 
   page-range-format="expanded"
+  default-locale="en-US"
   default-locale-sort="zh-Hant">
 
 <info>
@@ -1165,7 +1166,7 @@
 </macro>
 
 <macro name="author-intext-else-zh">
-  <names variable="author" delimiter="、"
+  <names variable="author" delimiter="、" prefix="（"
     form="long">
     <name form="short" delimiter="、" initialize-with=". "/>
     <substitute>
@@ -1210,7 +1211,7 @@
 
 
   <macro name="author-intext-else-composer-zh">
-    <names variable="composer" delimiter="、">
+    <names variable="composer" delimiter="、" prefix="（">
       <name form="long" delimiter="、" initialize-with=". "
         delimiter-precedes-et-al="never" />
       <substitute>
@@ -1260,7 +1261,7 @@
 </macro>
 
 <macro name="author-intext-if-archive-zh">
-  <group delimiter="，">
+  <group delimiter="，" prefix="（">
     <names variable="author">
       <name delimiter="、" initialize-with=". "/>
       <substitute>

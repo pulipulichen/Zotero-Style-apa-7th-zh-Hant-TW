@@ -1,5 +1,5 @@
 <macro name="author-intext-if-archive-zh">
-  <group delimiter="，">
+  <group delimiter="，" prefix="（">
     <names variable="author">
       <name delimiter="、" initialize-with=". "/>
       <substitute>
