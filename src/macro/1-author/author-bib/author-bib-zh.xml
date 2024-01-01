@@ -14,7 +14,9 @@
         form="long"
         delimiter-precedes-et-al="never"/>
       <substitute>
-        <names variable="author" form="long"/>
+        <names variable="author" form="long">
+          <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="、" delimiter-precedes-last="always"/>
+        </names>
         <names variable="illustrator" form="long"/>
         
         <names variable="director" form="long">

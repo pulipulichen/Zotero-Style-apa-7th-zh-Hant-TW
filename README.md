@@ -50,3 +50,11 @@ form="long"
 - Name
 
 no and="symbol"
+
+----
+
+# Changelog
+
+## 20240101 
+
+- 中文名字中，英文的姓跟名會正確的以「, 」相連。

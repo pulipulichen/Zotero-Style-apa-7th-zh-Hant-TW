@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "docker-compose down; docker-compose up --build",
+    "prune-network": "docker network prune -f",
     "bash": "docker-compose run app bash"
   },
   "repository": {
