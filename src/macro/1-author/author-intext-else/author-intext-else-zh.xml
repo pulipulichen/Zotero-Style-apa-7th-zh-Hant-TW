@@ -1,5 +1,5 @@
 <macro name="author-intext-else-zh">
-  <names variable="author" delimiter="、" prefix="（"
+  <names variable="author" delimiter="、" prefix=""
     form="long">
     <name form="short" delimiter="、" initialize-with=". "/>
     <substitute>
