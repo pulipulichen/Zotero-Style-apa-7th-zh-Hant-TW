@@ -7,7 +7,7 @@
       <key variable="status"/>
       <key macro="sort-title"/>
     </sort>
-    <layout locale="zh jp" prefix="" suffix="）" delimiter="；">
+    <layout locale="zh jp" prefix="" suffix=")" delimiter="；">
       <group delimiter="，">
         <text macro="author-intext"/>
         <text macro="date-intext"/>
