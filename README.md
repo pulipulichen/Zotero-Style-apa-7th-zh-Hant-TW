@@ -4,6 +4,11 @@ APA Style CSL for Zotero
 - Italics: https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/dist/apa-7th-zh_Hant-TW.csl
 - Bolds: https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/dist/apa-7th-zh_Hant-TW-bold.csl
 
+# Style
+
+- master-thesis-style.odt : https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/master-thesis-style.odt
+- master-thesis-book-back.odt : https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/master-thesis-book-back.odt
+
 # Widget
 
 https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/html/index.html
