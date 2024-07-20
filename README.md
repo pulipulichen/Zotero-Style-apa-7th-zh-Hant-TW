@@ -6,8 +6,10 @@ APA Style CSL for Zotero
 
 # Style
 
-- master-thesis-style.odt : https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/master-thesis-style.odt
+- master-thesis-style.odt : https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/master-thesis-style.odt ( https://l.pulipuli.info/apa/style )
 - master-thesis-book-back.odt : https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/master-thesis-book-back.odt
+
+
 
 # Widget
 
