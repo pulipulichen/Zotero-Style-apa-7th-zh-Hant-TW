@@ -3010,7 +3010,7 @@
             <choose>
               <if variable="collection-editor editor editorial-director" match="any">
                 <group delimiter="：" font-weight="bold">
-                  <text macro="title-original-title"/>
+                  <text macro="title-original-title" />
                   <!-- Replace with volume-title as that becomes available -->
                   <choose>
                     <if is-numeric="volume" match="none">
