@@ -3,7 +3,8 @@
       <if is-numeric="edition">
         <group delimiter=" ">
           <number variable="edition" form="ordinal"/>
-          <label variable="edition" form="short"/>
+          <!-- <label variable="edition" form="short"/> -->
+          <text value="ed."/>
         </group>
       </if>
       <else>

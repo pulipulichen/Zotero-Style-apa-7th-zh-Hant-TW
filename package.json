@@ -4,9 +4,9 @@
   "description": "A PWA to display \"Now Loading\" screen.",
   "main": "index.js",
   "scripts": {
-    "start": "docker-compose down; docker-compose up --build",
-    "prune-network": "docker network prune -f",
-    "bash": "docker-compose run app bash"
+    "start": "sudo docker compose down; sudo docker compose up --build",
+    "prune-network": "sudo docker network prune -f",
+    "bash": "sudo docker compose run app bash"
   },
   "repository": {
     "type": "git",

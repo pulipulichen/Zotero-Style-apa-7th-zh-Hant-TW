@@ -14,6 +14,7 @@
         <single>ed.</single>
         <multiple>eds.</multiple>
       </term>
+      <term name="edition" form="short">ed.</term>
       <term name="circa" form="short">ca.</term>
       <term name="bc"> B.C.E.</term>
       <term name="ad"> C.E.</term>

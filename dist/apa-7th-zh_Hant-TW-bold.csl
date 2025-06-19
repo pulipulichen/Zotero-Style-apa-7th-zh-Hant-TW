@@ -42,6 +42,7 @@
         <single>ed.</single>
         <multiple>eds.</multiple>
       </term>
+      <term name="edition" form="short">ed.</term>
       <term name="circa" form="short">ca.</term>
       <term name="bc"> B.C.E.</term>
       <term name="ad"> C.E.</term>
@@ -385,7 +386,7 @@
     <term name="circa" form="short">約</term>
     <term name="cited">見引於</term>
     <term name="edition">版本</term>
-    <term name="edition" form="short">本</term>
+    <!-- <term name="edition" form="short">本</term> -->
     <term name="et-al">等</term>
     <term name="forthcoming">即將出版</term>
     <term name="from">從</term>
@@ -4495,7 +4496,7 @@
   <macro name="locators-booklike-group-en">
     <group delimiter=", ">
       <text macro="version"/>
-      <text macro="edition"/>
+      <text macro="edition-en"/> 
       <text macro="volume-booklike"/>
     </group>
   </macro>
@@ -4503,7 +4504,7 @@
   <macro name="locators-booklike-group-zh">
     <group delimiter="，">
       <text macro="version"/>
-      <text macro="edition"/>
+      <text macro="edition-zh"/>
       <text macro="volume-booklike"/>
     </group>
   </macro>
@@ -4610,7 +4611,8 @@
       <if is-numeric="edition">
         <group delimiter=" ">
           <number variable="edition" form="ordinal"/>
-          <label variable="edition" form="short"/>
+          <!-- <label variable="edition" form="short"/> -->
+          <text value="ed."/>
         </group>
       </if>
       <else>
