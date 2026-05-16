@@ -71,3 +71,12 @@ no and="symbol"
 # Changelog
 
 完整變更紀錄請見：[`CHANGELOG.md`](./CHANGELOG.md)
+
+---
+
+# Release
+
+感謝您的告知。已經更換的檔案請從這裡下載：
+
+- Italics: https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/dist/apa-7th-zh_Hant-TW.csl
+- Bolds: https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/dist/apa-7th-zh_Hant-TW-bold.csl

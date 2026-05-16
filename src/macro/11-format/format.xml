@@ -1,7 +1,7 @@
 <macro name="format">
     <choose>
       <if variable="genre medium" match="any">
-        <text marco="format-if-genre" />
+        <text macro="format-if-genre" />
       </if>
       <!-- Generic labels for specific types -->
       <!-- These should be localized when possible -->

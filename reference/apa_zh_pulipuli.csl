@@ -1547,16 +1547,16 @@
   <macro name="author-sort">
     <choose>
       <if locale="en-us en English english Anglais" match="any">
-        <text marco="author"/>
+        <text macro="author"/>
       </if>
       <else-if locale="zh-tw zh-cn Chinese chi chinese zh-Hant zh_TW 中文 繁體中文 簡體中文" match="any">
-        <text marco="author-zh"/>
+        <text macro="author-zh"/>
       </else-if>
       <else-if variable="language" match="none">
-        <text marco="author"/>
+        <text macro="author"/>
       </else-if>
       <else>
-        <text marco="author"/>
+        <text macro="author"/>
       </else>
     </choose>
 
