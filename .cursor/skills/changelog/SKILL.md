@@ -1,17 +1,17 @@
 ---
 name: changelog
-description: Maintains the project changelog in English. Use when updating CHANGELOG.md, adding release notes, writing version summaries, or when the user mentions changelog entries.
+description: 維護本專案的 CHANGELOG（使用中文）。當需要更新 CHANGELOG.md、補版本說明、撰寫版本摘要，或使用者提到變更紀錄條目時使用。
 ---
 
-# Changelog
+# 變更紀錄技能
 
-## Instructions
+## 操作規則
 
-When updating `CHANGELOG.md`:
+更新 `CHANGELOG.md` 時：
 
-1. Write changelog content in English.
-2. If `CHANGELOG.md` is empty, create a `0.0.1` version section.
-3. If the user does not specify a version, add the summary to the latest existing version.
-4. If the user specifies a version, add the summary to that version.
-5. Summarize meaningful user-facing or project-facing changes as concise bullet points.
-6. Preserve existing changelog content and formatting unless the requested update requires a small structural fix.
+1. 以中文撰寫變更紀錄內容。
+2. 若 `CHANGELOG.md` 為空，建立 `0.0.1` 版本區段。
+3. 若使用者未指定版本，將摘要加入最新的既有版本區段。
+4. 若使用者有指定版本，將摘要加入該版本區段。
+5. 用精簡條列記錄對使用者或專案有意義的變更。
+6. 除非請求需要小幅結構修正，否則保留既有內容與格式。

@@ -13,6 +13,16 @@ APA Style CSL for Zotero
 
 https://pulipulichen.github.io/Zotero-Style-apa-7th-zh-Hant-TW/html/index.html
 
+# 編譯方式
+
+在專案根目錄執行：
+
+```bash
+sudo docker compose up
+```
+
+啟動後會持續監控目前檔案，當 `src` 內容更新時會自動重新編譯，輸出到 `dist`。
+
 # Reference
 
 https://citeproc-js.readthedocs.io/en/latest/csl-m/#locale-extension
@@ -60,7 +70,4 @@ no and="symbol"
 
 # Changelog
 
-## 20240101 
-
-- 中文名字中，英文的姓跟名會正確的以「, 」相連。
-- 文中引用的括弧統一使用「(」跟「)」。雖然不符合中文APA的規定，但這是Zotero的系統限制。
+完整變更紀錄請見：[`CHANGELOG.md`](./CHANGELOG.md)

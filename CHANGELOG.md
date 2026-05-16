@@ -2,9 +2,10 @@
 
 本檔案用來記錄此專案的重要變更。
 
-## [Unreleased]
+## [0.0.1]
 
 - 新增專案技能檔：`.cursor/skills/project/SKILL.md`，記錄 `src` 拆分開發與 `sudo docker compose up` 編譯流程。
+- 調整 zh-Hant 發佈日期的月份格式為短數字形式（例如：`9月28日`，不再顯示為 `九月28日`）。
 
 ## [20240101]
 
